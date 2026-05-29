@@ -3,5 +3,7 @@ public class Main {
 
         System.out.println("\nHola mundo");
 
+        controladora c = new controladora();
+        c.deserializaAlumnos();
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alumnos>
+    <alumno>
+        <matricula>12345</matricula>
+        <nombre>Test</nombre>
+        <fechanacimiento>20030515</fechanacimiento>
+    </alumno>
+    <alumno>
+        <matricula>67890</matricula>
+        <nombre>Test2</nombre>
+        <fechanacimiento>-20011230</fechanacimiento>
+    </alumno>
+</alumnos>

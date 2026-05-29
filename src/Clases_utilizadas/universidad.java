@@ -10,12 +10,17 @@ public class universidad {
     private HashMap<Integer, asignatura> Asignaturas = new HashMap<>();
     private HashMap<String, clase> Clases = new HashMap<>();
     private ArrayList<inscripcion> Inscripciones = new ArrayList<>();
+
+    /**crea la agencia */
     private universidad(){}
+
     public static universidad getInstancia(){
         if(instancia == null)
             instancia = new universidad();
         return instancia;
     }
+    public TreeSet<alumno> getAlumnos(){return Alumnos;}
+
     public void InsertaClase(clase clas){
         Clases.put(clas.getCodigo(),clas);
     }
