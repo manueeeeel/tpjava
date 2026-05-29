@@ -1,5 +1,7 @@
-import Clases_utilizadas.*;
-import Clases_utilizadas.asignaturas.*;
-void main() {
+public class Main {
+    public static void main(String[] args) {
 
+        System.out.println("\nHola mundo");
+
+    }
 }
