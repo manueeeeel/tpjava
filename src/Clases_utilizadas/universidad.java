@@ -4,7 +4,8 @@ import Clases_utilizadas.*;
 import java.util.*;
 public class universidad {
     private static universidad instancia = null;
-    private HashMap<Integer, alumno> Alumnos = new HashMap<>();
+    private HashMap<Integer, alumno> Alumnosmap = new HashMap<>();
+    private ArrayList<alumno> Alumnoslist = new ArrayList<>();
     private HashMap<Integer, asignatura> Asignaturas = new HashMap<>();
     private HashMap<String, clase> Clases = new HashMap<>();
     private ArrayList<inscripcion> Inscripciones = new ArrayList<>();
@@ -24,22 +25,11 @@ public class universidad {
         Inscripciones.add(ins);
     }
     public void InsertaAlumno(alumno alum){
-        Alumnos.put(alum.getMatricula(),alum);
-        this.OrdenarHash();
-    }
-    private void OrdenarHash(){
-        ArrayList<alumno> aux = new ArrayList<>();
         Comparator<alumno> criterio = Comparator.comparing(alumno::getNombre)
-                .thenComparing(alumno::getMatricula);
-        for(var act : Alumnos.values()){
-            int indice = Collections.binarySearch(aux,act,criterio);
-            if(indice < 0)
-                indice = -(indice + 1);
-            aux.add(indice,act);
-        }
-        Alumnos.clear();
-        for(var act : aux)
-            Alumnos.put(act.getMatricula(),act);
+                        .thenComparing(alumno::getMatricula);
+        Alumnosmap.put(alum.getMatricula(),alum);
+        Alumnoslist.add(alum);
+        Alumnoslist.sort(criterio);
     }
     public void RegistraAsistencia(String codclase,int mat,int codmat){
         boolean flag = false;
