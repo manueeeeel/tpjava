@@ -20,7 +20,7 @@ public class controladora {
 
     //hay que cambiar a private despues y hacer public un CargaXML
     public void deserializaAlumnos() {
-        TreeSet<alumno> alumnos = universidad.getAlumnos();
+        int cont = 0;
         try {
             JAXBContext contexto = JAXBContext.newInstance(alumno.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
@@ -41,7 +41,8 @@ public class controladora {
                         if (Integer.parseInt(a.getFechanacimiento()) <= 10000101) { //AAAAMMDD?
                             throw new Exception("Fecha inválida");
                         }
-                        alumnos.add(a);
+                        universidad.InsertaAlumno(a);
+                        cont++;
                     } catch (Exception e) {
                         System.out.println("Alumno inválido: " + e.getMessage());
                     }
@@ -49,7 +50,7 @@ public class controladora {
                 reader.next();
             }
             reader.close();
-            System.out.println("------ Carga completa, se cargaron: " + alumnos.size() + " Alumnos------");
+            System.out.println("------ Carga completa, se cargaron: " + cont + " Alumnos------");
         } catch (Exception e) {
             System.out.println("Error general al leer XML: " + e.getMessage());
         }

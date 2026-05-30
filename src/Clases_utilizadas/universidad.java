@@ -48,10 +48,20 @@ public class universidad {
     }
     public void RegistrarClase(String codclase,int codasig){
         if(Clases.containsKey(codclase))
-            for(var act : Inscripciones)
-                if(act.getAsignatura().getCodigo() == codasig)
+            for (var act : Inscripciones)
+                if (act.getAsignatura().getCodigo() == codasig)
                     act.IncrementaClases();
         else
             System.out.println("Clase inexistente");
+    }
+    public void MuestraAlumnosAsignatura(int codasig){
+        if(Asignaturas.containsKey(codasig))
+            for(var act : Inscripciones)
+                if(act.getAsignatura().getCodigo() == codasig)
+                    System.out.println("Cantidad de clases: " + act.getAsistencias()
+                    + "\tModalidad: " + act.getTipoalum() +
+                    "\tCondicion: " + act.ObetenerCondicion() + "\n");
+        else
+            System.out.println("Asignatura inexistente\n");
     }
 }

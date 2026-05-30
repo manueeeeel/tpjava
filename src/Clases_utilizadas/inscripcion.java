@@ -23,4 +23,10 @@ public class inscripcion {
     public alumno getAlumno(){
         return Alumno;
     }
+    public int getAsistencias(){
+        return asistencias;
+    }
+    public char getTipoalum(){
+        return tipoalum;
+    }
 }
