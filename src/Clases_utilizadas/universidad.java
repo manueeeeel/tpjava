@@ -19,8 +19,6 @@ public class universidad {
             instancia = new universidad();
         return instancia;
     }
-    public TreeSet<alumno> getAlumnos(){return Alumnos;}
-
     public void InsertaClase(clase clas){
         Clases.put(clas.getCodigo(),clas);
     }
