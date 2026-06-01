@@ -9,4 +9,6 @@ public class clase{
     public String getCodigo(){
         return codigo;
     }
+    public String getFecha(){return fecha;}
+    public String getHorario(){return horario;}
 }

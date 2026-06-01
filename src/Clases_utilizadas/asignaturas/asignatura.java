@@ -1,4 +1,8 @@
 package Clases_utilizadas.asignaturas;
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso({obligatoria.class, optativa.class, pasantia.class, tesis.class})
+
 abstract public class asignatura{
     private int codigo,cuatrimestre;
     private char promocionable;
@@ -10,6 +14,7 @@ abstract public class asignatura{
         nombre = nom;
     }
     abstract public String DefinirCondicion(int totclases,int asistencia,char tipoalum);
+    public String getNombre(){return nombre;}
     public char getPromocionable(){
         return promocionable;
     }
