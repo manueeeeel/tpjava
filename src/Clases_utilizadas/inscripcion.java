@@ -30,8 +30,15 @@ public class inscripcion {
         return tipoalum;
     }
     public void Muestra(){
-        System.out.println("Cantidad de clases: " + asistencias
-                + "\tModalidad: " + tipoalum +
-                "\tCondicion: " + ObetenerCondicion() + "\n");
+        if(totclases > 0)
+          System.out.println("Cantidad de clases: " + totclases
+                 + "\nPorcentaje de asistencias: " + asistencias/totclases*100
+                 + "\nModalidad: " + tipoalum +
+                 "\nCondicion: " + ObetenerCondicion() + "\n");
+        else
+            System.out.println("Cantidad de clases: 0"
+                    +  "\nPorcentaje de asistencias: 0"
+                    + "\nModalidad: " + tipoalum +
+                    "\nCondicion: " + ObetenerCondicion() + "\n");
     }
 }
