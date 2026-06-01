@@ -29,6 +29,9 @@ public class inscripcion {
     public char getTipoalum(){
         return tipoalum;
     }
+    public int getTotclases(){
+        return totclases;
+    }
     public void Muestra(){
         if(totclases > 0)
           System.out.println("Cantidad de clases: " + totclases

@@ -74,5 +74,24 @@ public class universidad {
                 Reporte.add(act.getAlumno());
         return Reporte;
     }
-
+    public ArrayList<ranking> ReporteRankingPresentismo(){
+        HashMap<Integer,ranking> MapaReporte = new HashMap<>();
+        for(var act : Asignaturas.values()){
+            ranking carga = new ranking();
+            carga.PoneAsignatura(act);
+            MapaReporte.put(act.getCodigo(),carga);
+        }
+        for(var act : Inscripciones){
+            ranking aux = MapaReporte.get(act.getAsignatura().getCodigo());
+            if(aux!=null) {
+                aux.PoneTotalClases(act.getTotclases());
+                aux.SumaAsistencias(act.getAsistencias());
+            }
+        }
+        ArrayList<ranking> Reporte = new ArrayList<>(MapaReporte.values());
+        for(var act : Reporte)
+            act.CalculaPresentismo();
+        Reporte.sort(Comparator.comparing(ranking::getPresentismo));
+        return Reporte;
+    }
 }

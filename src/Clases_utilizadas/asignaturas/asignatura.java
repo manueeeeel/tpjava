@@ -16,5 +16,8 @@ abstract public class asignatura{
     public int getCodigo(){
         return codigo;
     }
+    public String getNombre(){
+        return nombre;
+    }
 }
 
