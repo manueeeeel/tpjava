@@ -29,4 +29,9 @@ public class inscripcion {
     public char getTipoalum(){
         return tipoalum;
     }
+    public void Muestra(){
+        System.out.println("Cantidad de clases: " + asistencias
+                + "\tModalidad: " + tipoalum +
+                "\tCondicion: " + ObetenerCondicion() + "\n");
+    }
 }
