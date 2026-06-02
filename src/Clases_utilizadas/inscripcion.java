@@ -37,11 +37,11 @@ public class inscripcion {
           System.out.println("Cantidad de clases: " + totclases
                  + "\nPorcentaje de asistencias: " + asistencias/totclases*100
                  + "\nModalidad: " + tipoalum +
-                 "\nCondicion: " + ObetenerCondicion() + "\n");
+                 "\nCondicion: " + ObtenerCondicion() + "\n");
         else
             System.out.println("Cantidad de clases: 0"
                     +  "\nPorcentaje de asistencias: 0"
                     + "\nModalidad: " + tipoalum +
-                    "\nCondicion: " + ObetenerCondicion() + "\n");
+                    "\nCondicion: " + ObtenerCondicion() + "\n");
     }
 }

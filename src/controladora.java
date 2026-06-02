@@ -1,6 +1,8 @@
+import java.io.File;
+import java.io.FileWriter;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.util.*;
-
 import Clases_utilizadas.alumno;
 import Clases_utilizadas.asignaturas.*;
 import Clases_utilizadas.clase;
@@ -117,7 +119,7 @@ public class controladora {
                         if (a.getCuatrimestre() > 10 || a.getCuatrimestre() <= 0) {
                             throw new Exception("Cuatrimestre invalido");
                         }
-                        if (a.getPromocionable().isEmpty()) {
+                        if (a.getPromocionable() == '\0') {
                             throw new Exception("Promocionable vacía");
                         }
                         universidad.InsertaAsignatura(a);
@@ -191,7 +193,7 @@ public class controladora {
         }
     }
     public void serealizaAsignatura(){
-        HashMap<asignatura> listaAsign = HashMap<>(universidad.getAsignaturas());
+        HashMap<Integer,asignatura> listaAsign = new HashMap<>(universidad.getAsignaturas());
         try {
             JAXBContext contexto = JAXBContext.newInstance(asignatura.class,obligatoria.class,optativa.class,pasantia.class,tesis.class);
             Marshaller marshaller = contexto.createMarshaller();

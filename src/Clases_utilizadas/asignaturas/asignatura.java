@@ -1,4 +1,10 @@
 package Clases_utilizadas.asignaturas;
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlSeeAlso;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlSeeAlso({obligatoria.class, optativa.class, pasantia.class, tesis.class})
@@ -21,8 +27,8 @@ abstract public class asignatura{
     public int getCodigo(){
         return codigo;
     }
-    public String getNombre(){
-        return nombre;
+    public int getCuatrimestre(){
+        return cuatrimestre;
     }
 }
 
