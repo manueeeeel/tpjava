@@ -75,7 +75,7 @@ public class universidad {
     public ArrayList<alumno> ReporteLibresPorFaltas(){
         ArrayList<alumno> Reporte = new ArrayList<>();
         for(var act : Inscripciones)
-            if(act.ObetenerCondicion() == "Libre")
+            if(act.ObtenerCondicion() == "Libre")
                 Reporte.add(act.getAlumno());
         return Reporte;
     }

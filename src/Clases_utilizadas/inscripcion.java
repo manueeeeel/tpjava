@@ -11,7 +11,7 @@ public class inscripcion {
     public void RegistraAsistencia(){
         asistencias++;
     }
-    public String ObetenerCondicion(){
+    public String ObtenerCondicion(){
         if(tipoalum == 'O')
             return "Libre (oyente)";
         else
