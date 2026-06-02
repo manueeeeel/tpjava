@@ -20,7 +20,9 @@ import javax.xml.stream.XMLStreamReader;
 
 public class controladora {
     private universidad universidad; //atributo que guarda la instancia
-    public controladora(){ universidad = universidad.getInstancia(); }
+    public controladora(){
+        universidad = universidad.getInstancia();
+    }
 
     //hay que cambiar a private despues y hacer public un CargaXML
     public void deserializaAlumnos() {

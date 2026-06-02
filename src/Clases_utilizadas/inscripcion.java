@@ -1,10 +1,10 @@
 package Clases_utilizadas;
 import Clases_utilizadas.asignaturas.*;
 public class inscripcion {
-    alumno Alumno;
-    asignatura Asignatura;
-    char tipoalum;
-    int totclases,asistencias;
+    private alumno Alumno;
+    private asignatura Asignatura;
+    private char tipoalum;
+    private int totclases,asistencias;
     public void IncrementaClases(){
         totclases++;
     }
@@ -12,10 +12,7 @@ public class inscripcion {
         asistencias++;
     }
     public String ObtenerCondicion(){
-        if(tipoalum == 'O')
-            return "Libre (oyente)";
-        else
-            return Asignatura.DefinirCondicion(totclases,asistencias,tipoalum);
+        return Asignatura.DefinirCondicion(totclases,asistencias,tipoalum);
     }
     public asignatura getAsignatura(){
         return Asignatura;

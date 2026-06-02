@@ -2,10 +2,9 @@ package Clases_utilizadas;
 import Clases_utilizadas.asignaturas.*;
 import java.util.ArrayList;
 public class ranking {
-    asignatura Asignatura;
-    double Presentismo;
-    int totclases;
-    int asistencias;
+    private asignatura Asignatura;
+    private double Presentismo;
+    private int totclases,asistencias;
     public ranking(){
         asistencias = 0;
     }
