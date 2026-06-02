@@ -31,6 +31,6 @@ public class ranking {
     }
     public void Muestra(){
         System.out.println("Asignatura: " + Asignatura.getNombre()
-                + "\nPresentismo: " + Presentismo + "\n");
+                + "\nPresentismo: " + Presentismo + "\n"); //hola
     }
 }
