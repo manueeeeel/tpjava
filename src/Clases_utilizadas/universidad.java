@@ -60,11 +60,12 @@ public class universidad {
             System.out.println("Clase inexistente");
     }
     public ArrayList<inscripcion> ReporteAlumnosAsignatura(int codasig){
-        ArrayList<inscripcion> Reporte = new ArrayList<>();
         if(Asignaturas.containsKey(codasig)) {
+            ArrayList<inscripcion> Reporte = new ArrayList<>(Inscripciones.size()/2);
             for (int i = 0; i < Inscripciones.size(); i++)
                 if (Inscripciones.get(i).getAsignatura().getCodigo() == codasig)
                     Reporte.add(Inscripciones.get(i));
+            Reporte.trimToSize();
             return Reporte;
         }
         else {
@@ -73,14 +74,15 @@ public class universidad {
         }
     }
     public ArrayList<alumno> ReporteLibresPorFaltas(){
-        ArrayList<alumno> Reporte = new ArrayList<>();
+        ArrayList<alumno> Reporte = new ArrayList<>(Inscripciones.size()/2);
         for(int i = 0; i < Inscripciones.size(); i++)
             if(Inscripciones.get(i).ObtenerCondicion() == "Libre")
                 Reporte.add(Inscripciones.get(i).getAlumno());
+        Reporte.trimToSize();
         return Reporte;
     }
     public ArrayList<ranking> ReporteRankingPresentismo(){
-        HashMap<Integer,ranking> MapaReporte = new HashMap<>();
+        HashMap<Integer,ranking> MapaReporte = new HashMap<>(Asignaturas.size());
         for(var act : Asignaturas.values()){
             ranking carga = new ranking();
             carga.PoneAsignatura(act);
@@ -96,6 +98,7 @@ public class universidad {
         ArrayList<ranking> Reporte = new ArrayList<>(MapaReporte.values());
         for(int i = 0; i < Reporte.size(); i++)
             Reporte.get(i).CalculaPresentismo();
+        Reporte.trimToSize();
         Reporte.sort(Comparator.comparing(ranking::getPresentismo));
         return Reporte;
     }

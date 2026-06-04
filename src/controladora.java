@@ -33,7 +33,6 @@ public class controladora {
             XMLInputFactory factory = XMLInputFactory.newFactory();
             InputStream is = getClass().getClassLoader().getResourceAsStream("data/alumnos.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
-
             while (reader.hasNext()) {
                 if (reader.isStartElement() && reader.getLocalName().equals("alumno")) {
                     try {
