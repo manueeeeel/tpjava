@@ -53,18 +53,18 @@ public class universidad {
     }
     public void RegistrarClase(String codclase,int codasig){
         if(Clases.containsKey(codclase))
-            for (var act : Inscripciones)
-                if (act.getAsignatura().getCodigo() == codasig)
-                    act.IncrementaClases();
+            for (int i = 0; i < Inscripciones.size(); i++)
+                if (Inscripciones.get(i).getAsignatura().getCodigo() == codasig)
+                    Inscripciones.get(i).IncrementaClases();
         else
             System.out.println("Clase inexistente");
     }
     public ArrayList<inscripcion> ReporteAlumnosAsignatura(int codasig){
         ArrayList<inscripcion> Reporte = new ArrayList<>();
         if(Asignaturas.containsKey(codasig)) {
-            for (var act : Inscripciones)
-                if (act.getAsignatura().getCodigo() == codasig)
-                    Reporte.add(act);
+            for (int i = 0; i < Inscripciones.size(); i++)
+                if (Inscripciones.get(i).getAsignatura().getCodigo() == codasig)
+                    Reporte.add(Inscripciones.get(i));
             return Reporte;
         }
         else {
@@ -74,9 +74,9 @@ public class universidad {
     }
     public ArrayList<alumno> ReporteLibresPorFaltas(){
         ArrayList<alumno> Reporte = new ArrayList<>();
-        for(var act : Inscripciones)
-            if(act.ObtenerCondicion() == "Libre")
-                Reporte.add(act.getAlumno());
+        for(int i = 0; i < Inscripciones.size(); i++)
+            if(Inscripciones.get(i).ObtenerCondicion() == "Libre")
+                Reporte.add(Inscripciones.get(i).getAlumno());
         return Reporte;
     }
     public ArrayList<ranking> ReporteRankingPresentismo(){
@@ -86,16 +86,16 @@ public class universidad {
             carga.PoneAsignatura(act);
             MapaReporte.put(act.getCodigo(),carga);
         }
-        for(var act : Inscripciones){
-            ranking aux = MapaReporte.get(act.getAsignatura().getCodigo());
+        for(int i = 0; i < Inscripciones.size(); i++){
+            ranking aux = MapaReporte.get(Inscripciones.get(i).getAsignatura().getCodigo());
             if(aux!=null) {
-                aux.PoneTotalClases(act.getTotclases());
-                aux.SumaAsistencias(act.getAsistencias());
+                aux.PoneTotalClases(Inscripciones.get(i).getTotclases());
+                aux.SumaAsistencias(Inscripciones.get(i).getAsistencias());
             }
         }
         ArrayList<ranking> Reporte = new ArrayList<>(MapaReporte.values());
-        for(var act : Reporte)
-            act.CalculaPresentismo();
+        for(int i = 0; i < Reporte.size(); i++)
+            Reporte.get(i).CalculaPresentismo();
         Reporte.sort(Comparator.comparing(ranking::getPresentismo));
         return Reporte;
     }
