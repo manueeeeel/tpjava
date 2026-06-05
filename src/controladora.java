@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.StringWriter;
@@ -8,8 +9,7 @@ import Clases_utilizadas.asignaturas.*;
 import Clases_utilizadas.clase;
 import Clases_utilizadas.universidad;
 import jakarta.xml.bind.*;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
+
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
 
@@ -31,7 +31,7 @@ public class controladora {
             JAXBContext contexto = JAXBContext.newInstance(alumno.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
             XMLInputFactory factory = XMLInputFactory.newFactory();
-            InputStream is = getClass().getClassLoader().getResourceAsStream("data/alumnos.xml");
+            InputStream is = new FileInputStream("src/data/alumnos.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
             while (reader.hasNext()) {
                 if (reader.isStartElement() && reader.getLocalName().equals("alumno")) {
