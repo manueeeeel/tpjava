@@ -18,6 +18,6 @@ public class MainFrame extends JFrame {
         panelPestañas.addTab("Cargar Datos", cargarDatosPanel);
         panelPestañas.addTab("Listado Alumnos", listadoAlumnosPanel);
         //Agregar el contenedor a la ventana principal
-        add(listadoAlumnosPanel);
+        add(panelPestañas);
     }
 }
