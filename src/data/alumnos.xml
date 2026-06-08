@@ -1,13 +1,18 @@
 <alumnos>
     <alumno>
     <matricula>222222</matricula>
-    <nombre>juan martín</nombre>
-    <fechanacimiento>20011005</fechanacimiento>
+    <nombre>Domingo Perón</nombre>
+    <fechanacimiento>19401121</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>223444</matricula>
     <nombre>Juan Martín</nombre>
     <fechanacimiento>20021211</fechanacimiento>
+</alumno>
+    <alumno>
+    <matricula>222233</matricula>
+    <nombre>Pedro Gomez</nombre>
+    <fechanacimiento>20110101</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>12345</matricula>

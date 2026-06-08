@@ -136,15 +136,18 @@ public class ListadoAlumnosPanel extends JPanel {
     private void guardarAlumno() {
         try {
             String matriculaTexto = txtMatricula.getText().trim();
-            int matricula = Integer.parseInt(matriculaTexto);
             String nombre = txtNombre.getText().trim();
             String fechaConBarras = txtFechaNacimiento.getText().trim();
             String fechaNacimiento = fechaConBarras.replace("/", "");
 
-            if (nombre.isEmpty() || fechaNacimiento.contains("_")) {
+            //Validacion que todos los campos esten completos y que la fecha no contenga caracteres de mascara sin completar, para evitar errores al guardar en el XML
+            if (matriculaTexto.isEmpty() || nombre.isEmpty() || fechaNacimiento.contains("_")) {
                 JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
+            //transformar la matricula a entero para que se condiga con la clase alumno y controladora, y validar que sea un numero entero para evitar errores al guardar en el XML
+            int matricula = Integer.parseInt(matriculaTexto);
+
 
             //Validacion con el calendario para ingreso de fecha correcta
             try{
@@ -155,7 +158,19 @@ public class ListadoAlumnosPanel extends JPanel {
                 return;
             }
 
+            //Verificar que no se ingrese una matricula ya registrada, para evitar duplicados en el TreeSet y errores al guardar en el XML
+            TreeSet<alumno> alumnosRegistrados = universidad.getInstancia().getAlumnos();
+            if (alumnosRegistrados != null) {
+                for (alumno a : alumnosRegistrados) {
+                    if (a.getMatricula() == matricula) {
+                        // Si encuentra coincidencia, muestra el error y aborta el guardado
+                        JOptionPane.showMessageDialog(this, "Ya existe un alumno registrado con la matrícula " + matricula + ".", "Error: Matrícula Duplicada", JOptionPane.WARNING_MESSAGE);
+                        return; 
+                    }
+                }
+            }
 
+            //Guardar y serealización
             alumno nuevoAlumno = new alumno();
             nuevoAlumno.setMatricula(matricula);
             nuevoAlumno.setNombre(nombre);
@@ -166,7 +181,6 @@ public class ListadoAlumnosPanel extends JPanel {
 
             controladora c = new controladora();
             c.serealizaAlumnos(); // Guardar el nuevo alumno en el XML
-
             JOptionPane.showMessageDialog(this, "Alumno guardado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
             txtMatricula.setText("");
