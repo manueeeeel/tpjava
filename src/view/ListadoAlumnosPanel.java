@@ -5,6 +5,13 @@ import java.awt.*;
 import java.util.TreeSet;
 import javax.swing.text.MaskFormatter;
 import java.text.ParseException;
+import javax.swing.text.PlainDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 
 import Clases_utilizadas.alumno;
 import Clases_utilizadas.universidad;
@@ -36,6 +43,17 @@ public class ListadoAlumnosPanel extends JPanel {
         panelFormulario.add(new JLabel("Matrícula:"));
         txtMatricula = new JTextField();
         txtMatricula.setMaximumSize(maxDim);
+
+        //Limitar la entrada de numeros para que la matricula tenga 6 y se condiga con la clase controladora
+        txtMatricula.setDocument(new PlainDocument() {
+            @Override
+            public void insertString(int offs, String str, AttributeSet a) throws BadLocationException{
+                if (str == null) return;
+                //matches("\\d+") permite solo números y el segundo condicional limita a 6 caracteres para que se condiga con la clase controladora
+                if(str.matches("\\d+") && (getLength() + str.length() <= 6)) 
+                    super.insertString(offs, str, a);
+            } 
+        });
         panelFormulario.add(txtMatricula);
         //Espacio entre campos
         panelFormulario.add(Box.createVerticalStrut(15));
@@ -48,7 +66,7 @@ public class ListadoAlumnosPanel extends JPanel {
         panelFormulario.add(Box.createVerticalStrut(15));
 
         //Formulario fecha  de nacimiento
-        panelFormulario.add(new JLabel("Fecha de Nacimiento (AAAAMMDD)):"));
+        panelFormulario.add(new JLabel("Fecha de Nacimiento (AAAA/MM/DD)):"));
         try{
             MaskFormatter mascaraFecha = new MaskFormatter("####/##/##");
             mascaraFecha.setPlaceholderCharacter('_');
@@ -117,7 +135,8 @@ public class ListadoAlumnosPanel extends JPanel {
 
     private void guardarAlumno() {
         try {
-            int matricula = Integer.parseInt(txtMatricula.getText().trim());
+            String matriculaTexto = txtMatricula.getText().trim();
+            int matricula = Integer.parseInt(matriculaTexto);
             String nombre = txtNombre.getText().trim();
             String fechaConBarras = txtFechaNacimiento.getText().trim();
             String fechaNacimiento = fechaConBarras.replace("/", "");
@@ -126,6 +145,16 @@ public class ListadoAlumnosPanel extends JPanel {
                 JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
+
+            //Validacion con el calendario para ingreso de fecha correcta
+            try{
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu/MM/dd").withResolverStyle(ResolverStyle.STRICT);
+                LocalDate.parse(fechaConBarras, formatter);
+            }catch(DateTimeParseException ex){
+                JOptionPane.showMessageDialog(this, "La fecha de nacimiento no es válida. Por favor, ingrese una fecha correcta.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
 
             alumno nuevoAlumno = new alumno();
             nuevoAlumno.setMatricula(matricula);

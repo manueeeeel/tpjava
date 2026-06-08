@@ -1,13 +1,13 @@
 <alumnos>
     <alumno>
-    <matricula>123456789</matricula>
-    <nombre>Benjamín La Valla</nombre>
-    <fechanacimiento>20011005</fechanacimiento>
-</alumno>
-    <alumno>
     <matricula>222222</matricula>
     <nombre>juan martín</nombre>
     <fechanacimiento>20011005</fechanacimiento>
+</alumno>
+    <alumno>
+    <matricula>223444</matricula>
+    <nombre>Juan Martín</nombre>
+    <fechanacimiento>20021211</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>12345</matricula>
