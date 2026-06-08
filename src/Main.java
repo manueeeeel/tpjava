@@ -1,5 +1,7 @@
 import view.MainFrame;
 import javax.swing.SwingUtilities;
+
+import controladora.controladora;
 public class Main {
     public static void main(String[] args) {
 
