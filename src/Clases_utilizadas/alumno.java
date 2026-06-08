@@ -18,4 +18,15 @@ public class alumno {
         return nombre;
     }
     public String getFechanacimiento() { return fechanacimiento; }
+    
+    //Setters
+    public void setMatricula(int mat){
+        this.matricula = mat;
+    }
+    public void setNombre(String nom){
+        this.nombre = nom;       
+    }
+    public void setFechanacimiento(String fechanacimiento) {
+        this.fechanacimiento = fechanacimiento;
+    }   
 }
