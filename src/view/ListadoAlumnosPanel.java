@@ -27,8 +27,10 @@ public class ListadoAlumnosPanel extends JPanel {
     private JTextField txtMatricula, txtNombre;
     private JFormattedTextField txtFechaNacimiento;
     private JButton btnGuardar;
+    private controladora c;
 
-    public ListadoAlumnosPanel() {
+    public ListadoAlumnosPanel(controladora c) {
+        this.c = c;
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
@@ -179,8 +181,7 @@ public class ListadoAlumnosPanel extends JPanel {
             universidad.getInstancia().InsertaAlumno(nuevoAlumno);
 
 
-            controladora c = new controladora();
-            c.serealizaAlumnos(); // Guardar el nuevo alumno en el XML
+            this.c.serealizaAlumnos(); // Guardar el nuevo alumno en el XML
             JOptionPane.showMessageDialog(this, "Alumno guardado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
             txtMatricula.setText("");

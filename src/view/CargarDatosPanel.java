@@ -9,8 +9,9 @@ import controladora.controladora;
 public class CargarDatosPanel extends JPanel {
     private JButton btnCargarDatos;
     private JTextArea textConsola;
-
-    public CargarDatosPanel() {
+    private controladora c;
+    public CargarDatosPanel(controladora c) {
+        this.c = c;
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
@@ -33,8 +34,7 @@ public class CargarDatosPanel extends JPanel {
     private void cargarDatosAlumnos() {
         textConsola.append("Cargando datos de alumnos desde XML...\n");
         try{
-            controladora c = new controladora();
-            c.deserializaAlumnos();
+            this.c.deserializaAlumnos();
             textConsola.append("Datos de alumnos cargados exitosamente.\n");
         }catch(Exception ex){
             textConsola.append("Error al cargar datos de alumnos: " + ex.getMessage() + "\n");

@@ -1,9 +1,10 @@
 package view;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+import controladora.controladora;
 
 public class MainFrame extends JFrame {
-    public MainFrame() {
+    public MainFrame(controladora c) {
         setTitle("Sistema de Gestión de Asistencia Universitaria");
         setSize(800, 600);
         setLocationRelativeTo(null); // Centrar la ventana en la pantalla
@@ -12,8 +13,8 @@ public class MainFrame extends JFrame {
         //Crear contenedor de pestañas
         JTabbedPane panelPestañas = new JTabbedPane();
         //Instaciar los dos paneles 
-        CargarDatosPanel cargarDatosPanel = new CargarDatosPanel();
-        ListadoAlumnosPanel listadoAlumnosPanel = new ListadoAlumnosPanel();
+        CargarDatosPanel cargarDatosPanel = new CargarDatosPanel(c);
+        ListadoAlumnosPanel listadoAlumnosPanel = new ListadoAlumnosPanel(c);
         //Agregar las pestañas al contenedor
         panelPestañas.addTab("Cargar Datos", cargarDatosPanel);
         panelPestañas.addTab("Listado Alumnos", listadoAlumnosPanel);
