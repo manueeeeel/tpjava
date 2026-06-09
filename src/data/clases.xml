@@ -4,4 +4,28 @@
         <fecha>20230101</fecha>
         <horario>09:00-11:00</horario>
     </clase>
+
+    <clase>
+        <codigo>223455</codigo>
+        <fecha>20230315</fecha>
+        <horario>14:00-16:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>334566</codigo>
+        <fecha>20230420</fecha>
+        <horario>08:00-10:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>445677</codigo>
+        <fecha>20230510</fecha>
+        <horario>18:00-20:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>556788</codigo>
+        <fecha>20230605</fecha>
+        <horario>16:00-18:00</horario>
+    </clase>
 </clases>

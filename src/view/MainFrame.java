@@ -13,13 +13,16 @@ public class MainFrame extends JFrame {
         //Crear contenedor de pestañas
         JTabbedPane panelPestañas = new JTabbedPane();
         //Instaciar los dos paneles 
-        CargarDatosPanel cargarDatosPanel = new CargarDatosPanel(c);
         ListadoAlumnosPanel listadoAlumnosPanel = new ListadoAlumnosPanel(c);
         ListadoClasesPanel listadoClasesPanel = new ListadoClasesPanel();
+        ListadoAsignaturasPanel listadoAsignaturasPanel = new ListadoAsignaturasPanel();
+        CargarDatosPanel cargarDatosPanel = new CargarDatosPanel(c, listadoAlumnosPanel, listadoClasesPanel,
+            listadoAsignaturasPanel);
         //Agregar las pestañas al contenedor
         panelPestañas.addTab("Cargar Datos", cargarDatosPanel);
         panelPestañas.addTab("Listado Alumnos", listadoAlumnosPanel);
         panelPestañas.addTab("Listado Clases", listadoClasesPanel);
+        panelPestañas.addTab("Listado Asignaturas", listadoAsignaturasPanel);
         //Agregar el contenedor a la ventana principal
         add(panelPestañas);
     }

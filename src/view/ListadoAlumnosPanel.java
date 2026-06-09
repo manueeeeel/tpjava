@@ -17,13 +17,9 @@ import Clases_utilizadas.alumno;
 import Clases_utilizadas.universidad;
 import controladora.controladora;
 
-
-
-
 public class ListadoAlumnosPanel extends JPanel {
     private JTable tablaAlumnos;
     private DefaultTableModel modeloTabla;
-    private JButton btnActualizar;
     private JTextField txtMatricula, txtNombre;
     private JFormattedTextField txtFechaNacimiento;
     private JButton btnGuardar;
@@ -96,19 +92,15 @@ public class ListadoAlumnosPanel extends JPanel {
         // Crear la tabla y asignarle el modelo
         tablaAlumnos = new JTable(modeloTabla);
         JScrollPane scrollPane = new JScrollPane(tablaAlumnos);
-        //Botón para actualizar
-        btnActualizar = new JButton("Actualizar Listado Alumnos");
         // Ensamblar todo en el panel principal
         add(panelFormulario, BorderLayout.WEST);
         add(scrollPane, BorderLayout.CENTER);
-        add(btnActualizar, BorderLayout.SOUTH);
 
         //Eventos de los botones
-        btnActualizar.addActionListener(e -> cargarDatosAlumnos());
         btnGuardar.addActionListener(e-> guardarAlumno());
     }
 
-    private void cargarDatosAlumnos() {
+    public void cargarDatosAlumnos() {
 
         modeloTabla.setRowCount(0); // Limpiar la tabla antes de cargar nuevos datos
         // Traer el TreeSet de alumnos desde el Singleton

@@ -9,7 +9,6 @@ import Clases_utilizadas.universidad;
 public class ListadoClasesPanel extends JPanel {
     private JTable tablaClases;
     private DefaultTableModel modeloTabla;
-    private JButton btnActualizar;
 
     public ListadoClasesPanel() {
         setLayout(new BorderLayout(10, 10));
@@ -23,13 +22,10 @@ public class ListadoClasesPanel extends JPanel {
         };
         tablaClases = new JTable(modeloTabla);
         JScrollPane scrollPane = new JScrollPane(tablaClases);
-        btnActualizar = new JButton("Actualizar Listado Clases");
         add(scrollPane, BorderLayout.CENTER);
-        add(btnActualizar, BorderLayout.SOUTH);
-        btnActualizar.addActionListener(e -> cargarDatosClases());
     }
 
-    private void cargarDatosClases() {
+    public void cargarDatosClases() {
         modeloTabla.setRowCount(0);
         HashMap<String, clase> clases =
                 universidad.getInstancia().getClases();

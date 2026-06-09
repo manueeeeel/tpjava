@@ -1,4 +1,5 @@
 package view;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,9 +11,17 @@ public class CargarDatosPanel extends JPanel {
     private JButton btnCargarDatos;
     private JTextArea textConsola;
     private controladora c;
+    private ListadoAlumnosPanel listadoAlumnosPanel;
+    private ListadoClasesPanel listadoClasesPanel;
+    private ListadoAsignaturasPanel listadoAsignaturasPanel;
 
-    public CargarDatosPanel(controladora c) {
+    public CargarDatosPanel(controladora c, ListadoAlumnosPanel listadoAlumnosPanel,
+            ListadoClasesPanel listadoClasesPanel, ListadoAsignaturasPanel listadoAsignaturasPanel) {
         this.c = c;
+        this.listadoAlumnosPanel = listadoAlumnosPanel;
+        this.listadoClasesPanel = listadoClasesPanel;
+        this.listadoAsignaturasPanel = listadoAsignaturasPanel;
+
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
@@ -25,26 +34,14 @@ public class CargarDatosPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 c.cargarDatosXML();
-                asd();
+                listadoAlumnosPanel.cargarDatosAlumnos();
+                listadoClasesPanel.cargarDatosClases();
+                listadoAsignaturasPanel.cargarDatosAsignaturas();
+                textConsola.append("Datos cargados y listados actualizados correctamente.\n");
             }
         });
 
         add(btnCargarDatos, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
-    }
-
-    private void asd() {
-        textConsola.append("Cargando datos desde XML...\n");
-
-        try {
-            textConsola.append("Datos de alumnos cargados exitosamente.\n");
-
-            textConsola.append("Datos de clases cargados exitosamente.\n");
-
-            textConsola.append("Datos de asignaturas cargados exitosamente.\n");
-
-        } catch (Exception ex) {
-            textConsola.append("Error al cargar datos: " + ex.getMessage() + "\n");
-        }
     }
 }
