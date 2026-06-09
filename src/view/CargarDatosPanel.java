@@ -10,6 +10,7 @@ public class CargarDatosPanel extends JPanel {
     private JButton btnCargarDatos;
     private JTextArea textConsola;
     private controladora c;
+
     public CargarDatosPanel(controladora c) {
         this.c = c;
         setLayout(new BorderLayout(10, 10));
@@ -23,7 +24,7 @@ public class CargarDatosPanel extends JPanel {
         btnCargarDatos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cargarDatosAlumnos();
+                cargarDatosXML();
             }
         });
 
@@ -31,13 +32,21 @@ public class CargarDatosPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
 
-    private void cargarDatosAlumnos() {
-        textConsola.append("Cargando datos de alumnos desde XML...\n");
-        try{
-            this.c.deserializaAlumnos();
+    private void cargarDatosXML() {
+        textConsola.append("Cargando datos desde XML...\n");
+
+        try {
+            c.deserializaAlumnos();
             textConsola.append("Datos de alumnos cargados exitosamente.\n");
-        }catch(Exception ex){
-            textConsola.append("Error al cargar datos de alumnos: " + ex.getMessage() + "\n");
+
+            c.deserializaClase();
+            textConsola.append("Datos de clases cargados exitosamente.\n");
+
+            c.deserializaAsignatura();
+            textConsola.append("Datos de asignaturas cargados exitosamente.\n");
+
+        } catch (Exception ex) {
+            textConsola.append("Error al cargar datos: " + ex.getMessage() + "\n");
         }
     }
 }
