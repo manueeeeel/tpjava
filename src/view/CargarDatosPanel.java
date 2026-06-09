@@ -24,7 +24,7 @@ public class CargarDatosPanel extends JPanel {
         btnCargarDatos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cargarDatosXML();
+                c.cargarDatosXML();
             }
         });
 
@@ -32,7 +32,7 @@ public class CargarDatosPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
 
-    private void cargarDatosXML() {
+    /*private void cargarDatosXML() {
         textConsola.append("Cargando datos desde XML...\n");
 
         try {
@@ -48,5 +48,5 @@ public class CargarDatosPanel extends JPanel {
         } catch (Exception ex) {
             textConsola.append("Error al cargar datos: " + ex.getMessage() + "\n");
         }
-    }
+    }*/
 }

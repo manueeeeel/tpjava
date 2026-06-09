@@ -25,6 +25,12 @@ public class controladora {
         universidad = universidad.getInstancia();
     }
 
+    public void cargarDatosXML(){
+        deserializaAlumnos();
+        deserializaClase();
+        deserializaAsignatura();
+    }
+
     //hay que cambiar a private despues y hacer public un CargaXML
     public void deserializaAlumnos() {
         int cont = 0;
@@ -32,7 +38,7 @@ public class controladora {
             JAXBContext contexto = JAXBContext.newInstance(alumno.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
             XMLInputFactory factory = XMLInputFactory.newFactory();
-            InputStream is = new FileInputStream("src/data/alumnos.xml");
+            InputStream is = getClass().getClassLoader().getResourceAsStream("data/alumnos.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
             while (reader.hasNext()) {
                 if (reader.isStartElement() && reader.getLocalName().equals("alumno")) {
@@ -58,7 +64,7 @@ public class controladora {
             reader.close();
             System.out.println("------ Carga completa, se cargaron: " + cont + " Alumnos------");
         } catch (Exception e) {
-            System.out.println("Error general al leer XML: " + e.getMessage());
+            System.out.println("Error general al leer XML alumnos: " + e.getMessage());
         }
     }
     public void deserializaClase() {
@@ -94,7 +100,7 @@ public class controladora {
             reader.close();
             System.out.println("------ Carga completa, se cargaron: " + cont + " Clases------");
         } catch (Exception e) {
-            System.out.println("Error general al leer XML: " + e.getMessage());
+            System.out.println("Error general al leer XML clases: " + e.getMessage());
         }
     }
     public void deserializaAsignatura() {
@@ -135,7 +141,7 @@ public class controladora {
             reader.close();
             System.out.println("------ Carga completa, se cargaron: " + cont + " Asignaturas------");
         } catch (Exception e) {
-            System.out.println("Error general al leer XML: " + e.getMessage());
+            System.out.println("Error general al leer XML asignaturas: " + e.getMessage());
         }
     }
     public void serealizaAlumnos(){
