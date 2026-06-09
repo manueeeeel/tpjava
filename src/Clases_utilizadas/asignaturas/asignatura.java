@@ -11,15 +11,14 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 
 abstract public class asignatura{
     private int codigo,cuatrimestre;
-    private char promocionable;
-    private String nombre;
+    private String promocionable,nombre;
     public void setCodigo(int cod){
         codigo = cod;
     }
     public void setCuatrimestre(int cuatri){
         cuatrimestre = cuatri;
     }
-    public void setPromocionable(char prom){
+    public void setPromocionable(String prom){
         promocionable = prom;
     }
     public void setNombre(String nom){
@@ -27,7 +26,7 @@ abstract public class asignatura{
     }
     abstract public String DefinirCondicion(int totclases,int asistencia,char tipoalum);
     public String getNombre(){return nombre;}
-    public char getPromocionable(){
+    public String getPromocionable(){
         return promocionable;
     }
     public int getCodigo(){

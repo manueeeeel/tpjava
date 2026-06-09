@@ -7,7 +7,7 @@ public class optativa extends asignatura {
     public void setCuatrimestre(int cuatri){
         super.setCuatrimestre(cuatri);
     }
-    public void setPromocionable(char prom){
+    public void setPromocionable(String prom){
         super.setPromocionable(prom);
     }
     public void setNombre(String nom){
@@ -17,13 +17,13 @@ public class optativa extends asignatura {
         String condicion = "Libre";
         switch (tipoalum){
             case 'R':{
-                if(super.getPromocionable() == 'S' && asistencia >= totclases*0.6)
+                if(super.getPromocionable().equals("S") && asistencia >= totclases*0.6)
                     condicion = "Promociona";
                 else if (asistencia >= totclases*0.5)
                     condicion = "Habilita";
             };break;
             case 'C':{
-                if(super.getPromocionable() == 'S' && asistencia >= totclases*0.8)
+                if(super.getPromocionable().equals("S") && asistencia >= totclases*0.8)
                     condicion = "Promociona";
                 else if (asistencia >= totclases*0.7)
                     condicion = "Habilita";

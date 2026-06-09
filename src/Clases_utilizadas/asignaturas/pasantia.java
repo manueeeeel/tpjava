@@ -7,7 +7,7 @@ public class pasantia extends asignatura{
     public void setCuatrimestre(int cuatri){
         super.setCuatrimestre(cuatri);
     }
-    public void setPromocionable(char prom){
+    public void setPromocionable(String prom){
         super.setPromocionable(prom);
     }
     public void setNombre(String nom){
