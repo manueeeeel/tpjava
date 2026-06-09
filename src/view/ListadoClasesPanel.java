@@ -27,7 +27,6 @@ public class ListadoClasesPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
         add(btnActualizar, BorderLayout.SOUTH);
         btnActualizar.addActionListener(e -> cargarDatosClases());
-        cargarDatosClases();
     }
 
     private void cargarDatosClases() {
