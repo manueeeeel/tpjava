@@ -4,7 +4,6 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "clase")
 public class clase{
     private String codigo,fecha,horario;
-    public clase() {}
     public clase(String cod,String fec,String ho){
         codigo = cod;
         fecha = fec;
