@@ -1,4 +1,7 @@
 package Clases_utilizadas.asignaturas;
+import jakarta.xml.bind.annotation.*;
+@XmlRootElement(name = "tesis")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class tesis extends asignatura{
     public void setCodigo(int cod){
         super.setCodigo(cod);

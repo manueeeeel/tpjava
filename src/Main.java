@@ -5,7 +5,7 @@ import controladora.controladora;
 public class Main {
     public static void main(String[] args) {
         controladora c = new controladora();
-
+        c.cargarDatosXML();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

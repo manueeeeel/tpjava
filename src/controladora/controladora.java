@@ -46,11 +46,11 @@ public class controladora {
                         if (a.getNombre().isEmpty()) {
                             throw new Exception("Nombre vacío");
                         }
-                        if (a.getMatricula() <= 0 || a.getMatricula() >= 999999) {
+                        if (a.getMatricula() <= 100000 || a.getMatricula() >= 999999) {
                             throw new Exception("Matrícula inválida");
                         }
-                        if (Integer.parseInt(a.getFechanacimiento()) <= 10000101) { //AAAAMMDD?
-                            throw new Exception("Fecha inválida");
+                        if (a.getFechanacimiento().isEmpty()) { //AAAAMMDD?
+                            throw new Exception("Fecha vacía");
                         }
                         universidad.InsertaAlumno(a);
                         cont++;
@@ -66,13 +66,13 @@ public class controladora {
             System.out.println("Error general al leer XML alumnos: " + e.getMessage());
         }
     }
-    private void deserializaClase() {
+    public void deserializaClase() {
         int cont = 0;
         try {
             JAXBContext contexto = JAXBContext.newInstance(clase.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
             XMLInputFactory factory = XMLInputFactory.newFactory();
-            InputStream is = new FileInputStream("src/data/clases.xml");
+            InputStream is = getClass().getClassLoader().getResourceAsStream("data/clases.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
 
             while (reader.hasNext()) {
@@ -102,13 +102,13 @@ public class controladora {
             System.out.println("Error general al leer XML clases: " + e.getMessage());
         }
     }
-    private void deserializaAsignatura() {
+    public void deserializaAsignatura() {
         int cont = 0;
         try {
             JAXBContext contexto = JAXBContext.newInstance(asignatura.class,obligatoria.class,optativa.class,pasantia.class,tesis.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
             XMLInputFactory factory = XMLInputFactory.newFactory();
-            InputStream is = new FileInputStream("src/data/asignaturas.xml");
+            InputStream is = getClass().getClassLoader().getResourceAsStream("data/asignaturas.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
 
             while (reader.hasNext()) {
@@ -143,7 +143,7 @@ public class controladora {
             System.out.println("Error general al leer XML asignaturas: " + e.getMessage());
         }
     }
-    private void serealizaAlumnos(){
+    public void serealizaAlumnos(){
         int cont=0;
         TreeSet<alumno> listaAlumnos = universidad.getAlumnos();
         try {
@@ -171,7 +171,7 @@ public class controladora {
             e.printStackTrace();
         }
     }
-    private void serealizaClase(){
+    public void serealizaClase(){
         TreeSet<clase> listaClases = new TreeSet<>(universidad.getClases().values());
         int cont=0;
         try {
@@ -199,7 +199,7 @@ public class controladora {
             e.printStackTrace();
         }
     }
-    private void serealizaAsignatura(){
+    public void serealizaAsignatura(){
         HashMap<Integer,asignatura> listaAsign = new HashMap<>(universidad.getAsignaturas());
         try {
             JAXBContext contexto = JAXBContext.newInstance(asignatura.class,obligatoria.class,optativa.class,pasantia.class,tesis.class);

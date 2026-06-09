@@ -1,5 +1,8 @@
 package Clases_utilizadas.asignaturas;
 
+import jakarta.xml.bind.annotation.*;
+@XmlRootElement(name = "obligatoria")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class obligatoria extends asignatura {
     public void setCodigo(int cod){
         super.setCodigo(cod);
