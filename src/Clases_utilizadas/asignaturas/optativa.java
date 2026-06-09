@@ -1,8 +1,17 @@
 package Clases_utilizadas.asignaturas;
 
 public class optativa extends asignatura {
-    public optativa(int cod,int cuatri,char prom,String nom){
-        super(cod,cuatri,prom,nom);
+    public void setCodigo(int cod){
+        super.setCodigo(cod);
+    }
+    public void setCuatrimestre(int cuatri){
+        super.setCuatrimestre(cuatri);
+    }
+    public void setPromocionable(char prom){
+        super.setPromocionable(prom);
+    }
+    public void setNombre(String nom){
+        super.setNombre(nom);
     }
     public String DefinirCondicion(int totclases,int asistencia,char tipoalum){
         String condicion = "Libre";

@@ -13,10 +13,16 @@ abstract public class asignatura{
     private int codigo,cuatrimestre;
     private char promocionable;
     private String nombre;
-    public asignatura(int cod,int cuatri,char prom,String nom){
+    public void setCodigo(int cod){
         codigo = cod;
+    }
+    public void setCuatrimestre(int cuatri){
         cuatrimestre = cuatri;
+    }
+    public void setPromocionable(char prom){
         promocionable = prom;
+    }
+    public void setNombre(String nom){
         nombre = nom;
     }
     abstract public String DefinirCondicion(int totclases,int asistencia,char tipoalum);
