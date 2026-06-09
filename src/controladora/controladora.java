@@ -72,7 +72,7 @@ public class controladora {
             JAXBContext contexto = JAXBContext.newInstance(clase.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
             XMLInputFactory factory = XMLInputFactory.newFactory();
-            InputStream is = getClass().getClassLoader().getResourceAsStream("data/clases.xml");
+            InputStream is = new FileInputStream("src/data/clases.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
 
             while (reader.hasNext()) {
@@ -108,7 +108,7 @@ public class controladora {
             JAXBContext contexto = JAXBContext.newInstance(asignatura.class,obligatoria.class,optativa.class,pasantia.class,tesis.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
             XMLInputFactory factory = XMLInputFactory.newFactory();
-            InputStream is = getClass().getClassLoader().getResourceAsStream("data/asignaturas.xml");
+            InputStream is = new FileInputStream("src/data/asignaturas.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
 
             while (reader.hasNext()) {
