@@ -31,14 +31,13 @@ public class controladora {
         deserializaAsignatura();
     }
 
-    //hay que cambiar a private despues y hacer public un CargaXML
-    public void deserializaAlumnos() {
+    private void deserializaAlumnos() {
         int cont = 0;
         try {
             JAXBContext contexto = JAXBContext.newInstance(alumno.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
             XMLInputFactory factory = XMLInputFactory.newFactory();
-            InputStream is = getClass().getClassLoader().getResourceAsStream("data/alumnos.xml");
+            InputStream is = new FileInputStream("src/data/alumnos.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
             while (reader.hasNext()) {
                 if (reader.isStartElement() && reader.getLocalName().equals("alumno")) {
@@ -67,13 +66,13 @@ public class controladora {
             System.out.println("Error general al leer XML alumnos: " + e.getMessage());
         }
     }
-    public void deserializaClase() {
+    private void deserializaClase() {
         int cont = 0;
         try {
             JAXBContext contexto = JAXBContext.newInstance(clase.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
             XMLInputFactory factory = XMLInputFactory.newFactory();
-            InputStream is = getClass().getClassLoader().getResourceAsStream("data/clases.xml");
+            InputStream is = new FileInputStream("src/data/clases.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
 
             while (reader.hasNext()) {
@@ -103,13 +102,13 @@ public class controladora {
             System.out.println("Error general al leer XML clases: " + e.getMessage());
         }
     }
-    public void deserializaAsignatura() {
+    private void deserializaAsignatura() {
         int cont = 0;
         try {
             JAXBContext contexto = JAXBContext.newInstance(asignatura.class,obligatoria.class,optativa.class,pasantia.class,tesis.class); //crea el contexto para pasar xml a objeto
             Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
             XMLInputFactory factory = XMLInputFactory.newFactory();
-            InputStream is = getClass().getClassLoader().getResourceAsStream("data/asignaturas.xml");
+            InputStream is = new FileInputStream("src/data/asignaturas.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
 
             while (reader.hasNext()) {
@@ -127,7 +126,7 @@ public class controladora {
                         if (a.getCuatrimestre() > 10 || a.getCuatrimestre() <= 0) {
                             throw new Exception("Cuatrimestre invalido");
                         }
-                        if (a.getPromocionable() == '\0') {
+                        if (a.getPromocionable().isEmpty()) {
                             throw new Exception("Promocionable vacía");
                         }
                         universidad.InsertaAsignatura(a);
@@ -144,7 +143,7 @@ public class controladora {
             System.out.println("Error general al leer XML asignaturas: " + e.getMessage());
         }
     }
-    public void serealizaAlumnos(){
+    private void serealizaAlumnos(){
         int cont=0;
         TreeSet<alumno> listaAlumnos = universidad.getAlumnos();
         try {
@@ -172,7 +171,7 @@ public class controladora {
             e.printStackTrace();
         }
     }
-    public void serealizaClase(){
+    private void serealizaClase(){
         TreeSet<clase> listaClases = new TreeSet<>(universidad.getClases().values());
         int cont=0;
         try {
@@ -200,7 +199,7 @@ public class controladora {
             e.printStackTrace();
         }
     }
-    public void serealizaAsignatura(){
+    private void serealizaAsignatura(){
         HashMap<Integer,asignatura> listaAsign = new HashMap<>(universidad.getAsignaturas());
         try {
             JAXBContext contexto = JAXBContext.newInstance(asignatura.class,obligatoria.class,optativa.class,pasantia.class,tesis.class);
