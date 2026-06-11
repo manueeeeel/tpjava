@@ -20,14 +20,14 @@
     <fechanacimiento>20031111</fechanacimiento>
 </alumno>
     <alumno>
+    <matricula>123459</matricula>
+    <nombre>nverskv</nombre>
+    <fechanacimiento>20001010</fechanacimiento>
+</alumno>
+    <alumno>
     <matricula>222233</matricula>
     <nombre>Pedro Gomez</nombre>
     <fechanacimiento>20110101</fechanacimiento>
-</alumno>
-    <alumno>
-    <matricula>12345</matricula>
-    <nombre>Test</nombre>
-    <fechanacimiento>20030515</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>122334</matricula>

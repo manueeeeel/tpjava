@@ -32,6 +32,7 @@ public class universidad {
     }
     public void InsertaInscripcion(inscripcion ins){
         Inscripciones.add(ins);
+        System.out.println("Se ha inscripto al Alumno correctamente");
     }
     public void InsertaAlumno(alumno alum){
         Alumnos.add(alum);
@@ -46,10 +47,11 @@ public class universidad {
                 flag = true;
             i++;
         }
-        if(flag)
+        if(flag){
             act.RegistraAsistencia();
-        else
-            System.out.println("Alumno no inscripto en la materia");
+            System.out.println("Se ha registrado la asistencia correctamente");
+        }else
+            throw new RuntimeException("El alumno no está inscripto en esta materia.");
     }
     public void RegistrarClase(String codclase,int codasig){
         if(Clases.containsKey(codclase))
@@ -76,7 +78,7 @@ public class universidad {
     public ArrayList<alumno> ReporteLibresPorFaltas(){
         ArrayList<alumno> Reporte = new ArrayList<>(Inscripciones.size()/2);
         for(int i = 0; i < Inscripciones.size(); i++)
-            if(Inscripciones.get(i).ObtenerCondicion() == "Libre")
+            if(Inscripciones.get(i).ObtenerCondicion().equals("Libre"))
                 Reporte.add(Inscripciones.get(i).getAlumno());
         Reporte.trimToSize();
         return Reporte;
@@ -101,5 +103,8 @@ public class universidad {
         Reporte.trimToSize();
         Reporte.sort(Comparator.comparing(ranking::getPresentismo));
         return Reporte;
+    }
+    public ArrayList<inscripcion> getInscripciones() {
+        return Inscripciones;
     }
 }

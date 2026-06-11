@@ -1,10 +1,17 @@
 package Clases_utilizadas;
 import Clases_utilizadas.asignaturas.*;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "inscripcion")
+@XmlAccessorType(XmlAccessType.FIELD)
+
 public class inscripcion {
     private alumno Alumno;
     private asignatura Asignatura;
     private char tipoalum;
-    private int totclases,asistencias;
+    private int totclases, asistencias;
     public void IncrementaClases(){
         totclases++;
     }
@@ -29,10 +36,21 @@ public class inscripcion {
     public int getTotclases(){
         return totclases;
     }
+    //setters 
+    public void setAlumno(alumno alu) {
+        Alumno = alu;
+    }
+    public void setAsignatura(asignatura asig) {
+        Asignatura = asig;
+    }
+    public void setTipoalum(char tipo) {
+        tipoalum = tipo;
+    } 
+
     public void Muestra(){
         if(totclases > 0)
           System.out.println("Cantidad de clases: " + totclases
-                 + "\nPorcentaje de asistencias: " + asistencias/totclases*100
+                 + "\nPorcentaje de asistencias: " + ( (double)asistencias / totclases*100 )
                  + "\nModalidad: " + tipoalum +
                  "\nCondicion: " + ObtenerCondicion() + "\n");
         else

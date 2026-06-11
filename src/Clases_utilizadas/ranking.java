@@ -19,7 +19,7 @@ public class ranking {
     }
     public void CalculaPresentismo(){
         if(totclases!=0)
-            Presentismo = asistencias/totclases*100;
+            Presentismo = ( (double)asistencias / totclases * 100 );
         else
             Presentismo = 0;
     }
