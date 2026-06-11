@@ -16,13 +16,18 @@ public class MainFrame extends JFrame {
         ListadoAlumnosPanel listadoAlumnosPanel = new ListadoAlumnosPanel(c);
         ListadoClasesPanel listadoClasesPanel = new ListadoClasesPanel();
         ListadoAsignaturasPanel listadoAsignaturasPanel = new ListadoAsignaturasPanel();
-        CargarDatosPanel cargarDatosPanel = new CargarDatosPanel(c, listadoAlumnosPanel, listadoClasesPanel,
+        CargarDatosPanel cargarDatosPanel = new CargarDatosPanel(c, listadoAlumnosPanel, 
+            listadoClasesPanel,
             listadoAsignaturasPanel);
+        InscripcionesPanel inscripcionesPanel = new InscripcionesPanel(c);
+        AsistenciaPanel asistenciaPanel = new AsistenciaPanel(c);
         //Agregar las pestañas al contenedor
         panelPestañas.addTab("Cargar Datos", cargarDatosPanel);
         panelPestañas.addTab("Listado Alumnos", listadoAlumnosPanel);
         panelPestañas.addTab("Listado Clases", listadoClasesPanel);
         panelPestañas.addTab("Listado Asignaturas", listadoAsignaturasPanel);
+        panelPestañas.addTab("Inscripciones", inscripcionesPanel);
+        panelPestañas.addTab("Registrar Asistencia", asistenciaPanel);
         //Agregar el contenedor a la ventana principal
         add(panelPestañas);
     }

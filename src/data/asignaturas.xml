@@ -19,6 +19,12 @@
     </pasantia>
     <tesis>
         <codigo>4</codigo>
+        <cuatrimestre>2</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Pintura</nombre>
+    </tesis>
+    <tesis>
+        <codigo>5</codigo>
         <cuatrimestre>10</cuatrimestre>
         <promocionable>S</promocionable>
         <nombre>Tesis Final</nombre>

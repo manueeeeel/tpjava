@@ -8,6 +8,7 @@ import java.util.*;
 import Clases_utilizadas.alumno;
 import Clases_utilizadas.asignaturas.*;
 import Clases_utilizadas.clase;
+import Clases_utilizadas.inscripcion;
 import Clases_utilizadas.universidad;
 import jakarta.xml.bind.*;
 
@@ -222,6 +223,68 @@ public class controladora {
             System.out.println("------ Asignaturas serializadas: " + listaAsign.size() + " Asignaturas ------");
         } catch (Exception e) {
             System.out.println("Error al serializar viajes: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    public void deserializaInscripciones(){
+        int cont = 0;
+        try {
+            JAXBContext contexto = JAXBContext.newInstance(inscripcion.class, alumno.class, asignatura.class, obligatoria.class, optativa.class, pasantia.class, tesis.class);
+            Unmarshaller unmarshaller = contexto.createUnmarshaller();
+            XMLInputFactory factory = XMLInputFactory.newFactory();
+
+            File archivo = new File("src/data/inscripciones.xml");
+            if (!archivo.exists()) return; 
+
+            InputStream is = new FileInputStream(archivo);
+            XMLStreamReader reader = factory.createXMLStreamReader(is);
+            while(reader.hasNext()) {
+                if (reader.isStartElement() && reader.getLocalName().equals("inscripcion")) {
+                    try {
+                        inscripcion ins = (inscripcion) unmarshaller.unmarshal(reader);
+                        if (ins.getAlumno() == null) {
+                            throw new Exception("Alumno nulo");
+                        }
+                        if (ins.getAsignatura() == null) {
+                            throw new Exception("Asignatura nula");
+                        }
+                        universidad.InsertaInscripcion(ins);
+                        cont++;
+                    } catch (Exception e) {
+                        System.out.println("Inscripción inválida: " + e.getMessage());
+                    }
+                }
+                reader.next();
+            }
+            reader.close();
+            System.out.println("------ Carga completa, se cargaron: " + cont + " Inscripciones------");
+        }catch (Exception e) {
+            System.out.println("Error general al leer XML inscripciones: " + e.getMessage());
+        }
+    }
+
+    public void serealizaInscripciones(){
+        ArrayList<inscripcion> listaInscripciones = universidad.getInscripciones();
+        try {
+            JAXBContext contexto = JAXBContext.newInstance(inscripcion.class, alumno.class, asignatura.class, obligatoria.class, optativa.class, pasantia.class, tesis.class);
+            Marshaller marshaller = contexto.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            StringWriter sw = new StringWriter();
+            sw.write("<inscripciones>\n");
+            for (inscripcion i : listaInscripciones) {
+                StringWriter writer = new StringWriter();
+                marshaller.marshal(i, writer);
+                String xml = writer.toString();
+                String contenido = xml.substring(xml.indexOf("?>") + 2).trim();
+                sw.write("    " + contenido + "\n");
+            }
+            sw.write("</inscripciones>");
+            File archivo = new File("src/data/inscripciones.xml");
+            try (FileWriter fw = new FileWriter(archivo)) {
+                fw.write(sw.toString());
+            }
+        } catch (Exception e) {
+            System.out.println("Error al serializar inscripciones: " + e.getMessage());
             e.printStackTrace();
         }
     }
