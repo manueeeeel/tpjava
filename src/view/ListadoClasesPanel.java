@@ -13,7 +13,7 @@ public class ListadoClasesPanel extends JPanel {
     public ListadoClasesPanel() {
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        String[] columnas = {"Código", "Fecha", "Horario"};
+        String[] columnas = {"Materia", "Código", "Fecha", "Horario"};
         modeloTabla = new DefaultTableModel(columnas, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -32,6 +32,7 @@ public class ListadoClasesPanel extends JPanel {
         if (clases != null && !clases.isEmpty()) {
             for (clase c : clases.values()) {
                 Object[] fila = {
+                        c.getAsignatura(),
                         c.getCodigo(),
                         c.getFecha(),
                         c.getHorario()

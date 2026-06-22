@@ -93,9 +93,8 @@ public class ReportesPanel extends JPanel {
         if (reporte != null && !reporte.isEmpty()) {
             // Recorrer de atras hacia adelante para mostrar de mayor a menor presentismo
             for (int i = reporte.size() - 1; i >= 0; i--) { 
-                ranking r = reporte.get(i);
                 sb.append(String.format("Asignatura: %-25s | Presentismo: %.2f%%\n", 
-                        r.getAsignatura().getNombre(), r.getPresentismo()));
+                        reporte.get(i).getAsignatura().getNombre(), reporte.get(i).getPresentismo()));
             }
         } else {
             sb.append("No hay datos cargados en el sistema para calcular el presentismo.\n");
@@ -160,7 +159,7 @@ public class ReportesPanel extends JPanel {
             }
             sb.append("\nTotal de alumnos libres detectados: ").append(reporte.size()).append("\n");
         } else {
-            sb.append("Excelente: No se registran alumnos en condición de 'Libre' en el sistema.\n");
+            sb.append("No se registran alumnos en condición de 'Libre' en el sistema.\n");
         }
 
         mostrarYGuardar("Listado_Alumnos_Libres.txt", sb.toString());

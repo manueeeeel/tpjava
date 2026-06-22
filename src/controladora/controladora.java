@@ -83,6 +83,9 @@ public class controladora {
                         if (c.getCodigo().isEmpty()) {
                             throw new Exception("Codigo vacío");
                         }
+                        if (c.getAsignatura().isEmpty()){
+                            throw new Exception("Asignatura vacía");
+                        }
                         if (c.getFecha().isEmpty()) {
                             throw new Exception("Fecha vacía");
                         }
