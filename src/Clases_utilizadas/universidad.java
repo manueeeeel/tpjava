@@ -22,10 +22,13 @@ public class universidad {
 
     public TreeSet<alumno> getAlumnos() {return Alumnos;}
     public HashMap<Integer, asignatura> getAsignaturas() {return Asignaturas;}
-    public HashMap<String, clase> getClases() {return Clases;}
+    //public HashMap<String, clase> getClases() {return Clases;}
 
     public void InsertaClase(clase clas){
-        Clases.put(clas.getCodigo(),clas);
+        if(Asignaturas.containsKey(clas.getCodigoAsig()))
+            Asignaturas.get(clas.getCodigoAsig()).AgregarClase(clas);
+        else
+            System.out.println("Codigo de asignatura no corresponde a ninguna asignatura");
     }
     public void InsertaAsignatura(asignatura asig){
         Asignaturas.put(asig.getCodigo(),asig);
@@ -53,57 +56,14 @@ public class universidad {
         }else
             throw new RuntimeException("El alumno no está inscripto en esta materia.");
     }
-    public void RegistrarClase(String codclase,int codasig){
+    /*public void RegistrarClase(String codclase,int codasig){
         if(Clases.containsKey(codclase))
             for (int i = 0; i < Inscripciones.size(); i++)
                 if (Inscripciones.get(i).getAsignatura().getCodigo() == codasig)
                     Inscripciones.get(i).IncrementaClases();
         else
             System.out.println("Clase inexistente");
-    }
-    public ArrayList<inscripcion> ReporteAlumnosAsignatura(int codasig){
-        if(Asignaturas.containsKey(codasig)) {
-            ArrayList<inscripcion> Reporte = new ArrayList<>(Inscripciones.size()/2);
-            for (int i = 0; i < Inscripciones.size(); i++)
-                if (Inscripciones.get(i).getAsignatura().getCodigo() == codasig)
-                    Reporte.add(Inscripciones.get(i));
-            Reporte.trimToSize();
-            return Reporte;
-        }
-        else {
-            System.out.println("Asignatura inexistente\n");
-            return null;
-        }
-    }
-    public ArrayList<alumno> ReporteLibresPorFaltas(){
-        ArrayList<alumno> Reporte = new ArrayList<>(Inscripciones.size()/2);
-        for(int i = 0; i < Inscripciones.size(); i++)
-            if(Inscripciones.get(i).ObtenerCondicion().equals("Libre"))
-                Reporte.add(Inscripciones.get(i).getAlumno());
-        Reporte.trimToSize();
-        return Reporte;
-    }
-    public ArrayList<ranking> ReporteRankingPresentismo(){
-        HashMap<Integer,ranking> MapaReporte = new HashMap<>(Asignaturas.size());
-        for(var act : Asignaturas.values()){
-            ranking carga = new ranking();
-            carga.PoneAsignatura(act);
-            MapaReporte.put(act.getCodigo(),carga);
-        }
-        for(int i = 0; i < Inscripciones.size(); i++){
-            ranking aux = MapaReporte.get(Inscripciones.get(i).getAsignatura().getCodigo());
-            if(aux!=null) {
-                aux.PoneTotalClases(Inscripciones.get(i).getTotclases());
-                aux.SumaAsistencias(Inscripciones.get(i).getAsistencias());
-            }
-        }
-        ArrayList<ranking> Reporte = new ArrayList<>(MapaReporte.values());
-        for(int i = 0; i < Reporte.size(); i++)
-            Reporte.get(i).CalculaPresentismo();
-        Reporte.trimToSize();
-        Reporte.sort(Comparator.comparing(ranking::getPresentismo));
-        return Reporte;
-    }
+    }*/
     public ArrayList<inscripcion> getInscripciones() {
         return Inscripciones;
     }
