@@ -2,4 +2,8 @@
        LISTADO DE ALUMNOS LIBRES POR INCUMPLIMIENTO DE ASISTENCIA 
 ============================================================
 
-No se registran alumnos en condición de 'Libre' en el sistema.
+MATRÍCULA       | APELLIDO Y NOMBRE             
+------------------------------------------------------------
+123434          | Adof Hittler                  
+
+Total de alumnos libres detectados: 1

@@ -35,10 +35,15 @@ public class controladora {
         return reportes.ReporteRankingPresentismo(universidad.getAsignaturas(),universidad.getInscripciones());
     }
 
+    public HashMap<Integer, asignatura> getAsignaturas(){ 
+        return universidad.getAsignaturas(); 
+    }
+
     public void cargarDatosXML(){
         deserializaAlumnos();
         deserializaAsignatura();
         deserializaClase();
+        deserializaInscripciones();
     }
     private void deserializaAlumnos() {
         int cont = 0;

@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import Clases_utilizadas.universidad;
 import controladora.controladora;
 
+
 public class CargarDatosPanel extends JPanel {
     private JButton btnCargarDatos;
     private JTextArea textConsola;

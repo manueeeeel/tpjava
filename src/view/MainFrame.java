@@ -21,7 +21,7 @@ public class MainFrame extends JFrame {
             listadoAsignaturasPanel);
         
         AsistenciaPanel asistenciaPanel = new AsistenciaPanel(c);
-        ReportesPanel reportesPanel = new ReportesPanel();
+        ReportesPanel reportesPanel = new ReportesPanel(c);
         //Agregar las pestañas al contenedor
         panelPestañas.addTab("Cargar Datos", cargarDatosPanel);
         panelPestañas.addTab("Listado Alumnos", listadoAlumnosPanel);

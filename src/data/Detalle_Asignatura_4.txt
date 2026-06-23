@@ -2,17 +2,4 @@
  DETALLE DE ASISTENCIAS - ASIGNATURA: PINTURA
 ============================================================
 
-Alumno: Adof Hittler (Matrícula: 123434)
-  - Modalidad de Cursado: Libre
-  - Clases Dictadas:      0
-  - Clases Presente:      2
-  - Porcentaje Asistencia: 0.00%
-  - CONDICIÓN FINAL:       Libre
-------------------------------------------------------------
-Alumno: Adof Hittler (Matrícula: 123434)
-  - Modalidad de Cursado: Libre
-  - Clases Dictadas:      0
-  - Clases Presente:      0
-  - Porcentaje Asistencia: 0.00%
-  - CONDICIÓN FINAL:       Libre
-------------------------------------------------------------
+No se registran alumnos inscriptos en esta asignatura.

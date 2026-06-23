@@ -2,53 +2,50 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.TreeSet;
-
-import Clases_utilizadas.asignaturas.asignatura;
-import Clases_utilizadas.alumno;
-import Clases_utilizadas.universidad;
+import java.util.ArrayList;
 import controladora.controladora;
+import Clases_utilizadas.alumno;
+import Clases_utilizadas.asignaturas.asignatura;
+import Clases_utilizadas.clase;
+import Clases_utilizadas.universidad;
 
 public class AsistenciaPanel extends JPanel {
-    private JComboBox<String> comboAlumnos, comboAsignaturas;
-    private JButton btnRegistrarPresente;
-    private controladora c;
+    private JComboBox<String> comboAlumnos;
+    private JComboBox<String> comboClases; 
+    private JButton btnRegistrar;
+    private controladora controladora;
 
     public AsistenciaPanel(controladora c) {
-        this.c = c;
+        this.controladora = c;
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        JPanel panelFormulario = new JPanel();
-        panelFormulario.setLayout(new BoxLayout(panelFormulario, BoxLayout.Y_AXIS));
-        panelFormulario.setBorder(BorderFactory.createTitledBorder("Registrar Asistencia de Alumno"));
-
-        Dimension maxDim = new Dimension(Integer.MAX_VALUE, 30);
+        JPanel panelForm = new JPanel();
+        panelForm.setLayout(new BoxLayout(panelForm, BoxLayout.Y_AXIS));
         
-        // ComboBox Alumnos
-        panelFormulario.add(new JLabel("Seleccionar Alumno:"));
+        //selección de Alumno
+        panelForm.add(new JLabel("Seleccionar Alumno:"));
         comboAlumnos = new JComboBox<>();
-        comboAlumnos.setMaximumSize(maxDim);
-        panelFormulario.add(comboAlumnos);
-        panelFormulario.add(Box.createVerticalStrut(15));
+        comboAlumnos.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
+        panelForm.add(comboAlumnos);
+        panelForm.add(Box.createVerticalStrut(20));
 
-        // ComboBox Asignaturas
-        panelFormulario.add(new JLabel("Seleccionar Asignatura de la Clase:"));
-        comboAsignaturas = new JComboBox<>();
-        comboAsignaturas.setMaximumSize(maxDim);
-        panelFormulario.add(comboAsignaturas);
-        panelFormulario.add(Box.createVerticalStrut(25));
+        //selección de Clase 
+        panelForm.add(new JLabel("Seleccionar Clase a dictar presente:"));
+        comboClases = new JComboBox<>();
+        comboClases.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
+        panelForm.add(comboClases);
 
-        btnRegistrarPresente = new JButton("Registrar Presente");
-        
+        add(panelForm, BorderLayout.CENTER);
+
+        btnRegistrar = new JButton("Registrar Presente");
         JPanel panelBoton = new JPanel();
-        panelBoton.add(btnRegistrarPresente);
-
-        add(panelFormulario, BorderLayout.CENTER);
+        panelBoton.add(btnRegistrar);
         add(panelBoton, BorderLayout.SOUTH);
 
-        btnRegistrarPresente.addActionListener(e -> guardarAsistencia());
+        btnRegistrar.addActionListener(e -> registrarPresente());
 
+        //evento para actualizar los combos al mostrar la pestaña
         this.addComponentListener(new java.awt.event.ComponentAdapter() {
             @Override
             public void componentShown(java.awt.event.ComponentEvent e) {
@@ -58,43 +55,50 @@ public class AsistenciaPanel extends JPanel {
     }
 
     private void cargarCombos() {
+        //recargar alumnos
         comboAlumnos.removeAllItems();
-        comboAsignaturas.removeAllItems();
-
-        TreeSet<alumno> alumnos = universidad.getInstancia().getAlumnos();
-        if (alumnos != null) {
-            for (alumno a : alumnos) {
-                comboAlumnos.addItem(a.getMatricula() + " - " + a.getNombre());
-            }
+        for (alumno a : universidad.getInstancia().getAlumnos()) {
+            comboAlumnos.addItem(a.getMatricula() + " - " + a.getNombre());
         }
 
+        //recargar clases 
+        comboClases.removeAllItems();
         for (asignatura asig : universidad.getInstancia().getAsignaturas().values()) {
-            comboAsignaturas.addItem(asig.getCodigo() + " - " + asig.getNombre());
+            if (asig.getListadoClases() != null) {
+                for (clase c : asig.getListadoClases()) {
+                    //formato amigable para el usuario
+                    comboClases.addItem(c.getCodigo() + " | Mat: " + asig.getCodigo() + " - " + asig.getNombre() + " (" + c.getFecha() + ")");
+                }
+            }
         }
     }
 
-    private void guardarAsistencia() {
-        if (comboAlumnos.getSelectedItem() == null || comboAsignaturas.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(this, "Debe seleccionar un alumno y una asignatura.", "Error", JOptionPane.ERROR_MESSAGE);
+    private void registrarPresente() {
+        if (comboAlumnos.getSelectedItem() == null || comboClases.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un alumno y una clase.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         try {
-            // Extraer ID del Alumno
-            String alumnoSeleccionado = (String) comboAlumnos.getSelectedItem();
-            int matricula = Integer.parseInt(alumnoSeleccionado.split(" - ")[0]);
+            //extraemos matrícula del alumno seleccionado
+            String alumnoStr = (String) comboAlumnos.getSelectedItem();
+            int matricula = Integer.parseInt(alumnoStr.split(" - ")[0]);
 
-            // Extraer ID de la Asignatura
-            String asignaturaSeleccionada = (String) comboAsignaturas.getSelectedItem();
-            int codigoAsignatura = Integer.parseInt(asignaturaSeleccionada.split(" - ")[0]);
+            //extraer código de asignatura de la clase seleccionada 
+            String claseStr = (String) comboClases.getSelectedItem();
+            String parteMat = claseStr.split(" \\| Mat: ")[1]; 
+            int codAsignatura = Integer.parseInt(parteMat.split(" - ")[0]);
 
-            universidad.getInstancia().RegistraAsistencia(matricula, codigoAsignatura);
-      
-            this.c.serealizaInscripciones();
+            //invocamos al backend del Singleton para registrar la asistencia
+            universidad.getInstancia().RegistraAsistencia(matricula, codAsignatura);
+
+            //guardamos automáticamente los cambios en el XML de inscripciones
+            controladora.serealizaInscripciones();
+
             JOptionPane.showMessageDialog(this, "Se ha registrado la asistencia correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-
+            
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Error al registrar la asistencia: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error al registrar asistencia: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
