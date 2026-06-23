@@ -36,9 +36,8 @@ public class reportes {
             MapaReporte.put(act.getCodigo(),carga);
         }
         for(int i = 0; i < Inscripciones.size(); i++){
-            ranking aux = MapaReporte.get(Inscripciones.get(i).getAsignatura().getCodigo());
-            if(aux!=null)
-                aux.SumaAsistencias(Inscripciones.get(i).getAsistencias());
+            if(MapaReporte.containsKey(Inscripciones.get(i).getAsignatura().getCodigo()))
+                MapaReporte.get(Inscripciones.get(i).getAsignatura().getCodigo()).SumaAsistencias(Inscripciones.get(i).getAsistencias());
         }
         ArrayList<ranking> Reporte = new ArrayList<>(MapaReporte.values());
         for(int i = 0; i < Reporte.size(); i++)
