@@ -26,6 +26,10 @@ public class controladora {
         universidad = universidad.getInstancia();
     }
 
+
+    public HashMap<Integer, asignatura> getAsignaturas(){ return universidad.getAsignaturas();}
+    public ArrayList<inscripcion> getInscripciones(){ return universidad.getInscripciones();}
+
     public void cargarDatosXML(){
         deserializaAlumnos();
         deserializaClase();
