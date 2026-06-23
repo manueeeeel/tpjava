@@ -39,7 +39,12 @@ public class controladora {
         deserializaAlumnos();
         deserializaClase();
         deserializaAsignatura();
+        deserializaInscripciones();
     }
+    public void guardarDatosXML(){
+        serializaInscripciones();
+    }
+
     private void deserializaAlumnos() {
         int cont = 0;
         try {
@@ -75,7 +80,7 @@ public class controladora {
             System.out.println("Error general al leer XML alumnos: " + e.getMessage());
         }
     }
-    public void deserializaClase() {
+    private void deserializaClase() {
         int cont = 0;
         try {
             JAXBContext contexto = JAXBContext.newInstance(clase.class); //crea el contexto para pasar xml a objeto
@@ -114,7 +119,7 @@ public class controladora {
             System.out.println("Error general al leer XML clases: " + e.getMessage());
         }
     }
-    public void deserializaAsignatura() {
+    private void deserializaAsignatura() {
         int cont = 0;
         try {
             JAXBContext contexto = JAXBContext.newInstance(asignatura.class,obligatoria.class,optativa.class,pasantia.class,tesis.class); //crea el contexto para pasar xml a objeto
@@ -155,7 +160,7 @@ public class controladora {
             System.out.println("Error general al leer XML asignaturas: " + e.getMessage());
         }
     }
-    public void deserializaInscripciones(){
+    private void deserializaInscripciones(){
         int cont = 0;
         try {
             JAXBContext contexto = JAXBContext.newInstance(inscripcion.class, alumno.class, asignatura.class, obligatoria.class, optativa.class, pasantia.class, tesis.class);
@@ -191,7 +196,7 @@ public class controladora {
             System.out.println("Error general al leer XML inscripciones: " + e.getMessage());
         }
     }
-    public void serealizaInscripciones(){
+    private void serializaInscripciones(){
         ArrayList<inscripcion> listaInscripciones = universidad.getInscripciones();
         try {
             JAXBContext contexto = JAXBContext.newInstance(inscripcion.class, alumno.class, asignatura.class, obligatoria.class, optativa.class, pasantia.class, tesis.class);
