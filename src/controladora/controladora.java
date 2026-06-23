@@ -44,6 +44,9 @@ public class controladora {
     public void guardarDatosXML(){
         serializaInscripciones();
     }
+    public void RegistraAsistencia(int matricula,int codmateria){
+        universidad.RegistraAsistencia(matricula, codmateria);
+    }
 
     private void deserializaAlumnos() {
         int cont = 0;
