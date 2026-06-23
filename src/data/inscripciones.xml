@@ -13,6 +13,22 @@
     </Asignatura>
     <tipoalum>76</tipoalum>
     <totclases>0</totclases>
-    <asistencias>1</asistencias>
+    <asistencias>2</asistencias>
+</inscripcion>
+    <inscripcion>
+    <Alumno>
+        <matricula>123434</matricula>
+        <nombre>Adof Hittler</nombre>
+        <fechanacimiento>18890420</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="tesis" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>4</codigo>
+        <cuatrimestre>2</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Pintura</nombre>
+    </Asignatura>
+    <tipoalum>76</tipoalum>
+    <totclases>0</totclases>
+    <asistencias>0</asistencias>
 </inscripcion>
 </inscripciones>

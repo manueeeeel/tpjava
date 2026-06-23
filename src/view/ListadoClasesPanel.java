@@ -1,8 +1,9 @@
 package view;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.HashMap;
+import Clases_utilizadas.asignaturas.asignatura;
 import Clases_utilizadas.clase;
 import Clases_utilizadas.universidad;
 
@@ -27,25 +28,24 @@ public class ListadoClasesPanel extends JPanel {
 
     public void cargarDatosClases() {
         modeloTabla.setRowCount(0);
-        HashMap<String, clase> clases =
-                universidad.getInstancia().getClases();
-        if (clases != null && !clases.isEmpty()) {
-            for (clase c : clases.values()) {
-                Object[] fila = {
-                        c.getAsignatura(),
-                        c.getCodigo(),
-                        c.getFecha(),
-                        c.getHorario()
-                };
-                modeloTabla.addRow(fila);
+        
+        //recorremos todas las asignaturas para extraer las clases que tienen adentro
+        for (asignatura asig : universidad.getInstancia().getAsignaturas().values()) {
+            if (asig.getListadoClases() != null) {
+                for (clase c : asig.getListadoClases()) {
+                    Object[] fila = {
+                            asig.getNombre(), //sacamos el nombre directamente de la asignatura padre
+                            c.getCodigo(),
+                            c.getFecha(),
+                            c.getHorario()
+                    };
+                    modeloTabla.addRow(fila);
+                }
             }
-        } else {
-            JOptionPane.showMessageDialog(
-                    this,
-                    "No hay clases registradas.",
-                    "Información",
-                    JOptionPane.INFORMATION_MESSAGE
-            );
+        }
+        
+        if (modeloTabla.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(this, "No hay clases registradas.", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

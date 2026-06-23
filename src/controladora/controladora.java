@@ -32,8 +32,8 @@ public class controladora {
 
     public void cargarDatosXML(){
         deserializaAlumnos();
-        deserializaClase();
         deserializaAsignatura();
+        deserializaClase();
     }
 
     private void deserializaAlumnos() {
@@ -74,8 +74,8 @@ public class controladora {
     public void deserializaClase() {
         int cont = 0;
         try {
-            JAXBContext contexto = JAXBContext.newInstance(clase.class); //crea el contexto para pasar xml a objeto
-            Unmarshaller unmarshaller = contexto.createUnmarshaller(); //se prepara para DECODIFICAR
+            JAXBContext contexto = JAXBContext.newInstance(clase.class); 
+            Unmarshaller unmarshaller = contexto.createUnmarshaller(); 
             XMLInputFactory factory = XMLInputFactory.newFactory();
             InputStream is = new FileInputStream("src/data/clases.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
@@ -84,28 +84,30 @@ public class controladora {
                 if (reader.isStartElement() && reader.getLocalName().equals("clase")) {
                     try {
                         clase c = (clase) unmarshaller.unmarshal(reader);
-                        if (c.getCodigo().isEmpty()) {
-                            throw new Exception("Codigo vacío");
+                        System.out.println("[DEBUG] Leyendo clase: " + c.getCodigo() + " - CodAsig XML: " + c.getCodigoAsig());
+                        if (c.getCodigo() == null || c.getCodigo().trim().isEmpty()) {
+                            throw new Exception("Código de clase vacío o nulo");
                         }
-                        if (c.getCodigoAsig() == 0){
-                            throw new Exception("Asignatura vacía");
+                        if (c.getCodigoAsig() <= 0) {
+                            throw new Exception("Código de asignatura inválido (debe ser mayor a 0)");
                         }
-                        if (c.getFecha().isEmpty()) {
-                            throw new Exception("Fecha vacía");
+                        if (c.getFecha() == null || c.getFecha().trim().isEmpty()) {
+                            throw new Exception("Fecha vacía o nula");
                         }
-                        if (c.getHorario().isEmpty()) {
-                            throw new Exception("Horario vacío");
+                        if (c.getHorario() == null || c.getHorario().trim().isEmpty()) {
+                            throw new Exception("Horario vacío o nulo");
                         }
-                        universidad.InsertaClase(c);
+                        
+                        Clases_utilizadas.universidad.getInstancia().InsertaClase(c);
                         cont++;
                     } catch (Exception e) {
-                        System.out.println("Clase inválida: " + e.getMessage());
+                        System.out.println("Clase ignorada - Motivo: " + e.getMessage());
                     }
                 }
                 reader.next();
             }
             reader.close();
-            System.out.println("------ Carga completa, se cargaron: " + cont + " Clases------");
+            System.out.println("------ Carga completa, se cargaron: " + cont + " Clases ------");
         } catch (Exception e) {
             System.out.println("Error general al leer XML clases: " + e.getMessage());
         }

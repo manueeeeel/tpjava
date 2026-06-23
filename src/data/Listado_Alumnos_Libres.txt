@@ -2,4 +2,4 @@
        LISTADO DE ALUMNOS LIBRES POR INCUMPLIMIENTO DE ASISTENCIA 
 ============================================================
 
-Excelente: No se registran alumnos en condición de 'Libre' en el sistema.
+No se registran alumnos en condición de 'Libre' en el sistema.
