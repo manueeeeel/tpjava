@@ -93,7 +93,7 @@ public class AsistenciaPanel extends JPanel {
             universidad.getInstancia().RegistraAsistencia(matricula, codAsignatura);
 
             //guardamos automáticamente los cambios en el XML de inscripciones
-            controladora.serealizaInscripciones();
+            controladora.guardarDatosXML();
 
             JOptionPane.showMessageDialog(this, "Se ha registrado la asistencia correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             

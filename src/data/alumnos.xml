@@ -2,36 +2,36 @@
     <alumno>
     <matricula>123434</matricula>
     <nombre>Adof Hittler</nombre>
-    <fechanacimiento>18890420</fechanacimiento>
+    <fechanacimiento>1889/04/20</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>222222</matricula>
     <nombre>Domingo Perón</nombre>
-    <fechanacimiento>19401121</fechanacimiento>
+    <fechanacimiento>1940/11/21</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>223444</matricula>
     <nombre>Juan Martín</nombre>
-    <fechanacimiento>20021211</fechanacimiento>
+    <fechanacimiento>2002/12/11</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>123455</matricula>
     <nombre>Max Casal</nombre>
-    <fechanacimiento>20031111</fechanacimiento>
+    <fechanacimiento>2003/11/11</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>123459</matricula>
     <nombre>nverskv</nombre>
-    <fechanacimiento>20001010</fechanacimiento>
+    <fechanacimiento>2000/10/10</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>222233</matricula>
     <nombre>Pedro Gomez</nombre>
-    <fechanacimiento>20110101</fechanacimiento>
+    <fechanacimiento>2011/01/01</fechanacimiento>
 </alumno>
     <alumno>
     <matricula>122334</matricula>
     <nombre>valen</nombre>
-    <fechanacimiento>20011121</fechanacimiento>
+    <fechanacimiento>2001/11/21</fechanacimiento>
 </alumno>
 </alumnos>

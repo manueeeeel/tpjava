@@ -108,7 +108,7 @@ public class InscripcionesPanel extends JPanel{
 
             universidad.getInstancia().InsertaInscripcion(ins);
 
-            this.c.serealizaInscripciones();
+            this.c.guardarDatosXML();
             JOptionPane.showMessageDialog(this, "Se ha inscripto al Alumno correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
            
 
