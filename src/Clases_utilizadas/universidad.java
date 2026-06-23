@@ -8,7 +8,6 @@ public class universidad {
             (Comparator.comparing(alumno::getNombre, String.CASE_INSENSITIVE_ORDER)
             .thenComparing(alumno::getMatricula));
     private HashMap<Integer, asignatura> Asignaturas = new HashMap<>();
-    private HashMap<String, clase> Clases = new HashMap<>();
     private ArrayList<inscripcion> Inscripciones = new ArrayList<>();
 
     /**crea la agencia */
