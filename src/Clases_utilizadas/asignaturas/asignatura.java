@@ -15,7 +15,7 @@ import java.util.ArrayList;
 abstract public class asignatura{
     private int codigo,cuatrimestre;
     private String promocionable,nombre;
-    private ArrayList<clase> Clases;
+    private ArrayList<clase> Clases = new ArrayList<>();
 
     public void setCodigo(int cod){
         codigo = cod;

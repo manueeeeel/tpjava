@@ -10,18 +10,19 @@ import Clases_utilizadas.alumno;
 import Clases_utilizadas.asignaturas.asignatura;
 import Clases_utilizadas.inscripcion;
 import Clases_utilizadas.ranking;
-import Clases_utilizadas.universidad;
+import controladora.controladora;
 
 public class ReportesPanel extends JPanel {
     private JTextArea areaReporte;
     private JComboBox<String> comboAsignaturas;
     private JButton btnRanking, btnDetalleAsignatura, btnLibres;
+    private controladora controladora; 
 
-    public ReportesPanel() {
+    public ReportesPanel(controladora c) { //recibimos la controladora por parámetro
+        this.controladora = c;
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        //Panel izquierdo
         JPanel panelControles = new JPanel();
         panelControles.setLayout(new BoxLayout(panelControles, BoxLayout.Y_AXIS));
         panelControles.setBorder(BorderFactory.createTitledBorder("Generar Reportes"));
@@ -29,13 +30,11 @@ public class ReportesPanel extends JPanel {
 
         Dimension maxDim = new Dimension(Integer.MAX_VALUE, 30);
 
-        //Reporte de Ranking de Presentismo
         btnRanking = new JButton("Ranking de Presentismo");
         btnRanking.setMaximumSize(maxDim);
         panelControles.add(btnRanking);
         panelControles.add(Box.createVerticalStrut(20));
 
-        // Reporte Detalle de Asignatura
         panelControles.add(new JLabel("Seleccionar Asignatura:"));
         comboAsignaturas = new JComboBox<>();
         comboAsignaturas.setMaximumSize(maxDim);
@@ -47,15 +46,12 @@ public class ReportesPanel extends JPanel {
         panelControles.add(btnDetalleAsignatura);
         panelControles.add(Box.createVerticalStrut(20));
 
-        //Reporte de Alumnos Libres
         btnLibres = new JButton("Alumnos Libres");
         btnLibres.setMaximumSize(maxDim);
         panelControles.add(btnLibres);
 
-        //Panel de visualizacion
         areaReporte = new JTextArea();
         areaReporte.setEditable(false);
-        // Fuente monoespaciada para que las columnas del String.format queden alineadas
         areaReporte.setFont(new Font("Monospaced", Font.PLAIN, 13)); 
         JScrollPane scrollPane = new JScrollPane(areaReporte);
         scrollPane.setBorder(BorderFactory.createTitledBorder("Visualización del Reporte"));
@@ -69,21 +65,21 @@ public class ReportesPanel extends JPanel {
 
         this.addComponentListener(new java.awt.event.ComponentAdapter() {
             @Override
-            public void componentShown(java.awt.event.ComponentEvent e) {
-                cargarComboAsignaturas();
-            }
+            public void componentShown(java.awt.event.ComponentEvent e) { cargarComboAsignaturas(); }
         });
     }
 
     private void cargarComboAsignaturas() {
         comboAsignaturas.removeAllItems();
-        for (asignatura asig : universidad.getInstancia().getAsignaturas().values()) {
+        // usamos la controladora para obtener las asignaturas
+        for (asignatura asig : controladora.getAsignaturas().values()) {
             comboAsignaturas.addItem(asig.getCodigo() + " - " + asig.getNombre());
         }
     }
 
     private void generarRanking() {
-        ArrayList<ranking> reporte = universidad.getInstancia().ReporteRankingPresentismo();
+        // llamamos al reporte desde la controladora
+        ArrayList<ranking> reporte = controladora.getReporteRankingPresentismo();
         StringBuilder sb = new StringBuilder();
         
         sb.append("============================================================\n");
@@ -91,7 +87,6 @@ public class ReportesPanel extends JPanel {
         sb.append("============================================================\n\n");
         
         if (reporte != null && !reporte.isEmpty()) {
-            // Recorrer de atras hacia adelante para mostrar de mayor a menor presentismo
             for (int i = reporte.size() - 1; i >= 0; i--) { 
                 sb.append(String.format("Asignatura: %-25s | Presentismo: %.2f%%\n", 
                         reporte.get(i).getAsignatura().getNombre(), reporte.get(i).getPresentismo()));
@@ -113,7 +108,8 @@ public class ReportesPanel extends JPanel {
         int codAsig = Integer.parseInt(asigSeleccionada.split(" - ")[0]);
         String nombreAsig = asigSeleccionada.split(" - ")[1];
 
-        ArrayList<inscripcion> reporte = universidad.getInstancia().ReporteAlumnosAsignatura(codAsig);
+        // llamamos al detalle desde la controladora
+        ArrayList<inscripcion> reporte = controladora.getReporteAlumnosAsignatura(codAsig);
         StringBuilder sb = new StringBuilder();
 
         sb.append("============================================================\n");
@@ -122,15 +118,17 @@ public class ReportesPanel extends JPanel {
         
         if (reporte != null && !reporte.isEmpty()) {
             for (inscripcion ins : reporte) {
+                int totalClases = ins.getAsignatura().getListadoClases().size();
                 double porcentaje = 0;
-                if (ins.getTotclases() > 0) {
-                    porcentaje = ((double) ins.getAsistencias() / ins.getTotclases()) * 100;
+                
+                if (totalClases > 0) {
+                    porcentaje = ((double) ins.getAsistencias() / totalClases) * 100;
                 }
 
                 sb.append("Alumno: ").append(ins.getAlumno().getNombre())
                   .append(" (Matrícula: ").append(ins.getAlumno().getMatricula()).append(")\n")
                   .append(String.format("  - Modalidad de Cursado: %s\n", ins.getTipoalum() == 'R' ? "Regular" : "Libre"))
-                  .append("  - Clases Dictadas:      ").append(ins.getTotclases()).append("\n")
+                  .append("  - Clases Dictadas:      ").append(totalClases).append("\n")
                   .append("  - Clases Presente:      ").append(ins.getAsistencias()).append("\n")
                   .append(String.format("  - Porcentaje Asistencia: %.2f%%\n", porcentaje))
                   .append("  - CONDICIÓN FINAL:       ").append(ins.ObtenerCondicion()).append("\n")
@@ -144,7 +142,8 @@ public class ReportesPanel extends JPanel {
     }
 
     private void generarLibres() {
-        ArrayList<alumno> reporte = universidad.getInstancia().ReporteLibresPorFaltas();
+        //llamamos al reporte de libres desde la controladora
+        ArrayList<alumno> reporte = controladora.getReporteLibresPorFaltas();
         StringBuilder sb = new StringBuilder();
 
         sb.append("============================================================\n");
@@ -166,20 +165,15 @@ public class ReportesPanel extends JPanel {
     }
 
     private void mostrarYGuardar(String nombreArchivo, String contenido) {
-        //  renderizar el texto
         areaReporte.setText(contenido);
-        areaReporte.setCaretPosition(0); // Forzar a que el scroll vuelva arriba de todo
+        areaReporte.setCaretPosition(0);
 
         try {
             File carpetaData = new File("src/data");
-            if (!carpetaData.exists()) {
-                carpetaData.mkdirs(); // Asegura la existencia del directorio base
-            }
+            if (!carpetaData.exists()) { carpetaData.mkdirs(); }
             
             File archivoTXT = new File(carpetaData, nombreArchivo);
-            try (FileWriter fw = new FileWriter(archivoTXT)) {
-                fw.write(contenido);
-            }
+            try (FileWriter fw = new FileWriter(archivoTXT)) { fw.write(contenido); }
             
             JOptionPane.showMessageDialog(this, 
                 "Reporte generado exitosamente.\nArchivo guardado en: src/data/" + nombreArchivo, 
