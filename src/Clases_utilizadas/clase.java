@@ -6,6 +6,8 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "clase")
 public class clase{
     private String codigo,fecha,horario;
+    private int codasig;
+
     public void setCodigo(String cod){
         codigo = cod;
     }
@@ -17,6 +19,9 @@ public class clase{
     }
     public String getCodigo(){
         return codigo;
+    }
+    public int getCodigoAsig(){
+        return codasig;
     }
     public String getFecha(){return fecha;}
     public String getHorario(){return horario;}

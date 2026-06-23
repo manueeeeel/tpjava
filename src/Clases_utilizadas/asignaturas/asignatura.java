@@ -1,9 +1,12 @@
 package Clases_utilizadas.asignaturas;
 
+import Clases_utilizadas.*;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+
+import java.util.ArrayList;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -12,6 +15,8 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 abstract public class asignatura{
     private int codigo,cuatrimestre;
     private String promocionable,nombre;
+    private ArrayList<clase> Clases;
+
     public void setCodigo(int cod){
         codigo = cod;
     }
@@ -34,6 +39,12 @@ abstract public class asignatura{
     }
     public int getCuatrimestre(){
         return cuatrimestre;
+    }
+    public ArrayList<clase> getListadoClases(){
+        return Clases;
+    }
+    public void AgregarClase(clase clas){
+        Clases.add(clas);
     }
 }
 

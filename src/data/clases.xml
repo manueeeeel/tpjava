@@ -1,31 +1,36 @@
 <clases>
     <clase>
+        <asignatura>kversknvkwdsz</asignatura>
         <codigo>123434</codigo>
-        <fecha>20230101</fecha>
+        <fecha>2023/01/01</fecha>
         <horario>09:00-11:00</horario>
     </clase>
 
     <clase>
+        <asignatura>kversknvkwdsz</asignatura>
         <codigo>223455</codigo>
-        <fecha>20230315</fecha>
+        <fecha>2023/03/15</fecha>
         <horario>14:00-16:00</horario>
     </clase>
 
     <clase>
+        <asignatura>kversknvkwdsz</asignatura>
         <codigo>334566</codigo>
-        <fecha>20230420</fecha>
+        <fecha>2023/04/20</fecha>
         <horario>08:00-10:00</horario>
     </clase>
 
     <clase>
+        <asignatura>kversknvkwdsz</asignatura>
         <codigo>445677</codigo>
-        <fecha>20230510</fecha>
+        <fecha>2023/05/10</fecha>
         <horario>18:00-20:00</horario>
     </clase>
 
     <clase>
+        <asignatura>kversknvkwdsz</asignatura>
         <codigo>556788</codigo>
-        <fecha>20230605</fecha>
+        <fecha>2023/06/05</fecha>
         <horario>16:00-18:00</horario>
     </clase>
 </clases>

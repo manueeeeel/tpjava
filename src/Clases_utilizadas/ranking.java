@@ -4,20 +4,18 @@ import java.util.ArrayList;
 public class ranking {
     private asignatura Asignatura;
     private double Presentismo;
-    private int totclases,asistencias;
+    private int asistencias;
     public ranking(){
         asistencias = 0;
     }
     public void PoneAsignatura(asignatura asig){
         Asignatura = asig;
     }
-    public void PoneTotalClases(int x){
-        totclases = x;
-    }
     public void SumaAsistencias(int x){
         asistencias += x;
     }
     public void CalculaPresentismo(){
+        int totclases = Asignatura.getListadoClases().size();
         if(totclases!=0)
             Presentismo = ( (double)asistencias / totclases * 100 );
         else
@@ -28,9 +26,5 @@ public class ranking {
     }
     public asignatura getAsignatura(){
         return Asignatura;
-    }
-    public void Muestra(){
-        System.out.println("Asignatura: " + Asignatura.getNombre()
-                + "\nPresentismo: " + Presentismo + "\n");
     }
 }

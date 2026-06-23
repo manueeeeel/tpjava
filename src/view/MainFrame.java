@@ -21,6 +21,7 @@ public class MainFrame extends JFrame {
             listadoAsignaturasPanel);
         InscripcionesPanel inscripcionesPanel = new InscripcionesPanel(c);
         AsistenciaPanel asistenciaPanel = new AsistenciaPanel(c);
+        ReportesPanel reportesPanel = new ReportesPanel();
         //Agregar las pestañas al contenedor
         panelPestañas.addTab("Cargar Datos", cargarDatosPanel);
         panelPestañas.addTab("Listado Alumnos", listadoAlumnosPanel);
@@ -28,6 +29,8 @@ public class MainFrame extends JFrame {
         panelPestañas.addTab("Listado Asignaturas", listadoAsignaturasPanel);
         panelPestañas.addTab("Inscripciones", inscripcionesPanel);
         panelPestañas.addTab("Registrar Asistencia", asistenciaPanel);
+        panelPestañas.addTab("Reportes", reportesPanel);
+        
         //Agregar el contenedor a la ventana principal
         add(panelPestañas);
     }

@@ -26,6 +26,10 @@ public class controladora {
         universidad = universidad.getInstancia();
     }
 
+
+    public HashMap<Integer, asignatura> getAsignaturas(){ return universidad.getAsignaturas();}
+    public ArrayList<inscripcion> getInscripciones(){ return universidad.getInscripciones();}
+
     public void cargarDatosXML(){
         deserializaAlumnos();
         deserializaClase();
@@ -82,6 +86,9 @@ public class controladora {
                         clase c = (clase) unmarshaller.unmarshal(reader);
                         if (c.getCodigo().isEmpty()) {
                             throw new Exception("Codigo vacío");
+                        }
+                        if (c.getCodigoAsig() == 0){
+                            throw new Exception("Asignatura vacía");
                         }
                         if (c.getFecha().isEmpty()) {
                             throw new Exception("Fecha vacía");
@@ -167,60 +174,6 @@ public class controladora {
                 fw.write(sw.toString());
             }
             System.out.println("------ Alumnos serializados: " + cont + " Alumnos ------");
-        } catch (Exception e) {
-            System.out.println("Error al serializar viajes: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-    public void serealizaClase(){
-        TreeSet<clase> listaClases = new TreeSet<>(universidad.getClases().values());
-        int cont=0;
-        try {
-            JAXBContext contexto = JAXBContext.newInstance(clase.class);
-            Marshaller marshaller = contexto.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            StringWriter sw = new StringWriter();
-            sw.write("<clases>\n");
-            for (clase c : listaClases) {
-                StringWriter writer = new StringWriter();
-                marshaller.marshal(c, writer);
-                String xml = writer.toString();
-                String contenido = xml.substring(xml.indexOf("?>") + 2).trim();
-                sw.write("    " + contenido + "\n");
-                cont++;
-            }
-            sw.write("</clases>");
-            File archivo = new File("src/data/clases.xml");
-            try (FileWriter fw = new FileWriter(archivo)) {
-                fw.write(sw.toString());
-            }
-            System.out.println("------ Clases serializadas: " + cont + " Clases ------");
-        } catch (Exception e) {
-            System.out.println("Error al serializar viajes: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-    public void serealizaAsignatura(){
-        HashMap<Integer,asignatura> listaAsign = new HashMap<>(universidad.getAsignaturas());
-        try {
-            JAXBContext contexto = JAXBContext.newInstance(asignatura.class,obligatoria.class,optativa.class,pasantia.class,tesis.class);
-            Marshaller marshaller = contexto.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            StringWriter sw = new StringWriter();
-            sw.write("<asignaturas>\n");
-            for (asignatura a : listaAsign.values()) {
-                StringWriter writer = new StringWriter();
-                marshaller.marshal(a, writer);
-                String xml = writer.toString();
-                String contenido = xml.substring(xml.indexOf("?>") + 2).trim();
-                sw.write("    " + contenido + "\n");
-            }
-            sw.write("</asignaturas>");
-            File archivo = new File("src/data/asignaturas.xml");
-            try (FileWriter fw = new FileWriter(archivo)) {
-                fw.write(sw.toString());
-            }
-            System.out.println("------ Asignaturas serializadas: " + listaAsign.size() + " Asignaturas ------");
         } catch (Exception e) {
             System.out.println("Error al serializar viajes: " + e.getMessage());
             e.printStackTrace();
