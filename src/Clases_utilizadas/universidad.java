@@ -22,7 +22,6 @@ public class universidad {
 
     public TreeSet<alumno> getAlumnos() {return Alumnos;}
     public HashMap<Integer, asignatura> getAsignaturas() {return Asignaturas;}
-    //public HashMap<String, clase> getClases() {return Clases;}
 
     public void InsertaClase(clase clas){
         if(Asignaturas.containsKey(clas.getCodigoAsig()))
@@ -56,14 +55,6 @@ public class universidad {
         }else
             throw new RuntimeException("El alumno no está inscripto en esta materia.");
     }
-    /*public void RegistrarClase(String codclase,int codasig){
-        if(Clases.containsKey(codclase))
-            for (int i = 0; i < Inscripciones.size(); i++)
-                if (Inscripciones.get(i).getAsignatura().getCodigo() == codasig)
-                    Inscripciones.get(i).IncrementaClases();
-        else
-            System.out.println("Clase inexistente");
-    }*/
     public ArrayList<inscripcion> getInscripciones() {
         return Inscripciones;
     }
