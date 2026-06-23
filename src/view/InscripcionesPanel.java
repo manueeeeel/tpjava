@@ -78,6 +78,7 @@ public class InscripcionesPanel extends JPanel{
         }
     }
 
+
     private void guardarInscripcion(){
         if(comboAlumnos.getSelectedItem() == null || comboAsignaturas.getSelectedItem() == null){
             JOptionPane.showMessageDialog(this, "Debe seleccionar un alumno y una asignatura", "Error", JOptionPane.ERROR_MESSAGE);
@@ -99,7 +100,7 @@ public class InscripcionesPanel extends JPanel{
             asignatura asig = universidad.getInstancia().getAsignaturas().get(codigoAsignatura);
 
             String mod = (String) comboModalidad.getSelectedItem();
-            char modalidad = mod.contains("(R)") ? 'R' : 'L';
+            String modalidad = mod.contains("(R)") ? "R" : mod.contains("(C)") ? "C" : "O";
 
             inscripcion ins = new inscripcion();
             ins.setAlumno(alu);
@@ -110,7 +111,6 @@ public class InscripcionesPanel extends JPanel{
 
             this.c.guardarDatosXML();
             JOptionPane.showMessageDialog(this, "Se ha inscripto al Alumno correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-           
 
         }catch(Exception ex){
             JOptionPane.showMessageDialog(this, "Error al registrar la inscripción: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

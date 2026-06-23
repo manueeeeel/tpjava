@@ -16,18 +16,18 @@ public class obligatoria extends asignatura {
     public void setNombre(String nom){
         super.setNombre(nom);
     }
-    public String DefinirCondicion(int totclases,int asistencia,char tipoalum){
+    public String DefinirCondicion(int totclases,int asistencia,String tipoalum){
         String condicion = "Libre";
         if(totclases > 0) {
             switch (tipoalum) {
-                case 'R': {
+                case "R": {
                     if (super.getPromocionable().equals("S") && asistencia >= totclases * 0.8)
                         condicion = "Promociona";
                     else if (asistencia >= totclases * 0.6)
                         condicion = "Habilita";
                 }
                 break;
-                case 'C': {
+                case "C": {
                     if (super.getPromocionable().equals("S") && asistencia == totclases)
                         condicion = "Promociona";
                     else if (asistencia >= totclases * 0.8)

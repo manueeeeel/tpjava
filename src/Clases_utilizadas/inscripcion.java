@@ -3,6 +3,7 @@ import Clases_utilizadas.asignaturas.*;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement(name = "inscripcion")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -10,7 +11,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 public class inscripcion {
     private alumno Alumno;
     private asignatura Asignatura;
-    private char tipoalum;
+    private String tipoalum;
     private int asistencias;
     public void RegistraAsistencia(){
         asistencias++;
@@ -18,6 +19,7 @@ public class inscripcion {
     public String ObtenerCondicion(){
         return Asignatura.DefinirCondicion(Asignatura.getListadoClases().size(),asistencias,tipoalum);
     }
+
     public asignatura getAsignatura(){
         return Asignatura;
     }
@@ -27,17 +29,17 @@ public class inscripcion {
     public int getAsistencias(){
         return asistencias;
     }
-    public char getTipoalum(){
+    public String getTipoalum(){
         return tipoalum;
     }
-    //setters 
+    //setters
     public void setAlumno(alumno alu) {
         Alumno = alu;
     }
     public void setAsignatura(asignatura asig) {
         Asignatura = asig;
     }
-    public void setTipoalum(char tipo) {
+    public void setTipoalum(String tipo) {
         tipoalum = tipo;
     }
 }

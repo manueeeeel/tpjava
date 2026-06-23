@@ -11,8 +11,8 @@
         <promocionable>S</promocionable>
         <nombre>Pintura</nombre>
     </Asignatura>
-    <tipoalum>76</tipoalum>
-    <asistencias>1</asistencias>
+    <tipoalum>C</tipoalum>
+    <asistencias>0</asistencias>
 </inscripcion>
     <inscripcion>
     <Alumno>
@@ -26,7 +26,7 @@
         <promocionable>S</promocionable>
         <nombre>Matematica</nombre>
     </Asignatura>
-    <tipoalum>82</tipoalum>
-    <asistencias>2</asistencias>
+    <tipoalum>R</tipoalum>
+    <asistencias>0</asistencias>
 </inscripcion>
 </inscripciones>
