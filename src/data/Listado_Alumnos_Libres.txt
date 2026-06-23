@@ -5,5 +5,6 @@
 MATRÍCULA       | APELLIDO Y NOMBRE             
 ------------------------------------------------------------
 123434          | Adof Hittler                  
+123434          | Adof Hittler                  
 
-Total de alumnos libres detectados: 1
+Total de alumnos libres detectados: 2

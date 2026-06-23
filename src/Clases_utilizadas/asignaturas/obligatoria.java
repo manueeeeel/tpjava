@@ -18,19 +18,23 @@ public class obligatoria extends asignatura {
     }
     public String DefinirCondicion(int totclases,int asistencia,char tipoalum){
         String condicion = "Libre";
-        switch (tipoalum){
-            case 'R':{
-                if(super.getPromocionable().equals("S") && asistencia >= totclases*0.8)
-                    condicion = "Promociona";
-                else if (asistencia >= totclases*0.6)
-                    condicion = "Habilita";
-            }break;
-            case 'C':{
-                if(super.getPromocionable().equals("S") && asistencia == totclases)
-                    condicion = "Promociona";
-                else if (asistencia >= totclases*0.8)
-                    condicion = "Habilita";
-            }break;
+        if(totclases > 0) {
+            switch (tipoalum) {
+                case 'R': {
+                    if (super.getPromocionable().equals("S") && asistencia >= totclases * 0.8)
+                        condicion = "Promociona";
+                    else if (asistencia >= totclases * 0.6)
+                        condicion = "Habilita";
+                }
+                break;
+                case 'C': {
+                    if (super.getPromocionable().equals("S") && asistencia == totclases)
+                        condicion = "Promociona";
+                    else if (asistencia >= totclases * 0.8)
+                        condicion = "Habilita";
+                }
+                break;
+            }
         }
         return condicion;
     }

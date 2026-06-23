@@ -8,6 +8,7 @@ public class universidad {
             (Comparator.comparing(alumno::getNombre, String.CASE_INSENSITIVE_ORDER)
             .thenComparing(alumno::getMatricula));
     private HashMap<Integer, asignatura> Asignaturas = new HashMap<>();
+    private ArrayList<asistido> Asistencias = new ArrayList<>();
     private ArrayList<inscripcion> Inscripciones = new ArrayList<>();
 
     /**crea la agencia */
@@ -38,7 +39,7 @@ public class universidad {
     public void InsertaAlumno(alumno alum){
         Alumnos.add(alum);
     }
-    public void RegistraAsistencia(int mat,int codmat){
+    public void RegistraAsistencia(int mat,int codmat,String codclase){
         boolean flag = false;
         inscripcion act = null;
         int i=0;
@@ -49,8 +50,21 @@ public class universidad {
             i++;
         }
         if(flag){
-            act.RegistraAsistencia();
-            System.out.println("Se ha registrado la asistencia correctamente");
+            int j = 0;
+            flag = false;
+            while(j < Asistencias.size() && !flag){
+                asistido act2 = Asistencias.get(j);
+                if(act2.getAlumno().getMatricula() == mat){
+                    flag = true;
+                    if(!act2.Existe(codclase)){
+                        Asistencias.get(j).AgregaClase(codclase);
+                        Inscripciones.get(i).RegistraAsistencia();
+                    }
+                    else
+                        throw new RuntimeException("Alumno ya asistio a esta clase.");
+                }
+                j++;
+            }
         }else
             throw new RuntimeException("El alumno no está inscripto en esta materia.");
     }

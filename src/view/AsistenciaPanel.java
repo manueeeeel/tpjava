@@ -11,7 +11,7 @@ import Clases_utilizadas.universidad;
 
 public class AsistenciaPanel extends JPanel {
     private JComboBox<String> comboAlumnos;
-    private JComboBox<String> comboClases; 
+    private JComboBox<String> comboClases;
     private JButton btnRegistrar;
     private controladora controladora;
 
@@ -22,7 +22,7 @@ public class AsistenciaPanel extends JPanel {
 
         JPanel panelForm = new JPanel();
         panelForm.setLayout(new BoxLayout(panelForm, BoxLayout.Y_AXIS));
-        
+
         //selección de Alumno
         panelForm.add(new JLabel("Seleccionar Alumno:"));
         comboAlumnos = new JComboBox<>();
@@ -30,7 +30,7 @@ public class AsistenciaPanel extends JPanel {
         panelForm.add(comboAlumnos);
         panelForm.add(Box.createVerticalStrut(20));
 
-        //selección de Clase 
+        //selección de Clase
         panelForm.add(new JLabel("Seleccionar Clase a dictar presente:"));
         comboClases = new JComboBox<>();
         comboClases.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
@@ -61,7 +61,7 @@ public class AsistenciaPanel extends JPanel {
             comboAlumnos.addItem(a.getMatricula() + " - " + a.getNombre());
         }
 
-        //recargar clases 
+        //recargar clases
         comboClases.removeAllItems();
         for (asignatura asig : universidad.getInstancia().getAsignaturas().values()) {
             if (asig.getListadoClases() != null) {
@@ -84,19 +84,19 @@ public class AsistenciaPanel extends JPanel {
             String alumnoStr = (String) comboAlumnos.getSelectedItem();
             int matricula = Integer.parseInt(alumnoStr.split(" - ")[0]);
 
-            //extraer código de asignatura de la clase seleccionada 
-            String claseStr = (String) comboClases.getSelectedItem();
-            String parteMat = claseStr.split(" \\| Mat: ")[1]; 
+            //extraer código de asignatura de la clase seleccionada
+            String codclase = (String) comboClases.getSelectedItem();
+            String parteMat = codclase.split(" \\| Mat: ")[1];
             int codAsignatura = Integer.parseInt(parteMat.split(" - ")[0]);
 
             //invocamos al backend del Singleton para registrar la asistencia
-            universidad.getInstancia().RegistraAsistencia(matricula, codAsignatura);
+            controladora.RegistraAsistencia(codAsignatura,matricula,codclase);
 
             //guardamos automáticamente los cambios en el XML de inscripciones
             controladora.guardarDatosXML();
 
             JOptionPane.showMessageDialog(this, "Se ha registrado la asistencia correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error al registrar asistencia: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }

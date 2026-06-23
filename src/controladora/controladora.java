@@ -48,8 +48,8 @@ public class controladora {
     public void guardarDatosXML(){
         serializaInscripciones();
     }
-    public void RegistraAsistencia(int matricula,int codmateria){
-        universidad.RegistraAsistencia(matricula, codmateria);
+    public void RegistraAsistencia(int matricula,int codmateria,String codclase){
+        universidad.RegistraAsistencia(matricula, codmateria,codclase);
     }
 
     private void deserializaAlumnos() {
