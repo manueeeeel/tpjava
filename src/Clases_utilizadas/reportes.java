@@ -6,7 +6,7 @@ import java.util.HashMap;
 import Clases_utilizadas.asignaturas.*;
 
 public class reportes {
-    public ArrayList<inscripcion> ReporteAlumnosAsignatura(int codasig, HashMap<Integer, asignatura> Asignaturas, ArrayList<inscripcion> Inscripciones){
+    public static ArrayList<inscripcion> ReporteAlumnosAsignatura(int codasig, HashMap<Integer, asignatura> Asignaturas, ArrayList<inscripcion> Inscripciones){
         if(Asignaturas.containsKey(codasig)) {
             ArrayList<inscripcion> Reporte = new ArrayList<>(Inscripciones.size()/2);
             for (int i = 0; i < Inscripciones.size(); i++)
@@ -20,7 +20,7 @@ public class reportes {
             return null;
         }
     }
-    public ArrayList<alumno> ReporteLibresPorFaltas(ArrayList<inscripcion> Inscripciones){
+    public static ArrayList<alumno> ReporteLibresPorFaltas(ArrayList<inscripcion> Inscripciones){
         ArrayList<alumno> Reporte = new ArrayList<>(Inscripciones.size()/2);
         for(int i = 0; i < Inscripciones.size(); i++)
             if(Inscripciones.get(i).ObtenerCondicion().equals("Libre"))
@@ -28,7 +28,7 @@ public class reportes {
         Reporte.trimToSize();
         return Reporte;
     }
-    public ArrayList<ranking> ReporteRankingPresentismo(HashMap<Integer, asignatura> Asignaturas, ArrayList<inscripcion> Inscripciones){
+    public static ArrayList<ranking> ReporteRankingPresentismo(HashMap<Integer, asignatura> Asignaturas, ArrayList<inscripcion> Inscripciones){
         HashMap<Integer,ranking> MapaReporte = new HashMap<>(Asignaturas.size());
         for(var act : Asignaturas.values()){
             ranking carga = new ranking();

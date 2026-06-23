@@ -5,12 +5,10 @@ import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.*;
-import Clases_utilizadas.alumno;
 import Clases_utilizadas.asignaturas.*;
-import Clases_utilizadas.clase;
-import Clases_utilizadas.inscripcion;
-import Clases_utilizadas.universidad;
+import Clases_utilizadas.*;
 import jakarta.xml.bind.*;
+
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
@@ -27,15 +25,21 @@ public class controladora {
     }
 
 
-    public HashMap<Integer, asignatura> getAsignaturas(){ return universidad.getAsignaturas();}
-    public ArrayList<inscripcion> getInscripciones(){ return universidad.getInscripciones();}
+    public ArrayList<inscripcion> getReporteAlumnosAsignatura(int codasig){
+        return reportes.ReporteAlumnosAsignatura(codasig,universidad.getAsignaturas(),universidad.getInscripciones());
+    }
+    public ArrayList<alumno> getReporteLibresPorFaltas(){
+        return reportes.ReporteLibresPorFaltas(universidad.getInscripciones());
+    }
+    public ArrayList<ranking> getReporteRankingPresentismo(){
+        return reportes.ReporteRankingPresentismo(universidad.getAsignaturas(),universidad.getInscripciones());
+    }
 
     public void cargarDatosXML(){
         deserializaAlumnos();
         deserializaClase();
         deserializaAsignatura();
     }
-
     private void deserializaAlumnos() {
         int cont = 0;
         try {
@@ -151,34 +155,6 @@ public class controladora {
             System.out.println("Error general al leer XML asignaturas: " + e.getMessage());
         }
     }
-    public void serealizaAlumnos(){
-        int cont=0;
-        TreeSet<alumno> listaAlumnos = universidad.getAlumnos();
-        try {
-            JAXBContext contexto = JAXBContext.newInstance(alumno.class);
-            Marshaller marshaller = contexto.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            StringWriter sw = new StringWriter();
-            sw.write("<alumnos>\n");
-            for (alumno a : listaAlumnos) {
-                StringWriter writer = new StringWriter();
-                marshaller.marshal(a, writer);
-                String xml = writer.toString();
-                String contenido = xml.substring(xml.indexOf("?>") + 2).trim();
-                sw.write("    " + contenido + "\n");
-                cont++;
-            }
-            sw.write("</alumnos>");
-            File archivo = new File("src/data/alumnos.xml");
-            try (FileWriter fw = new FileWriter(archivo)) {
-                fw.write(sw.toString());
-            }
-            System.out.println("------ Alumnos serializados: " + cont + " Alumnos ------");
-        } catch (Exception e) {
-            System.out.println("Error al serializar viajes: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
     public void deserializaInscripciones(){
         int cont = 0;
         try {
@@ -215,7 +191,6 @@ public class controladora {
             System.out.println("Error general al leer XML inscripciones: " + e.getMessage());
         }
     }
-
     public void serealizaInscripciones(){
         ArrayList<inscripcion> listaInscripciones = universidad.getInscripciones();
         try {
