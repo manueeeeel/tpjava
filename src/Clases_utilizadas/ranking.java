@@ -12,7 +12,7 @@ public class ranking {
         Asignatura = asig;
     }
     public void SumaAsistencias(int x){
-        asistencias += x;
+        asistencias = x;
     }
     public void CalculaPresentismo(){
         int totclases = Asignatura.getListadoClases().size();

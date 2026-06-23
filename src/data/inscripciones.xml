@@ -12,7 +12,7 @@
         <nombre>Pintura</nombre>
     </Asignatura>
     <tipoalum>76</tipoalum>
-    <asistencias>1</asistencias>
+    <asistencias>0</asistencias>
 </inscripcion>
     <inscripcion>
     <Alumno>
@@ -27,6 +27,6 @@
         <nombre>Matematica</nombre>
     </Asignatura>
     <tipoalum>82</tipoalum>
-    <asistencias>2</asistencias>
+    <asistencias>0</asistencias>
 </inscripcion>
 </inscripciones>
