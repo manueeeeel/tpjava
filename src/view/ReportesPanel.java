@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import Clases_utilizadas.alumno;
 import Clases_utilizadas.asignaturas.asignatura;
+import Clases_utilizadas.clase;
 import Clases_utilizadas.inscripcion;
 import Clases_utilizadas.ranking;
 import controladora.controladora;
@@ -108,9 +109,11 @@ public class ReportesPanel extends JPanel {
         int codAsig = Integer.parseInt(asigSeleccionada.split(" - ")[0]);
         String nombreAsig = asigSeleccionada.split(" - ")[1];
 
-        // llamamos al detalle desde la controladora
         ArrayList<inscripcion> reporte = controladora.getReporteAlumnosAsignatura(codAsig);
         StringBuilder sb = new StringBuilder();
+        ArrayList<clase> v = reporte.get(0).getAsignatura().getListadoClases();
+        System.out.println(">>>>>>>>>>>>>" + v.get(0).getCodigo());
+
 
         sb.append("============================================================\n");
         sb.append(" DETALLE DE ASISTENCIAS - ASIGNATURA: ").append(nombreAsig.toUpperCase()).append("\n");

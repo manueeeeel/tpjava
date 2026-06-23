@@ -113,8 +113,7 @@ public class controladora {
                         if (c.getHorario() == null || c.getHorario().trim().isEmpty()) {
                             throw new Exception("Horario vacío o nulo");
                         }
-                        
-                        Clases_utilizadas.universidad.getInstancia().InsertaClase(c);
+                        universidad.InsertaClase(c);
                         cont++;
                     } catch (Exception e) {
                         System.out.println("Clase ignorada - Motivo: " + e.getMessage());
@@ -191,6 +190,13 @@ public class controladora {
                         if (ins.getAsignatura() == null) {
                             throw new Exception("Asignatura nula");
                         }
+
+                        asignatura asigReal = universidad.getAsignaturas().get(ins.getAsignatura().getCodigo());
+                        if (asigReal == null) {
+                            throw new Exception("Asignatura código " + ins.getAsignatura().getCodigo() + " no existe");
+                        }
+                        ins.setAsignatura(asigReal);
+
                         universidad.InsertaInscripcion(ins);
                         cont++;
                     } catch (Exception e) {

@@ -10,9 +10,21 @@
         <cuatrimestre>2</cuatrimestre>
         <promocionable>S</promocionable>
         <nombre>Pintura</nombre>
+        <Clases>
+            <codigo>CL001</codigo>
+            <fecha>2026/06/15</fecha>
+            <horario>08:30</horario>
+            <codasig>4</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL002</codigo>
+            <fecha>2026/06/17</fecha>
+            <horario>08:30</horario>
+            <codasig>4</codasig>
+        </Clases>
     </Asignatura>
-    <tipoalum>76</tipoalum>
-    <asistencias>1</asistencias>
+    <tipoalum>O</tipoalum>
+    <asistencias>0</asistencias>
 </inscripcion>
     <inscripcion>
     <Alumno>
@@ -25,8 +37,14 @@
         <cuatrimestre>1</cuatrimestre>
         <promocionable>S</promocionable>
         <nombre>Matematica</nombre>
+        <Clases>
+            <codigo>CL003</codigo>
+            <fecha>2026/06/15</fecha>
+            <horario>10:30</horario>
+            <codasig>1</codasig>
+        </Clases>
     </Asignatura>
-    <tipoalum>82</tipoalum>
-    <asistencias>2</asistencias>
+    <tipoalum>R</tipoalum>
+    <asistencias>0</asistencias>
 </inscripcion>
 </inscripciones>

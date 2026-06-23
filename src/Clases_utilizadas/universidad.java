@@ -24,6 +24,7 @@ public class universidad {
     public HashMap<Integer, asignatura> getAsignaturas() {return Asignaturas;}
 
     public void InsertaClase(clase clas){
+
         if(Asignaturas.containsKey(clas.getCodigoAsig()))
             Asignaturas.get(clas.getCodigoAsig()).AgregarClase(clas);
         else

@@ -90,7 +90,7 @@ public class AsistenciaPanel extends JPanel {
             int codAsignatura = Integer.parseInt(parteMat.split(" - ")[0]);
 
             //invocamos al backend del Singleton para registrar la asistencia
-            controladora.RegistraAsistencia(codAsignatura,matricula,codclase);
+            controladora.RegistraAsistencia(matricula,codAsignatura,codclase);
 
             //guardamos automáticamente los cambios en el XML de inscripciones
             controladora.guardarDatosXML();
