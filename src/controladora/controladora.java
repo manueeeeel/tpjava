@@ -35,8 +35,11 @@ public class controladora {
         return reportes.ReporteRankingPresentismo(universidad.getAsignaturas(),universidad.getInscripciones());
     }
 
-    public HashMap<Integer, asignatura> getAsignaturas(){ 
-        return universidad.getAsignaturas(); 
+    public HashMap<Integer, asignatura> getAsignaturas(){
+        return universidad.getAsignaturas();
+    }
+    public TreeSet<alumno> getAlumnos(){
+        return universidad.getAlumnos();
     }
 
     public void cargarDatosXML(){
@@ -51,6 +54,7 @@ public class controladora {
     public void RegistraAsistencia(int matricula,int codmateria,String codclase){
         universidad.RegistraAsistencia(matricula, codmateria,codclase);
     }
+
 
     private void deserializaAlumnos() {
         int cont = 0;
@@ -90,8 +94,8 @@ public class controladora {
     private void deserializaClase() {
         int cont = 0;
         try {
-            JAXBContext contexto = JAXBContext.newInstance(clase.class); 
-            Unmarshaller unmarshaller = contexto.createUnmarshaller(); 
+            JAXBContext contexto = JAXBContext.newInstance(clase.class);
+            Unmarshaller unmarshaller = contexto.createUnmarshaller();
             XMLInputFactory factory = XMLInputFactory.newFactory();
             InputStream is = new FileInputStream("src/data/clases.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
@@ -113,8 +117,8 @@ public class controladora {
                         if (c.getHorario() == null || c.getHorario().trim().isEmpty()) {
                             throw new Exception("Horario vacío o nulo");
                         }
-                        
-                        Clases_utilizadas.universidad.getInstancia().InsertaClase(c);
+
+                        universidad.InsertaClase(c);
                         cont++;
                     } catch (Exception e) {
                         System.out.println("Clase ignorada - Motivo: " + e.getMessage());
@@ -175,12 +179,9 @@ public class controladora {
             JAXBContext contexto = JAXBContext.newInstance(inscripcion.class, alumno.class, asignatura.class, obligatoria.class, optativa.class, pasantia.class, tesis.class);
             Unmarshaller unmarshaller = contexto.createUnmarshaller();
             XMLInputFactory factory = XMLInputFactory.newFactory();
-
-            File archivo = new File("src/data/inscripciones.xml");
-            if (!archivo.exists()) return; 
-
-            InputStream is = new FileInputStream(archivo);
+            InputStream is = new FileInputStream("src/data/inscripciones.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
+
             while(reader.hasNext()) {
                 if (reader.isStartElement() && reader.getLocalName().equals("inscripcion")) {
                     try {
@@ -192,6 +193,7 @@ public class controladora {
                             throw new Exception("Asignatura nula");
                         }
                         universidad.InsertaInscripcion(ins);
+                        System.out.println("MODALIDAD>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + ins.getTipoalum());
                         cont++;
                     } catch (Exception e) {
                         System.out.println("Inscripción inválida: " + e.getMessage());
