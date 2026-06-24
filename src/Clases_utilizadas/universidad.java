@@ -74,7 +74,6 @@ public class universidad {
      * metodo que inserta una nueva clase al vector de clases totales de una asignatura
      */
     public void InsertaClase(clase clas){
-
         if(Asignaturas.containsKey(clas.getCodigoAsig()))
             Asignaturas.get(clas.getCodigoAsig()).AgregarClase(clas);
         else
@@ -92,8 +91,10 @@ public class universidad {
      * metodo que inserta una inscripcion al vector de inscriptos
      */
     public void InsertaInscripcion(inscripcion ins){
-        Inscripciones.add(ins);
-        System.out.println("Se ha inscripto al Alumno correctamente");
+        if(Asignaturas.containsKey(ins.getAsignatura().getCodigo()))
+           Inscripciones.add(ins);
+        else
+            throw new RuntimeException("Asignatura inexistente");
     }
 
     /**
@@ -106,9 +107,21 @@ public class universidad {
 
     /**
      * metodo que inserta un alumno al treeset de alumnos
+     * <p>
+     * valida que no haya un alumno con esa misma matricula
      */
     public void InsertaAlumno(alumno alum){
-        Alumnos.add(alum);
+        boolean flag = true;
+        Iterator<alumno> iterador = Alumnos.iterator();
+        while(iterador.hasNext() && flag){
+            alumno act = iterador.next();
+            if(act.getMatricula() == alum.getMatricula())
+                flag = false;
+        }
+        if(flag)
+            Alumnos.add(alum);
+        else
+            throw new RuntimeException("Matricula repetida");
     }
 
     /**
