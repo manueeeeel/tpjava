@@ -1,11 +1,10 @@
 package Clases_utilizadas.asignaturas;
 import jakarta.xml.bind.annotation.*;
-@XmlRootElement(name = "pasantia")
-@XmlAccessorType(XmlAccessType.FIELD)
-
 /**
  * clase hija de asignatura
  */
+@XmlRootElement(name = "pasantia")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class pasantia extends asignatura{
     /**
      * setters de codigo llamando a los setter del padre

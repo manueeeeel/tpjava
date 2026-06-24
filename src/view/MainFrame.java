@@ -4,9 +4,7 @@ import javax.swing.JTabbedPane;
 import controladora.controladora;
 
 /**
- * MAINFRAME DE LA GIU
- * <p>
- * Se encarga de crear la ventana principal donde se mostraran los paneles
+ * Crear la ventana principal donde se mostraran los paneles
  */
 public class MainFrame extends JFrame {
     public MainFrame(controladora c) {

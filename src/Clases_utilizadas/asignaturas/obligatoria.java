@@ -1,12 +1,11 @@
 package Clases_utilizadas.asignaturas;
 
 import jakarta.xml.bind.annotation.*;
-@XmlRootElement(name = "obligatoria")
-@XmlAccessorType(XmlAccessType.FIELD)
-
 /**
  * clase hija de asignatura
  */
+@XmlRootElement(name = "obligatoria")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class obligatoria extends asignatura {
     /**
      * setter del codigo llamando al setter del padre

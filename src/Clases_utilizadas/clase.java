@@ -4,13 +4,13 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "clase")
-@XmlAccessorType(XmlAccessType.FIELD)
-
 /**
  * class clase
  */
+@XmlRootElement(name = "clase")
+@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class clase {
     private String codigo;
     private String fecha;

@@ -1,17 +1,16 @@
 ====================================================
-       LISTADO DE ALUMNOS LIBRES  
+       LISTADO DE ALUMNOS LIBRES
 ====================================================
 
-MATRÍCULA       | APELLIDO Y NOMBRE    | MATERIA        
+MATRÍCULA       | APELLIDO Y NOMBRE    | MATERIA
 ----------------------------------------------------
-123434          | Pepote Mujicote      | Pintura        
-123434          | Pepote Mujicote      | Matematica     
-222222          | Domingo Perón        | Matematica     
-223444          | Juan Martín          | Ingles Tecnico 
+123434          | Pepote Mujicote      | Pintura
+123434          | Pepote Mujicote      | Matematica
+223444          | Juan Martín          | Ingles Tecnico
 123455          | Teto Kasane          | Pasantia Empresarial
-123459          | Santi Profe          | Algoritmos 200 
-222233          | Pedro Gomez          | Tesis Final    
-122334          | Valentino Hernández  | Matematica     
-223444          | Juan Martín          | Algoritmos 200 
+123459          | Santi Profe          | Algoritmos 200
+222233          | Pedro Gomez          | Tesis Final
+122334          | Valentino Hernández  | Matematica
+223444          | Juan Martín          | Algoritmos 200
 
-Total de alumnos libres detectados: 9
+Total de alumnos libres detectados: 8

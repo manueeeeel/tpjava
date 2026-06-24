@@ -3,13 +3,13 @@ import Clases_utilizadas.*;
 import jakarta.xml.bind.annotation.*;
 
 import java.util.ArrayList;
-
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlSeeAlso({obligatoria.class, optativa.class, pasantia.class, tesis.class})
 /**
  * asignatura es una clase abstracta, padre de las demas asignaturas
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso({obligatoria.class, optativa.class, pasantia.class, tesis.class})
+
 abstract public class asignatura{
     private int codigo,cuatrimestre;
     private String promocionable,nombre;

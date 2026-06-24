@@ -15,7 +15,7 @@ import javax.xml.stream.XMLStreamReader;
 
 /** CLASE CONTROLADORA DEL DOMINIO
  *  <p>
- *  Esta clase se encarga de conectar universidad con la GIU, los XML, y los Txt
+ *  Esta clase se encarga de conectar universidad con la GIU, los XML, los Txt, y la creadora de reportes
  */
 
 public class controladora {

@@ -11,7 +11,7 @@ import Clases_utilizadas.asignaturas.asignatura;
 import controladora.controladora;
 
 /**
- * Muestra el contenido del panel Reportes
+ * Muestra el contenido del panel Reportes y genera los reportes
  */
 public class ReportesPanel extends JPanel {
     private JTextArea areaReporte;

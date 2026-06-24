@@ -35,44 +35,6 @@
     <tipoalum>O</tipoalum>
     <asistencias>0</asistencias>
 </inscripcion>
-
-    <inscripcion>
-        <Alumno>
-            <matricula>123434</matricula>
-            <nombre>Pepote Mujicote</nombre>
-            <fechanacimiento>18890420</fechanacimiento>
-        </Alumno>
-        <Asignatura xsi:type="tesis" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <codigo>99</codigo>
-            <cuatrimestre>2</cuatrimestre>
-            <promocionable>S</promocionable>
-            <nombre>Pintura</nombre>
-            <Clases>
-                <codigo>CL001</codigo>
-                <fecha>2026/06/15</fecha>
-                <horario>08:30</horario>
-                <codasig>4</codasig>
-                <codasig>4</codasig>
-            </Clases>
-            <Clases>
-                <codigo>CL002</codigo>
-                <fecha>2026/06/17</fecha>
-                <horario>08:30</horario>
-                <codasig>4</codasig>
-                <codasig>4</codasig>
-            </Clases>
-            <Clases>
-                <codigo>CL012</codigo>
-                <fecha>2026/06/25</fecha>
-                <horario>08:30</horario>
-                <codasig>4</codasig>
-                <codasig>4</codasig>
-            </Clases>
-        </Asignatura>
-        <tipoalum>O</tipoalum>
-        <asistencias>0</asistencias>
-    </inscripcion>
-
     <inscripcion>
     <Alumno>
         <matricula>123434</matricula>

@@ -12,9 +12,9 @@ Alumno: Pepote Mujicote (Matrícula: 123434)
 Alumno: Domingo Perón (Matrícula: 222222)
   - Modalidad de Cursado: Condicional
   - Clases Dictadas:      2
-  - Clases Presente:      0
-  - Porcentaje Asistencia: 0,00%
-  - CONDICIÓN FINAL:       LIBRE
+  - Clases Presente:      2
+  - Porcentaje Asistencia: 100,00%
+  - CONDICIÓN FINAL:       PROMOCIONA
 ----------------------------------------------------
 Alumno: Valentino Hernández (Matrícula: 122334)
   - Modalidad de Cursado: Condicional

@@ -4,15 +4,15 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
-
-@XmlRootElement(name = "inscripcion")
-@XmlAccessorType(XmlAccessType.FIELD)
-
 /**
  * clase inscripcion, contiene un alumno, la asignatura a la que esta inscripto
  * <p>
  * en que modalidad esta cursando y sus asistencias
  */
+@XmlRootElement(name = "inscripcion")
+@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class inscripcion {
     private alumno Alumno;
     private asignatura Asignatura;

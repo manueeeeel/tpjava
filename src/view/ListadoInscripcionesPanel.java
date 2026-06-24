@@ -8,7 +8,7 @@ import Clases_utilizadas.inscripcion;
 import controladora.controladora;
 
 /**
- * Muestra el listado de inscripciones cargadas en el sistema
+ * Muestra el contenido del panel Inscripciones creando el listado
  */
 public class ListadoInscripcionesPanel extends JPanel {
     private JTable tablaInscripciones;

@@ -3,12 +3,11 @@ package Clases_utilizadas;
 import jakarta.xml.bind.annotation.*;
 
 import java.util.*;
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-
 /**
  * clase asistido, contiene un alumno y las clases a alas que asistio
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class asistido {
     private alumno Alumno;
     @XmlElementWrapper(name = "ClasesAsistidas")
