@@ -23,7 +23,7 @@ public class reportes {
     public static ArrayList<alumno> ReporteLibresPorFaltas(ArrayList<inscripcion> Inscripciones){
         ArrayList<alumno> Reporte = new ArrayList<>(Inscripciones.size()/2);
         for(int i = 0; i < Inscripciones.size(); i++)
-            if(Inscripciones.get(i).ObtenerCondicion().equals("Libre"))
+            if(Inscripciones.get(i).ObtenerCondicion() == CONDICION.LIBRE)
                 Reporte.add(Inscripciones.get(i).getAlumno());
         Reporte.trimToSize();
         return Reporte;

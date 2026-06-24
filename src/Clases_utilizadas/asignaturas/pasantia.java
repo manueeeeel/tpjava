@@ -15,10 +15,10 @@ public class pasantia extends asignatura{
     public void setNombre(String nom){
         super.setNombre(nom);
     }
-    public String DefinirCondicion(int totclases,int asistencia,String tipoalum){
-        String condicion = "Libre";
-        if(totclases > 0 && (tipoalum == "R" && asistencia >= totclases*0.75) || (tipoalum == "C" && asistencia >= totclases*0.95))
-            condicion = "Habilitado";
+    public CONDICION DefinirCondicion(int totclases,int asistencia,String tipoalum){
+        CONDICION condicion = CONDICION.LIBRE;
+        if(totclases > 0 && ((tipoalum == "R" && asistencia >= totclases*0.75) || (tipoalum == "C" && asistencia >= totclases*0.95)))
+            condicion = CONDICION.HABILITA;
         return condicion;
     }
 }

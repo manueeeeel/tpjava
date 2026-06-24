@@ -15,10 +15,10 @@ public class tesis extends asignatura{
     public void setNombre(String nom){
         super.setNombre(nom);
     }
-    public String DefinirCondicion(int totclases,int asistencia,String tipoalum){
-        String condicion = "Libre";
+    public CONDICION DefinirCondicion(int totclases,int asistencia,String tipoalum){
+        CONDICION condicion = CONDICION.LIBRE;
         if(totclases > 0 && (tipoalum == "R" && asistencia >= totclases*0.75) || (tipoalum == "C" && asistencia >= totclases*0.95))
-            condicion = "Habilita";
+            condicion = CONDICION.HABILITA;
         return condicion;
     }
 }

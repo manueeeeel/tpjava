@@ -16,7 +16,7 @@ public class inscripcion {
     public void RegistraAsistencia(){
         asistencias++;
     }
-    public String ObtenerCondicion(){
+    public CONDICION ObtenerCondicion(){
         return Asignatura.DefinirCondicion(Asignatura.getListadoClases().size(),asistencias,tipoalum);
     }
 
