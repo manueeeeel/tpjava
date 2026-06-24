@@ -111,8 +111,6 @@ public class ReportesPanel extends JPanel {
 
         ArrayList<inscripcion> reporte = controladora.getReporteAlumnosAsignatura(codAsig);
         StringBuilder sb = new StringBuilder();
-        ArrayList<clase> v = reporte.get(0).getAsignatura().getListadoClases();
-        System.out.println(">>>>>>>>>>>>>" + v.get(0).getCodigo());
 
 
         sb.append("============================================================\n");
@@ -123,6 +121,7 @@ public class ReportesPanel extends JPanel {
             for (inscripcion ins : reporte) {
                 int totalClases = ins.getAsignatura().getListadoClases().size();
                 double porcentaje = 0;
+                System.out.println(">>" + ins.getAsistencias() + ">>" + totalClases);
 
                 if (totalClases > 0) {
                     porcentaje = ((double) ins.getAsistencias() / totalClases) * 100;
@@ -133,7 +132,6 @@ public class ReportesPanel extends JPanel {
                     case "O" -> "Oyente";
                     default  -> "Desconocido";
                 };
-                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> MODALIDAD: " + ins.getTipoalum());
                 sb.append("Alumno: ").append(ins.getAlumno().getNombre())
                   .append(" (Matrícula: ").append(ins.getAlumno().getMatricula()).append(")\n")
                   .append(String.format("  - Modalidad de Cursado: %s\n", modalidad))
@@ -184,10 +182,10 @@ public class ReportesPanel extends JPanel {
             File archivoTXT = new File(carpetaData, nombreArchivo);
             try (FileWriter fw = new FileWriter(archivoTXT)) { fw.write(contenido); }
             
-            JOptionPane.showMessageDialog(this, 
+            /*JOptionPane.showMessageDialog(this,
                 "Reporte generado exitosamente.\nArchivo guardado en: src/data/" + nombreArchivo, 
                 "Operación Exitosa", JOptionPane.INFORMATION_MESSAGE);
-                
+                */
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, 
                 "Error crítico al guardar el archivo de texto: " + ex.getMessage(), 

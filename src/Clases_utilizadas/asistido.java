@@ -9,6 +9,7 @@ public class asistido {
     public alumno getAlumno(){
         return Alumno;
     }
+    public void setAlumno(alumno alum){Alumno = alum;}
     public void AgregaClase(String codclase){
         ClasesAsistidas.add(codclase);
     }

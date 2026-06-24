@@ -77,6 +77,7 @@ public class controladora {
                             throw new Exception("Fecha vacía");
                         }
                         universidad.InsertaAlumno(a);
+                        universidad.InsertaListaAsistencia(a);
                         cont++;
                     } catch (Exception e) {
                         System.out.println("Alumno inválido: " + e.getMessage());

@@ -37,8 +37,26 @@ public class universidad {
         Inscripciones.add(ins);
         System.out.println("Se ha inscripto al Alumno correctamente");
     }
+    public void InsertaClase(int mat, String codclase){
+        boolean flag = false;
+        int j = 0;
+        while(j < Asistencias.size() && !flag) {
+            asistido act2 = Asistencias.get(j);
+            if (act2.getAlumno().getMatricula() == mat) {
+                flag = true;
+                if (!act2.Existe(codclase)) {
+                    Asistencias.get(j).AgregaClase(codclase);
+                }
+            }
+        }
+    }
     public void InsertaAlumno(alumno alum){
         Alumnos.add(alum);
+    }
+    public void InsertaListaAsistencia(alumno alum){
+        asistido a = new asistido();
+        a.setAlumno(alum);
+        Asistencias.add(a);
     }
     public void RegistraAsistencia(int mat,int codmat,String codclase){
         boolean flag = false;
