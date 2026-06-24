@@ -6,11 +6,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
-import Clases_utilizadas.alumno;
+import Clases_utilizadas.*;
 import Clases_utilizadas.asignaturas.asignatura;
-import Clases_utilizadas.clase;
-import Clases_utilizadas.inscripcion;
-import Clases_utilizadas.ranking;
 import controladora.controladora;
 
 public class ReportesPanel extends JPanel {
@@ -83,9 +80,9 @@ public class ReportesPanel extends JPanel {
         ArrayList<ranking> reporte = controladora.getReporteRankingPresentismo();
         StringBuilder sb = new StringBuilder();
         
-        sb.append("============================================================\n");
-        sb.append("        RANKING DE ASIGNATURAS POR PORCENTAJE DE PRESENTISMO \n");
-        sb.append("============================================================\n\n");
+        sb.append("====================================================\n");
+        sb.append("   RANKING DE ASIGNATURAS POR PRESENTISMO \n");
+        sb.append("====================================================\n\n");
         
         if (reporte != null && !reporte.isEmpty()) {
             for (int i = reporte.size() - 1; i >= 0; i--) { 
@@ -113,9 +110,9 @@ public class ReportesPanel extends JPanel {
         StringBuilder sb = new StringBuilder();
 
 
-        sb.append("============================================================\n");
-        sb.append(" DETALLE DE ASISTENCIAS - ASIGNATURA: ").append(nombreAsig.toUpperCase()).append("\n");
-        sb.append("============================================================\n\n");
+        sb.append("====================================================\n");
+        sb.append("DETALLE DE ASISTENCIAS - ASIGNATURA: ").append(nombreAsig.toUpperCase()).append("\n");
+        sb.append("====================================================\n\n");
         
         if (reporte != null && !reporte.isEmpty()) {
             for (inscripcion ins : reporte) {
@@ -139,7 +136,7 @@ public class ReportesPanel extends JPanel {
                   .append("  - Clases Presente:      ").append(ins.getAsistencias()).append("\n")
                   .append(String.format("  - Porcentaje Asistencia: %.2f%%\n", porcentaje))
                   .append("  - CONDICIÓN FINAL:       ").append(ins.ObtenerCondicion()).append("\n")
-                  .append("------------------------------------------------------------\n");
+                  .append("----------------------------------------------------\n");
             }
         } else {
             sb.append("No se registran alumnos inscriptos en esta asignatura.\n");
@@ -150,18 +147,18 @@ public class ReportesPanel extends JPanel {
 
     private void generarLibres() {
         //llamamos al reporte de libres desde la controladora
-        ArrayList<alumno> reporte = controladora.getReporteLibresPorFaltas();
+        ArrayList<libres> reporte = controladora.getReporteLibresPorFaltas();
         StringBuilder sb = new StringBuilder();
 
-        sb.append("============================================================\n");
-        sb.append("       LISTADO DE ALUMNOS LIBRES POR INCUMPLIMIENTO DE ASISTENCIA \n");
-        sb.append("============================================================\n\n");
+        sb.append("====================================================\n");
+        sb.append("       LISTADO DE ALUMNOS LIBRES  \n");
+        sb.append("====================================================\n\n");
         
         if (reporte != null && !reporte.isEmpty()) {
-            sb.append(String.format("%-15s | %-30s\n", "MATRÍCULA", "APELLIDO Y NOMBRE"));
-            sb.append("------------------------------------------------------------\n");
-            for (alumno a : reporte) {
-                sb.append(String.format("%-15d | %-30s\n", a.getMatricula(), a.getNombre()));
+            sb.append(String.format("%-15s | %-20s | %-15s\n", "MATRÍCULA", "APELLIDO Y NOMBRE","MATERIA"));
+            sb.append("----------------------------------------------------\n");
+            for (libres l : reporte) {
+                sb.append(String.format("%-15d | %-20s | %-15s\n", l.getAlumno().getMatricula(), l.getAlumno().getNombre(),l.getAsignatura()));
             }
             sb.append("\nTotal de alumnos libres detectados: ").append(reporte.size()).append("\n");
         } else {

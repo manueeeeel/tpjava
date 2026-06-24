@@ -2,12 +2,10 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import controladora.controladora;
 import Clases_utilizadas.alumno;
 import Clases_utilizadas.asignaturas.asignatura;
 import Clases_utilizadas.clase;
-import Clases_utilizadas.universidad;
 
 public class AsistenciaPanel extends JPanel {
     private JComboBox<String> comboAlumnos;
@@ -57,13 +55,13 @@ public class AsistenciaPanel extends JPanel {
     private void cargarCombos() {
         //recargar alumnos
         comboAlumnos.removeAllItems();
-        for (alumno a : universidad.getInstancia().getAlumnos()) {
+        for (alumno a : controladora.getAlumnos()) {
             comboAlumnos.addItem(a.getMatricula() + " - " + a.getNombre());
         }
 
         //recargar clases
         comboClases.removeAllItems();
-        for (asignatura asig : universidad.getInstancia().getAsignaturas().values()) {
+        for (asignatura asig : controladora.getAsignaturas().values()) {
             if (asig.getListadoClases() != null) {
                 for (clase c : asig.getListadoClases()) {
                     //formato amigable para el usuario

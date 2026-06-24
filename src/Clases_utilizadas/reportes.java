@@ -20,11 +20,15 @@ public class reportes {
             return null;
         }
     }
-    public static ArrayList<alumno> ReporteLibresPorFaltas(ArrayList<inscripcion> Inscripciones){
-        ArrayList<alumno> Reporte = new ArrayList<>(Inscripciones.size()/2);
+    public static ArrayList<libres> ReporteLibresPorFaltas(ArrayList<inscripcion> Inscripciones){
+        ArrayList<libres> Reporte = new ArrayList<>(Inscripciones.size()/2);
         for(int i = 0; i < Inscripciones.size(); i++)
-            if(Inscripciones.get(i).ObtenerCondicion() == CONDICION.LIBRE)
-                Reporte.add(Inscripciones.get(i).getAlumno());
+            if(Inscripciones.get(i).ObtenerCondicion() == CONDICION.LIBRE) {
+                libres aux = new libres();
+                aux.setAlumno(Inscripciones.get(i).getAlumno());
+                aux.setNombreasig(Inscripciones.get(i).getAsignatura().getNombre());
+                Reporte.add(aux);
+            }
         Reporte.trimToSize();
         return Reporte;
     }

@@ -28,7 +28,7 @@ public class controladora {
     public ArrayList<inscripcion> getReporteAlumnosAsignatura(int codasig){
         return reportes.ReporteAlumnosAsignatura(codasig,universidad.getAsignaturas(),universidad.getInscripciones());
     }
-    public ArrayList<alumno> getReporteLibresPorFaltas(){
+    public ArrayList<libres> getReporteLibresPorFaltas(){
         return reportes.ReporteLibresPorFaltas(universidad.getInscripciones());
     }
     public ArrayList<ranking> getReporteRankingPresentismo(){

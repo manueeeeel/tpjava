@@ -5,7 +5,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import Clases_utilizadas.asignaturas.asignatura;
 import Clases_utilizadas.clase;
-import Clases_utilizadas.universidad;
 import controladora.controladora;
 
 public class ListadoClasesPanel extends JPanel {
