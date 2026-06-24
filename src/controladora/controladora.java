@@ -154,7 +154,6 @@ public class controladora {
                 if (reader.isStartElement() && reader.getLocalName().equals("clase")) {
                     try {
                         clase c = (clase) unmarshaller.unmarshal(reader);
-                        System.out.println("[DEBUG] Leyendo clase: " + c.getCodigo() + " - CodAsig XML: " + c.getCodigoAsig());
                         if (c.getCodigo() == null || c.getCodigo().trim().isEmpty()) {
                             throw new Exception("Código de clase vacío o nulo");
                         }

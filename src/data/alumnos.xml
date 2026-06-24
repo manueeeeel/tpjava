@@ -4,6 +4,11 @@
         <nombre>Pepote Mujicote</nombre>
         <fechanacimiento>1889/04/20</fechanacimiento>
     </alumno>
+    <alumno>
+        <matricula>123434</matricula>
+        <nombre>Manolote Mujicote</nombre>
+        <fechanacimiento>1889/04/20</fechanacimiento>
+    </alumno>
         <alumno>
         <matricula>222222</matricula>
         <nombre>Domingo Perón</nombre>
