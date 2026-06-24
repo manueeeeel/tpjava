@@ -37,7 +37,7 @@ public class universidad {
         Inscripciones.add(ins);
         System.out.println("Se ha inscripto al Alumno correctamente");
     }
-    public void InsertaClase(int mat, String codclase){
+    public void InsertaClaseAsistencia(int mat, String codclase){
         int i = 0;
         while(i < Asistencias.size() && Asistencias.get(i).getAlumno().getMatricula() != mat) {
             i++;
