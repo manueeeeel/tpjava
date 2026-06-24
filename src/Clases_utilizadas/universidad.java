@@ -38,17 +38,12 @@ public class universidad {
         System.out.println("Se ha inscripto al Alumno correctamente");
     }
     public void InsertaClase(int mat, String codclase){
-        boolean flag = false;
-        int j = 0;
-        while(j < Asistencias.size() && !flag) {
-            asistido act2 = Asistencias.get(j);
-            if (act2.getAlumno().getMatricula() == mat) {
-                flag = true;
-                if (!act2.Existe(codclase)) {
-                    Asistencias.get(j).AgregaClase(codclase);
-                }
-            }
+        int i = 0;
+        while(i < Asistencias.size() && Asistencias.get(i).getAlumno().getMatricula() != mat) {
+            i++;
         }
+        if(i < Asistencias.size())
+            Asistencias.get(i).AgregaClase(codclase);
     }
     public void InsertaAlumno(alumno alum){
         Alumnos.add(alum);
