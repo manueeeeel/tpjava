@@ -7,6 +7,9 @@ import Clases_utilizadas.alumno;
 import Clases_utilizadas.asignaturas.asignatura;
 import Clases_utilizadas.clase;
 
+/**
+ * Muestra el contenido del panel de Asistencia
+ */
 public class AsistenciaPanel extends JPanel {
     private JComboBox<String> comboAlumnos;
     private JComboBox<String> comboClases;

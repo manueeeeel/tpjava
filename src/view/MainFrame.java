@@ -3,6 +3,11 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import controladora.controladora;
 
+/**
+ * MAINFRAME DE LA GIU
+ * <p>
+ * Se encarga de crear la ventana principal donde se mostraran los paneles
+ */
 public class MainFrame extends JFrame {
     public MainFrame(controladora c) {
         setTitle("Sistema de Gestión de Asistencia Universitaria");
@@ -12,22 +17,11 @@ public class MainFrame extends JFrame {
 
         //Crear contenedor de pestañas
         JTabbedPane panelPestañas = new JTabbedPane();
-        /*
-        //Instaciar los dos paneles
-        ListadoAlumnosPanel listadoAlumnosPanel = new ListadoAlumnosPanel();
-        ListadoClasesPanel listadoClasesPanel = new ListadoClasesPanel(c);
-        ListadoAsignaturasPanel listadoAsignaturasPanel = new ListadoAsignaturasPanel();
-        CargarDatosPanel cargarDatosPanel = new CargarDatosPanel(c, listadoAlumnosPanel, 
-            listadoClasesPanel,
-            listadoAsignaturasPanel);
-        */
+        ListadoInscripcionesPanel inscripcionesPanel = new ListadoInscripcionesPanel(c);
+
         AsistenciaPanel asistenciaPanel = new AsistenciaPanel(c);
         ReportesPanel reportesPanel = new ReportesPanel(c);
-        //Agregar las pestañas al contenedor
-        //panelPestañas.addTab("Cargar Datos", cargarDatosPanel);
-        //panelPestañas.addTab("Listado Alumnos", listadoAlumnosPanel);
-        //panelPestañas.addTab("Listado Clases", listadoClasesPanel);
-        //panelPestañas.addTab("Listado Asignaturas", listadoAsignaturasPanel);
+        panelPestañas.addTab("Listado Inscripciones", inscripcionesPanel);
         panelPestañas.addTab("Registrar Asistencia", asistenciaPanel);
         panelPestañas.addTab("Reportes", reportesPanel);
         

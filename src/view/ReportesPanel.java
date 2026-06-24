@@ -10,13 +10,20 @@ import Clases_utilizadas.*;
 import Clases_utilizadas.asignaturas.asignatura;
 import controladora.controladora;
 
+/**
+ * Muestra el contenido del panel Reportes
+ */
 public class ReportesPanel extends JPanel {
     private JTextArea areaReporte;
     private JComboBox<String> comboAsignaturas;
     private JButton btnRanking, btnDetalleAsignatura, btnLibres;
-    private controladora controladora; 
+    private controladora controladora;
 
-    public ReportesPanel(controladora c) { //recibimos la controladora por parámetro
+    /**
+     * Crea el espacio del panel
+     * @param c Controladora
+     */
+    public ReportesPanel(controladora c) {
         this.controladora = c;
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -61,22 +68,23 @@ public class ReportesPanel extends JPanel {
         btnDetalleAsignatura.addActionListener(e -> generarDetalleAsignatura());
         btnLibres.addActionListener(e -> generarLibres());
 
-        this.addComponentListener(new java.awt.event.ComponentAdapter() {
-            @Override
-            public void componentShown(java.awt.event.ComponentEvent e) { cargarComboAsignaturas(); }
-        });
+        this.addComponentListener(
+                new java.awt.event.ComponentAdapter() {
+                    @Override
+                    public void componentShown(java.awt.event.ComponentEvent e) {
+                        comboAsignaturas.removeAllItems();
+                        for (asignatura asig : controladora.getAsignaturas().values()) {
+                            comboAsignaturas.addItem(asig.getCodigo() + " - " + asig.getNombre());
+                        }
+                    }
+                }
+        );
     }
 
-    private void cargarComboAsignaturas() {
-        comboAsignaturas.removeAllItems();
-        // usamos la controladora para obtener las asignaturas
-        for (asignatura asig : controladora.getAsignaturas().values()) {
-            comboAsignaturas.addItem(asig.getCodigo() + " - " + asig.getNombre());
-        }
-    }
-
+    /**
+     * Muestra ranking de asignaturas por presentismo en pantalla
+     */
     private void generarRanking() {
-        // llamamos al reporte desde la controladora
         ArrayList<ranking> reporte = controladora.getReporteRankingPresentismo();
         StringBuilder sb = new StringBuilder();
         
@@ -96,6 +104,9 @@ public class ReportesPanel extends JPanel {
         mostrarYGuardar("Ranking_Presentismo.txt", sb.toString());
     }
 
+    /**
+     * Muestra la información de una asignatura en pantalla
+     */
     private void generarDetalleAsignatura() {
         if (comboAsignaturas.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Por favor, cargue los datos y seleccione una asignatura.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -145,8 +156,10 @@ public class ReportesPanel extends JPanel {
         mostrarYGuardar("Detalle_Asignatura_" + codAsig + ".txt", sb.toString());
     }
 
+    /**
+     * Muestra el listado de alumnos libres en pantalla
+     */
     private void generarLibres() {
-        //llamamos al reporte de libres desde la controladora
         ArrayList<libres> reporte = controladora.getReporteLibresPorFaltas();
         StringBuilder sb = new StringBuilder();
 
@@ -168,6 +181,11 @@ public class ReportesPanel extends JPanel {
         mostrarYGuardar("Listado_Alumnos_Libres.txt", sb.toString());
     }
 
+    /**
+     * Muestra el reporte en pantalla y lo guarda en un .txt
+     * @param nombreArchivo nombre del archivo donde se guarda el reporte (.txt)
+     * @param contenido texto a mostrar y guardar
+     */
     private void mostrarYGuardar(String nombreArchivo, String contenido) {
         areaReporte.setText(contenido);
         areaReporte.setCaretPosition(0);
@@ -178,11 +196,7 @@ public class ReportesPanel extends JPanel {
             
             File archivoTXT = new File(carpetaData, nombreArchivo);
             try (FileWriter fw = new FileWriter(archivoTXT)) { fw.write(contenido); }
-            
-            /*JOptionPane.showMessageDialog(this,
-                "Reporte generado exitosamente.\nArchivo guardado en: src/data/" + nombreArchivo, 
-                "Operación Exitosa", JOptionPane.INFORMATION_MESSAGE);
-                */
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, 
                 "Error crítico al guardar el archivo de texto: " + ex.getMessage(), 

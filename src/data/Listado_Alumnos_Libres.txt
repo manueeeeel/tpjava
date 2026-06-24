@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ============================================================
        LISTADO DE ALUMNOS LIBRES POR INCUMPLIMIENTO DE ASISTENCIA 
 ============================================================
@@ -9,3 +10,22 @@ MATRÍCULA       | APELLIDO Y NOMBRE
 222222          | Domingo Perón                 
 
 Total de alumnos libres detectados: 3
+=======
+====================================================
+       LISTADO DE ALUMNOS LIBRES  
+====================================================
+
+MATRÍCULA       | APELLIDO Y NOMBRE    | MATERIA        
+----------------------------------------------------
+123434          | Pepote Mujicote      | Pintura        
+123434          | Pepote Mujicote      | Matematica     
+222222          | Domingo Perón        | Matematica     
+223444          | Juan Martín          | Ingles Tecnico 
+123455          | Teto Kasane          | Pasantia Empresarial
+123459          | Santi Profe          | Algoritmos 200 
+222233          | Pedro Gomez          | Tesis Final    
+122334          | Valentino Hernández  | Matematica     
+223444          | Juan Martín          | Algoritmos 200 
+
+Total de alumnos libres detectados: 9
+>>>>>>> Stashed changes

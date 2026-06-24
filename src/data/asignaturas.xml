@@ -1,0 +1,38 @@
+<asignaturas>
+    <obligatoria>
+        <codigo>1</codigo>
+        <cuatrimestre>1</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Matematica</nombre>
+    </obligatoria>
+    <optativa>
+        <codigo>2</codigo>
+        <cuatrimestre>3</cuatrimestre>
+        <promocionable>N</promocionable>
+        <nombre>Ingles Tecnico</nombre>
+    </optativa>
+    <pasantia>
+        <codigo>3</codigo>
+        <cuatrimestre>8</cuatrimestre>
+        <promocionable>N</promocionable>
+        <nombre>Pasantia Empresarial</nombre>
+    </pasantia>
+    <tesis>
+        <codigo>4</codigo>
+        <cuatrimestre>2</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Pintura</nombre>
+    </tesis>
+    <tesis>
+        <codigo>5</codigo>
+        <cuatrimestre>10</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Tesis Final</nombre>
+    </tesis>
+    <obligatoria>
+        <codigo>6</codigo>
+        <cuatrimestre>3</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Algoritmos 200</nombre>
+    </obligatoria>
+</asignaturas>

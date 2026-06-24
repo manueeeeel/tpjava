@@ -32,20 +32,47 @@ public class controladora {
     public ArrayList<inscripcion> getReporteAlumnosAsignatura(int codasig){
         return reportes.ReporteAlumnosAsignatura(codasig,universidad.getAsignaturas(),universidad.getInscripciones());
     }
+
+    /**
+     *
+     * @return Arraylist de libres (objeto alumno + nombre materia) del Singleton
+     */
     public ArrayList<libres> getReporteLibresPorFaltas(){
         return reportes.ReporteLibresPorFaltas(universidad.getInscripciones());
     }
+
+    /**
+     *
+     * @return Arraylist de ranking del Singleton
+     */
     public ArrayList<ranking> getReporteRankingPresentismo(){
         return reportes.ReporteRankingPresentismo(universidad.getAsignaturas(),universidad.getInscripciones());
     }
-
+    /**
+     * @return Arraylist de inscripciones del Singleton
+     */
+    public ArrayList<inscripcion> getInscripciones(){
+        return universidad.getInscripciones();
+    }
+    /**
+     *
+     * @return Hashmap de integer,asignatura del Singleton
+     */
     public HashMap<Integer, asignatura> getAsignaturas(){
         return universidad.getAsignaturas();
     }
+
+    /**
+     *
+     * @return Treeset de objeto alumno del Singleton
+     */
     public TreeSet<alumno> getAlumnos(){
         return universidad.getAlumnos();
     }
 
+    /**
+     * Ejecuta todas las funciones de deserialización
+     */
     public void cargarDatosXML(){
         deserializaAlumnos();
         deserializaAsignatura();
@@ -53,14 +80,28 @@ public class controladora {
         deserializaInscripciones();
         deserializaAsistencias();
     }
+
+    /**
+     * Ejecuta todas las funciones de serialización
+     */
     public void guardarDatosXML(){
         serializaInscripciones();
         serializaAsistencias();
     }
+
+    /**
+     * Carga una asistencia en el Singleton
+     * @param matricula identificador de Alumno
+     * @param codmateria identificador de Materia
+     * @param codclase identificador de Clase
+     */
     public void RegistraAsistencia(int matricula,int codmateria,String codclase){
         universidad.RegistraAsistencia(matricula, codmateria,codclase);
     }
 
+    /**
+     * Deserializa XML
+     */
     private void deserializaAlumnos() {
         int cont = 0;
         try {
@@ -97,6 +138,9 @@ public class controladora {
             System.out.println("Error general al leer XML alumnos: " + e.getMessage());
         }
     }
+    /**
+     * Deserializa XML
+     */
     private void deserializaClase() {
         int cont = 0;
         try {
@@ -137,6 +181,9 @@ public class controladora {
             System.out.println("Error general al leer XML clases: " + e.getMessage());
         }
     }
+    /**
+     * Deserializa XML
+     */
     private void deserializaAsignatura() {
         int cont = 0;
         try {
@@ -178,6 +225,9 @@ public class controladora {
             System.out.println("Error general al leer XML asignaturas: " + e.getMessage());
         }
     }
+    /**
+     * Deserializa XML
+     */
     private void deserializaInscripciones(){
         int cont = 0;
         try {
@@ -217,6 +267,9 @@ public class controladora {
             System.out.println("Error general al leer XML inscripciones: " + e.getMessage());
         }
     }
+    /**
+     * Deserializa XML
+     */
     private void deserializaAsistencias(){
         int cont = 0;
         try {
@@ -249,6 +302,9 @@ public class controladora {
             System.out.println("Error general al leer XML asistencias: " + e.getMessage());
         }
     }
+    /**
+     * Serializa XML
+     */
     private void serializaInscripciones(){
         ArrayList<inscripcion> listaInscripciones = universidad.getInscripciones();
         try {
@@ -274,6 +330,9 @@ public class controladora {
             e.printStackTrace();
         }
     }
+    /**
+     * Serializa XML
+     */
     private void serializaAsistencias(){
         asistido a = new asistido();
 

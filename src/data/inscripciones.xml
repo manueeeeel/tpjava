@@ -1,0 +1,291 @@
+<inscripciones>
+    <inscripcion>
+    <Alumno>
+        <matricula>123434</matricula>
+        <nombre>Pepote Mujicote</nombre>
+        <fechanacimiento>18890420</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="tesis" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>4</codigo>
+        <cuatrimestre>2</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Pintura</nombre>
+        <Clases>
+            <codigo>CL001</codigo>
+            <fecha>2026/06/15</fecha>
+            <horario>08:30</horario>
+            <codasig>4</codasig>
+            <codasig>4</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL002</codigo>
+            <fecha>2026/06/17</fecha>
+            <horario>08:30</horario>
+            <codasig>4</codasig>
+            <codasig>4</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL012</codigo>
+            <fecha>2026/06/25</fecha>
+            <horario>08:30</horario>
+            <codasig>4</codasig>
+            <codasig>4</codasig>
+        </Clases>
+    </Asignatura>
+    <tipoalum>O</tipoalum>
+    <asistencias>0</asistencias>
+</inscripcion>
+    <inscripcion>
+    <Alumno>
+        <matricula>123434</matricula>
+        <nombre>Pepote Mujicote</nombre>
+        <fechanacimiento>18890420</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="obligatoria" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>1</codigo>
+        <cuatrimestre>1</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Matematica</nombre>
+        <Clases>
+            <codigo>CL003</codigo>
+            <fecha>2026/06/15</fecha>
+            <horario>10:30</horario>
+            <codasig>1</codasig>
+            <codasig>1</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL013</codigo>
+            <fecha>2026/06/22</fecha>
+            <horario>10:30</horario>
+            <codasig>1</codasig>
+            <codasig>1</codasig>
+        </Clases>
+    </Asignatura>
+    <tipoalum>R</tipoalum>
+    <asistencias>0</asistencias>
+</inscripcion>
+    <inscripcion>
+    <Alumno>
+        <matricula>222222</matricula>
+        <nombre>Domingo Perón</nombre>
+        <fechanacimiento>1940/11/21</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="obligatoria" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>1</codigo>
+        <cuatrimestre>1</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Matematica</nombre>
+        <Clases>
+            <codigo>CL003</codigo>
+            <fecha>2026/06/15</fecha>
+            <horario>10:30</horario>
+            <codasig>1</codasig>
+            <codasig>1</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL013</codigo>
+            <fecha>2026/06/22</fecha>
+            <horario>10:30</horario>
+            <codasig>1</codasig>
+            <codasig>1</codasig>
+        </Clases>
+    </Asignatura>
+    <tipoalum>C</tipoalum>
+    <asistencias>0</asistencias>
+</inscripcion>
+    <inscripcion>
+    <Alumno>
+        <matricula>223444</matricula>
+        <nombre>Juan Martín</nombre>
+        <fechanacimiento>2002/12/11</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="optativa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>2</codigo>
+        <cuatrimestre>3</cuatrimestre>
+        <promocionable>N</promocionable>
+        <nombre>Ingles Tecnico</nombre>
+        <Clases>
+            <codigo>CL004</codigo>
+            <fecha>2026/06/16</fecha>
+            <horario>14:00</horario>
+            <codasig>2</codasig>
+            <codasig>2</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL010</codigo>
+            <fecha>2026/06/23</fecha>
+            <horario>14:00</horario>
+            <codasig>2</codasig>
+            <codasig>2</codasig>
+        </Clases>
+    </Asignatura>
+    <tipoalum>R</tipoalum>
+    <asistencias>0</asistencias>
+</inscripcion>
+    <inscripcion>
+    <Alumno>
+        <matricula>123455</matricula>
+        <nombre>Teto Kasane</nombre>
+        <fechanacimiento>2003/11/11</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="pasantia" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>3</codigo>
+        <cuatrimestre>8</cuatrimestre>
+        <promocionable>N</promocionable>
+        <nombre>Pasantia Empresarial</nombre>
+        <Clases>
+            <codigo>CL005</codigo>
+            <fecha>2026/06/16</fecha>
+            <horario>16:00</horario>
+            <codasig>3</codasig>
+            <codasig>3</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL011</codigo>
+            <fecha>2026/06/24</fecha>
+            <horario>16:00</horario>
+            <codasig>3</codasig>
+            <codasig>3</codasig>
+        </Clases>
+    </Asignatura>
+    <tipoalum>C</tipoalum>
+    <asistencias>0</asistencias>
+</inscripcion>
+    <inscripcion>
+    <Alumno>
+        <matricula>123459</matricula>
+        <nombre>Santi Profe</nombre>
+        <fechanacimiento>2000/10/10</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="obligatoria" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>6</codigo>
+        <cuatrimestre>3</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Algoritmos 200</nombre>
+        <Clases>
+            <codigo>CL006</codigo>
+            <fecha>2026/06/18</fecha>
+            <horario>09:00</horario>
+            <codasig>6</codasig>
+            <codasig>6</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL007</codigo>
+            <fecha>2026/06/20</fecha>
+            <horario>09:00</horario>
+            <codasig>6</codasig>
+            <codasig>6</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL015</codigo>
+            <fecha>2026/06/27</fecha>
+            <horario>09:00</horario>
+            <codasig>6</codasig>
+            <codasig>6</codasig>
+        </Clases>
+    </Asignatura>
+    <tipoalum>O</tipoalum>
+    <asistencias>0</asistencias>
+</inscripcion>
+    <inscripcion>
+    <Alumno>
+        <matricula>222233</matricula>
+        <nombre>Pedro Gomez</nombre>
+        <fechanacimiento>2011/01/01</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="tesis" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>5</codigo>
+        <cuatrimestre>10</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Tesis Final</nombre>
+        <Clases>
+            <codigo>CL008</codigo>
+            <fecha>2026/06/19</fecha>
+            <horario>18:00</horario>
+            <codasig>5</codasig>
+            <codasig>5</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL009</codigo>
+            <fecha>2026/06/26</fecha>
+            <horario>18:00</horario>
+            <codasig>5</codasig>
+            <codasig>5</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL014</codigo>
+            <fecha>2026/07/03</fecha>
+            <horario>18:00</horario>
+            <codasig>5</codasig>
+            <codasig>5</codasig>
+        </Clases>
+    </Asignatura>
+    <tipoalum>R</tipoalum>
+    <asistencias>0</asistencias>
+</inscripcion>
+    <inscripcion>
+    <Alumno>
+        <matricula>122334</matricula>
+        <nombre>Valentino Hernández</nombre>
+        <fechanacimiento>2001/11/21</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="obligatoria" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>1</codigo>
+        <cuatrimestre>1</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Matematica</nombre>
+        <Clases>
+            <codigo>CL003</codigo>
+            <fecha>2026/06/15</fecha>
+            <horario>10:30</horario>
+            <codasig>1</codasig>
+            <codasig>1</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL013</codigo>
+            <fecha>2026/06/22</fecha>
+            <horario>10:30</horario>
+            <codasig>1</codasig>
+            <codasig>1</codasig>
+        </Clases>
+    </Asignatura>
+    <tipoalum>C</tipoalum>
+    <asistencias>0</asistencias>
+</inscripcion>
+    <inscripcion>
+    <Alumno>
+        <matricula>223444</matricula>
+        <nombre>Juan Martín</nombre>
+        <fechanacimiento>2002/12/11</fechanacimiento>
+    </Alumno>
+    <Asignatura xsi:type="obligatoria" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <codigo>6</codigo>
+        <cuatrimestre>3</cuatrimestre>
+        <promocionable>S</promocionable>
+        <nombre>Algoritmos 200</nombre>
+        <Clases>
+            <codigo>CL006</codigo>
+            <fecha>2026/06/18</fecha>
+            <horario>09:00</horario>
+            <codasig>6</codasig>
+            <codasig>6</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL007</codigo>
+            <fecha>2026/06/20</fecha>
+            <horario>09:00</horario>
+            <codasig>6</codasig>
+            <codasig>6</codasig>
+        </Clases>
+        <Clases>
+            <codigo>CL015</codigo>
+            <fecha>2026/06/27</fecha>
+            <horario>09:00</horario>
+            <codasig>6</codasig>
+            <codasig>6</codasig>
+        </Clases>
+    </Asignatura>
+    <tipoalum>O</tipoalum>
+    <asistencias>0</asistencias>
+</inscripcion>
+</inscripciones>

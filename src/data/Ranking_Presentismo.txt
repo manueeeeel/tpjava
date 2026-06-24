@@ -1,8 +1,17 @@
+<<<<<<< Updated upstream
 ============================================================
         RANKING DE ASIGNATURAS POR PORCENTAJE DE PRESENTISMO 
 ============================================================
 
 Asignatura: Matematica                | Presentismo: 50,00%
+=======
+====================================================
+   RANKING DE ASIGNATURAS POR PRESENTISMO 
+====================================================
+
+Asignatura: Algoritmos 200            | Presentismo: 100,00%
+Asignatura: Matematica                | Presentismo: 16,67%
+>>>>>>> Stashed changes
 Asignatura: Tesis Final               | Presentismo: 0,00%
 Asignatura: Pintura                   | Presentismo: 0,00%
 Asignatura: Pasantia Empresarial      | Presentismo: 0,00%

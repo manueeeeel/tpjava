@@ -1,0 +1,102 @@
+<clases>
+    <clase>
+        <codigo>CL001</codigo>
+        <codasig>4</codasig>
+        <fecha>2026/06/15</fecha>
+        <horario>08:30</horario>
+    </clase>
+    <clase>
+        <codigo>CL002</codigo>
+        <codasig>4</codasig>
+        <fecha>2026/06/17</fecha>
+        <horario>08:30</horario>
+    </clase>
+    <clase>
+        <codigo>CL003</codigo>
+        <codasig>1</codasig>
+        <fecha>2026/06/15</fecha>
+        <horario>10:30</horario>
+    </clase>
+    <clase>
+        <codigo>CL004</codigo>
+        <codasig>2</codasig>
+        <fecha>2026/06/16</fecha>
+        <horario>14:00</horario>
+    </clase>
+    <clase>
+        <codigo>CL005</codigo>
+        <codasig>3</codasig>
+        <fecha>2026/06/16</fecha>
+        <horario>16:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL006</codigo>
+        <codasig>6</codasig>
+        <fecha>2026/06/18</fecha>
+        <horario>09:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL007</codigo>
+        <codasig>6</codasig>
+        <fecha>2026/06/20</fecha>
+        <horario>09:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL008</codigo>
+        <codasig>5</codasig>
+        <fecha>2026/06/19</fecha>
+        <horario>18:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL009</codigo>
+        <codasig>5</codasig>
+        <fecha>2026/06/26</fecha>
+        <horario>18:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL010</codigo>
+        <codasig>2</codasig>
+        <fecha>2026/06/23</fecha>
+        <horario>14:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL011</codigo>
+        <codasig>3</codasig>
+        <fecha>2026/06/24</fecha>
+        <horario>16:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL012</codigo>
+        <codasig>4</codasig>
+        <fecha>2026/06/25</fecha>
+        <horario>08:30</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL013</codigo>
+        <codasig>1</codasig>
+        <fecha>2026/06/22</fecha>
+        <horario>10:30</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL014</codigo>
+        <codasig>5</codasig>
+        <fecha>2026/07/03</fecha>
+        <horario>18:00</horario>
+    </clase>
+
+    <clase>
+        <codigo>CL015</codigo>
+        <codasig>6</codasig>
+        <fecha>2026/06/27</fecha>
+        <horario>09:00</horario>
+    </clase>
+</clases>
