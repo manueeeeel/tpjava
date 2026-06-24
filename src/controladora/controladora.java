@@ -35,8 +35,11 @@ public class controladora {
         return reportes.ReporteRankingPresentismo(universidad.getAsignaturas(),universidad.getInscripciones());
     }
 
-    public HashMap<Integer, asignatura> getAsignaturas(){ 
-        return universidad.getAsignaturas(); 
+    public HashMap<Integer, asignatura> getAsignaturas(){
+        return universidad.getAsignaturas();
+    }
+    public TreeSet<alumno> getAlumnos(){
+        return universidad.getAlumnos();
     }
 
     public void cargarDatosXML(){
@@ -90,8 +93,8 @@ public class controladora {
     private void deserializaClase() {
         int cont = 0;
         try {
-            JAXBContext contexto = JAXBContext.newInstance(clase.class); 
-            Unmarshaller unmarshaller = contexto.createUnmarshaller(); 
+            JAXBContext contexto = JAXBContext.newInstance(clase.class);
+            Unmarshaller unmarshaller = contexto.createUnmarshaller();
             XMLInputFactory factory = XMLInputFactory.newFactory();
             InputStream is = new FileInputStream("src/data/clases.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
@@ -174,11 +177,7 @@ public class controladora {
             JAXBContext contexto = JAXBContext.newInstance(inscripcion.class, alumno.class, asignatura.class, obligatoria.class, optativa.class, pasantia.class, tesis.class);
             Unmarshaller unmarshaller = contexto.createUnmarshaller();
             XMLInputFactory factory = XMLInputFactory.newFactory();
-
-            File archivo = new File("src/data/inscripciones.xml");
-            if (!archivo.exists()) return; 
-
-            InputStream is = new FileInputStream(archivo);
+            InputStream is = new FileInputStream("src/data/inscripciones.xml");
             XMLStreamReader reader = factory.createXMLStreamReader(is);
             while(reader.hasNext()) {
                 if (reader.isStartElement() && reader.getLocalName().equals("inscripcion")) {

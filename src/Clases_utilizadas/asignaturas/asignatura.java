@@ -1,10 +1,7 @@
 package Clases_utilizadas.asignaturas;
 
 import Clases_utilizadas.*;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -29,7 +26,7 @@ abstract public class asignatura{
     public void setNombre(String nom){
         nombre = nom;
     }
-    abstract public String DefinirCondicion(int totclases,int asistencia,char tipoalum);
+    abstract public String DefinirCondicion(int totclases,int asistencia,String tipoalum);
     public String getNombre(){return nombre;}
     public String getPromocionable(){
         return promocionable;

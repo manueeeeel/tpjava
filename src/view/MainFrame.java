@@ -14,7 +14,7 @@ public class MainFrame extends JFrame {
         JTabbedPane panelPestañas = new JTabbedPane();
         //Instaciar los dos paneles 
         ListadoAlumnosPanel listadoAlumnosPanel = new ListadoAlumnosPanel();
-        ListadoClasesPanel listadoClasesPanel = new ListadoClasesPanel();
+        ListadoClasesPanel listadoClasesPanel = new ListadoClasesPanel(c);
         ListadoAsignaturasPanel listadoAsignaturasPanel = new ListadoAsignaturasPanel();
         CargarDatosPanel cargarDatosPanel = new CargarDatosPanel(c, listadoAlumnosPanel, 
             listadoClasesPanel,

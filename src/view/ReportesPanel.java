@@ -123,14 +123,20 @@ public class ReportesPanel extends JPanel {
             for (inscripcion ins : reporte) {
                 int totalClases = ins.getAsignatura().getListadoClases().size();
                 double porcentaje = 0;
-                
+
                 if (totalClases > 0) {
                     porcentaje = ((double) ins.getAsistencias() / totalClases) * 100;
                 }
-
+                String modalidad = switch (ins.getTipoalum()) {
+                    case "R" -> "Regular";
+                    case "C" -> "Condicional";
+                    case "O" -> "Oyente";
+                    default  -> "Desconocido";
+                };
+                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> MODALIDAD: " + ins.getTipoalum());
                 sb.append("Alumno: ").append(ins.getAlumno().getNombre())
                   .append(" (Matrícula: ").append(ins.getAlumno().getMatricula()).append(")\n")
-                  .append(String.format("  - Modalidad de Cursado: %s\n", ins.getTipoalum() == 'R' ? "Regular" : "Libre"))
+                  .append(String.format("  - Modalidad de Cursado: %s\n", modalidad))
                   .append("  - Clases Dictadas:      ").append(totalClases).append("\n")
                   .append("  - Clases Presente:      ").append(ins.getAsistencias()).append("\n")
                   .append(String.format("  - Porcentaje Asistencia: %.2f%%\n", porcentaje))

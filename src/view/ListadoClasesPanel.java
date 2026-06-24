@@ -6,12 +6,15 @@ import java.awt.*;
 import Clases_utilizadas.asignaturas.asignatura;
 import Clases_utilizadas.clase;
 import Clases_utilizadas.universidad;
+import controladora.controladora;
 
 public class ListadoClasesPanel extends JPanel {
     private JTable tablaClases;
     private DefaultTableModel modeloTabla;
+    private controladora controladora;
 
-    public ListadoClasesPanel() {
+    public ListadoClasesPanel(controladora c) {
+        controladora = c;
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         String[] columnas = {"Materia", "Código", "Fecha", "Horario"};
@@ -28,9 +31,9 @@ public class ListadoClasesPanel extends JPanel {
 
     public void cargarDatosClases() {
         modeloTabla.setRowCount(0);
-        
+
         //recorremos todas las asignaturas para extraer las clases que tienen adentro
-        for (asignatura asig : universidad.getInstancia().getAsignaturas().values()) {
+        for (asignatura asig : controladora.getAsignaturas().values()) {
             if (asig.getListadoClases() != null) {
                 for (clase c : asig.getListadoClases()) {
                     Object[] fila = {
