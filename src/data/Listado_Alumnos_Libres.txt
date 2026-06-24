@@ -1,9 +1,0 @@
-============================================================
-       LISTADO DE ALUMNOS LIBRES POR INCUMPLIMIENTO DE ASISTENCIA 
-============================================================
-
-MATRÍCULA       | APELLIDO Y NOMBRE             
-------------------------------------------------------------
-123434          | Adof Hittler                  
-
-Total de alumnos libres detectados: 1
