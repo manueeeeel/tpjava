@@ -37,6 +37,9 @@ public class universidad {
         Inscripciones.add(ins);
         System.out.println("Se ha inscripto al Alumno correctamente");
     }
+    public void InsertaAsistencia(asistido a){
+        Asistencias.add(a);
+    }
     public void InsertaClaseAsistencia(int mat, String codclase){
         int i = 0;
         while(i < Asistencias.size() && Asistencias.get(i).getAlumno().getMatricula() != mat) {
@@ -61,7 +64,7 @@ public class universidad {
             act = Inscripciones.get(i);
             if(act.getAsignatura().getCodigo() == codmat && act.getAlumno().getMatricula() == mat)
                 flag = true;
-            i++;
+            else i++;
         }
         if(flag){
             int j = 0;

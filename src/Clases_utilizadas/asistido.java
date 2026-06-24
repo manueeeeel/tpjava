@@ -1,14 +1,14 @@
 package Clases_utilizadas;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.*;
 
 import java.util.*;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class asistido {
     private alumno Alumno;
+    @XmlElementWrapper(name = "ClasesAsistidas")
+    @XmlElement(name = "codigo")
     private HashSet<String> ClasesAsistidas = new HashSet<>();
 
     public asistido(){}

@@ -47,6 +47,7 @@ public class controladora {
         deserializaAsignatura();
         deserializaClase();
         deserializaInscripciones();
+        deserializaAsistencias();
     }
     public void guardarDatosXML(){
         serializaInscripciones();
@@ -212,6 +213,38 @@ public class controladora {
             System.out.println("Error general al leer XML inscripciones: " + e.getMessage());
         }
     }
+    private void deserializaAsistencias(){
+        int cont = 0;
+        try {
+            JAXBContext contexto = JAXBContext.newInstance(asistido.class);
+            Unmarshaller unmarshaller = contexto.createUnmarshaller();
+            XMLInputFactory factory = XMLInputFactory.newFactory();
+            InputStream is = new FileInputStream("src/data/Asistencias.xml");
+            XMLStreamReader reader = factory.createXMLStreamReader(is);
+
+            while(reader.hasNext()) {
+                if (reader.isStartElement() && reader.getLocalName().equals("asistido")) {
+                    try {
+                        asistido a = (asistido) unmarshaller.unmarshal(reader);
+                        if (a.getAlumno() == null) {
+                            throw new Exception("Alumno nulo");
+                        }
+                        for (String cod : a.getClasesAsistidas()) {
+                            universidad.InsertaClaseAsistencia(a.getAlumno().getMatricula(), cod);
+                        }
+                        cont++;
+                    } catch (Exception e) {
+                        System.out.println("Asistencia inválida: " + e.getMessage());
+                    }
+                }
+                reader.next();
+            }
+            reader.close();
+            System.out.println("------ Carga completa, se cargaron: " + cont + " Asistencias------");
+        } catch (Exception e) {
+            System.out.println("Error general al leer XML asistencias: " + e.getMessage());
+        }
+    }
     private void serializaInscripciones(){
         ArrayList<inscripcion> listaInscripciones = universidad.getInscripciones();
         try {
@@ -246,7 +279,7 @@ public class controladora {
             Marshaller marshaller = contexto.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             StringWriter sw = new StringWriter();
-            sw.write("<asistido>\n");
+            sw.write("<asistencias>\n");
             for (asistido dato : listaAsistencias) {
                 StringWriter asistWriter = new StringWriter();
                 marshaller.marshal(dato, asistWriter);
@@ -254,7 +287,7 @@ public class controladora {
                 String contenido = asistXml.substring(asistXml.indexOf("?>") + 2).trim();
                 sw.write("    " + contenido + "\n");
             }
-            sw.write("</asistido>");
+            sw.write("</asistencias>");
             File archivo = new File("src/data/Asistencias.xml");
             try (FileWriter fw = new FileWriter(archivo)) {
                 fw.write(sw.toString());

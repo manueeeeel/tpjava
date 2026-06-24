@@ -5,7 +5,7 @@
 Alumno: Adof Hittler (Matrícula: 123434)
   - Modalidad de Cursado: Oyente
   - Clases Dictadas:      2
-  - Clases Presente:      0
-  - Porcentaje Asistencia: 0,00%
+  - Clases Presente:      2
+  - Porcentaje Asistencia: 100,00%
   - CONDICIÓN FINAL:       Libre
 ------------------------------------------------------------

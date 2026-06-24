@@ -121,7 +121,7 @@ public class ReportesPanel extends JPanel {
             for (inscripcion ins : reporte) {
                 int totalClases = ins.getAsignatura().getListadoClases().size();
                 double porcentaje = 0;
-                System.out.println(">>" + ins.getAsistencias() + ">>" + totalClases);
+                System.out.println("[ReportesPanel linea 124] Asistencias >>" + ins.getAsistencias() + "|| Total clases >>" + totalClases);
 
                 if (totalClases > 0) {
                     porcentaje = ((double) ins.getAsistencias() / totalClases) * 100;
