@@ -24,7 +24,11 @@ public class controladora {
         universidad = universidad.getInstancia();
     }
 
-
+    /**
+     *
+     * @param codasig Codigo del alumno
+     * @return Arraylist de alumnos
+     */
     public ArrayList<inscripcion> getReporteAlumnosAsignatura(int codasig){
         return reportes.ReporteAlumnosAsignatura(codasig,universidad.getAsignaturas(),universidad.getInscripciones());
     }

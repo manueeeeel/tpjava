@@ -9,6 +9,7 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
+                c.cargarDatosXML();
                 MainFrame mainFrame = new MainFrame(c);
                 mainFrame.setVisible(true);
             }
