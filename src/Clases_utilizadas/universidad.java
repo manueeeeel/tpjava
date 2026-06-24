@@ -19,7 +19,7 @@ public class universidad {
             instancia = new universidad();
         return instancia;
     }
-
+    public ArrayList<asistido> getAsistencias(){return Asistencias;}
     public TreeSet<alumno> getAlumnos() {return Alumnos;}
     public HashMap<Integer, asignatura> getAsignaturas() {return Asignaturas;}
 
