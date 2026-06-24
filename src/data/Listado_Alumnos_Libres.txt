@@ -1,0 +1,11 @@
+============================================================
+       LISTADO DE ALUMNOS LIBRES POR INCUMPLIMIENTO DE ASISTENCIA 
+============================================================
+
+MATRÍCULA       | APELLIDO Y NOMBRE             
+------------------------------------------------------------
+123434          | Adof Hittler                  
+123434          | Adof Hittler                  
+222222          | Domingo Perón                 
+
+Total de alumnos libres detectados: 3

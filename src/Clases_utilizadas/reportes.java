@@ -5,7 +5,14 @@ import java.util.Comparator;
 import java.util.HashMap;
 import Clases_utilizadas.asignaturas.*;
 
+/**
+ * clase reportes, existe para crear y devolver los reportes solicitados
+ */
 public class reportes {
+    /**
+     * metodo que crea el reporte de los alumnos que estan cursando una asignatura ingresada por el usuario
+     * @return
+     */
     public static ArrayList<inscripcion> ReporteAlumnosAsignatura(int codasig, HashMap<Integer, asignatura> Asignaturas, ArrayList<inscripcion> Inscripciones){
         if(Asignaturas.containsKey(codasig)) {
             ArrayList<inscripcion> Reporte = new ArrayList<>(Inscripciones.size()/2);
@@ -20,6 +27,11 @@ public class reportes {
             return null;
         }
     }
+
+    /**
+     * reporte de alumnos que estan libres por faltar mas de lo permitido
+     * @return
+     */
     public static ArrayList<libres> ReporteLibresPorFaltas(ArrayList<inscripcion> Inscripciones){
         ArrayList<libres> Reporte = new ArrayList<>(Inscripciones.size()/2);
         for(int i = 0; i < Inscripciones.size(); i++)
@@ -32,6 +44,13 @@ public class reportes {
         Reporte.trimToSize();
         return Reporte;
     }
+
+    /**
+     * reporte de ranking de presentismo
+     * <p>
+     * ordena las asignaturas de mayor a menor por su presentismo total
+     * @return
+     */
     public static ArrayList<ranking> ReporteRankingPresentismo(HashMap<Integer, asignatura> Asignaturas, ArrayList<inscripcion> Inscripciones){
         HashMap<Integer,ranking> MapaReporte = new HashMap<>(Asignaturas.size());
         for(var act : Asignaturas.values()){

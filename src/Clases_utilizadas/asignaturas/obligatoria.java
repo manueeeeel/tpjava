@@ -4,19 +4,42 @@ import jakarta.xml.bind.annotation.*;
 @XmlRootElement(name = "obligatoria")
 @XmlAccessorType(XmlAccessType.FIELD)
 
+/**
+ * clase hija de asignatura
+ */
 public class obligatoria extends asignatura {
+    /**
+     * setter del codigo llamando al setter del padre
+     */
     public void setCodigo(int cod){
         super.setCodigo(cod);
     }
+    /**
+     * setter del cuatrimestre llamando al setter del padre
+     */
     public void setCuatrimestre(int cuatri){
         super.setCuatrimestre(cuatri);
     }
+    /**
+     * setter de promocionable llamando al setter del padre
+     */
     public void setPromocionable(String prom){
         super.setPromocionable(prom);
     }
+    /**
+     * setter del nombre llamando al setter del padre
+     */
     public void setNombre(String nom){
         super.setNombre(nom);
     }
+
+    /**
+     * metodo abstracto aplicado para polimorfismo
+     * @param totclases
+     * @param asistencia
+     * @param tipoalum
+     * @return
+     */
     public CONDICION DefinirCondicion(int totclases,int asistencia,String tipoalum){
         CONDICION condicion = CONDICION.LIBRE;
         if(totclases > 0) {
