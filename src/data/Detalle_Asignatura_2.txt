@@ -1,5 +1,11 @@
-===================================================
+====================================================
 DETALLE DE ASISTENCIAS - ASIGNATURA: INGLES TECNICO
-===================================================
+====================================================
 
-No se registran alumnos inscriptos en esta asignatura.
+Alumno: Juan Martín (Matrícula: 223444)
+  - Modalidad de Cursado: Regular
+  - Clases Dictadas:      2
+  - Clases Presente:      0
+  - Porcentaje Asistencia: 0,00%
+  - CONDICIÓN FINAL:       LIBRE
+----------------------------------------------------

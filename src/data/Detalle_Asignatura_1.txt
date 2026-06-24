@@ -1,23 +1,3 @@
-<<<<<<< Updated upstream
-============================================================
- DETALLE DE ASISTENCIAS - ASIGNATURA: MATEMATICA
-============================================================
-
-Alumno: Adof Hittler (Matrícula: 123434)
-  - Modalidad de Cursado: Regular
-  - Clases Dictadas:      1
-  - Clases Presente:      1
-  - Porcentaje Asistencia: 100,00%
-  - CONDICIÓN FINAL:       PROMOCIONA
-------------------------------------------------------------
-Alumno: Domingo Perón (Matrícula: 222222)
-  - Modalidad de Cursado: Regular
-  - Clases Dictadas:      1
-  - Clases Presente:      0
-  - Porcentaje Asistencia: 0,00%
-  - CONDICIÓN FINAL:       LIBRE
-------------------------------------------------------------
-=======
 ====================================================
 DETALLE DE ASISTENCIAS - ASIGNATURA: MATEMATICA
 ====================================================
@@ -32,8 +12,8 @@ Alumno: Pepote Mujicote (Matrícula: 123434)
 Alumno: Domingo Perón (Matrícula: 222222)
   - Modalidad de Cursado: Condicional
   - Clases Dictadas:      2
-  - Clases Presente:      1
-  - Porcentaje Asistencia: 50,00%
+  - Clases Presente:      0
+  - Porcentaje Asistencia: 0,00%
   - CONDICIÓN FINAL:       LIBRE
 ----------------------------------------------------
 Alumno: Valentino Hernández (Matrícula: 122334)
@@ -43,4 +23,3 @@ Alumno: Valentino Hernández (Matrícula: 122334)
   - Porcentaje Asistencia: 0,00%
   - CONDICIÓN FINAL:       LIBRE
 ----------------------------------------------------
->>>>>>> Stashed changes

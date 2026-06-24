@@ -123,8 +123,10 @@ public class controladora {
                         if (a.getFechanacimiento().isEmpty()) { //AAAAMMDD?
                             throw new Exception("Fecha vacía");
                         }
-                        universidad.InsertaAlumno(a);
-                        universidad.InsertaListaAsistencia(a);
+                        try {
+                            universidad.InsertaAlumno(a);
+                            universidad.InsertaListaAsistencia(a);
+                        } catch (Exception e) {throw new RuntimeException(e);}
                         cont++;
                     } catch (Exception e) {
                         System.out.println("Alumno inválido: " + e.getMessage());

@@ -1,16 +1,3 @@
-<<<<<<< Updated upstream
-============================================================
-       LISTADO DE ALUMNOS LIBRES POR INCUMPLIMIENTO DE ASISTENCIA 
-============================================================
-
-MATRÍCULA       | APELLIDO Y NOMBRE             
-------------------------------------------------------------
-123434          | Adof Hittler                  
-123434          | Adof Hittler                  
-222222          | Domingo Perón                 
-
-Total de alumnos libres detectados: 3
-=======
 ====================================================
        LISTADO DE ALUMNOS LIBRES  
 ====================================================
@@ -28,4 +15,3 @@ MATRÍCULA       | APELLIDO Y NOMBRE    | MATERIA
 223444          | Juan Martín          | Algoritmos 200 
 
 Total de alumnos libres detectados: 9
->>>>>>> Stashed changes

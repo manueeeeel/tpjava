@@ -1,5 +1,11 @@
-===================================================
+====================================================
 DETALLE DE ASISTENCIAS - ASIGNATURA: PASANTIA EMPRESARIAL
-===================================================
+====================================================
 
-No se registran alumnos inscriptos en esta asignatura.
+Alumno: Teto Kasane (Matrícula: 123455)
+  - Modalidad de Cursado: Condicional
+  - Clases Dictadas:      2
+  - Clases Presente:      0
+  - Porcentaje Asistencia: 0,00%
+  - CONDICIÓN FINAL:       LIBRE
+----------------------------------------------------
