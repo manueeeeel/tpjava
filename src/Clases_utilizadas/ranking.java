@@ -12,12 +12,17 @@ public class ranking {
         Asignatura = asig;
     }
     public void SumaAsistencias(int x){
-        asistencias = x;
+        asistencias += x;
     }
     public void CalculaPresentismo(){
-        int totclases = Asignatura.getListadoClases().size();
-        if(totclases!=0)
-            Presentismo = ( (double)asistencias / totclases * 100 );
+        int totinscriptos = 0;
+        for(var act : universidad.getInstancia().getInscripciones()){
+            if(act.getAsignatura().getCodigo() == Asignatura.getCodigo())
+                totinscriptos++;
+        }
+        int totasisposibles = totinscriptos * universidad.getInstancia().getAsignaturas().get(Asignatura.getCodigo()).getListadoClases().size();
+        if(totasisposibles!=0)
+            Presentismo = ( (double)asistencias / totasisposibles * 100 );
         else
             Presentismo = 0;
     }

@@ -1,21 +1,9 @@
 <asistencias>
     <asistido>
     <Alumno>
-        <matricula>123434</matricula>
-        <nombre>Adof Hittler</nombre>
-        <fechanacimiento>1889/04/20</fechanacimiento>
-    </Alumno>
-    <ClasesAsistidas>
-        <codigo>CL001 | Mat: 4 - Pintura (2026/06/15)</codigo>
-        <codigo>CL002 | Mat: 4 - Pintura (2026/06/17)</codigo>
-        <codigo>CL003 | Mat: 1 - Matematica (2026/06/15)</codigo>
-    </ClasesAsistidas>
-</asistido>
-    <asistido>
-    <Alumno>
-        <matricula>222222</matricula>
-        <nombre>Domingo Perón</nombre>
-        <fechanacimiento>1940/11/21</fechanacimiento>
+        <matricula>123459</matricula>
+        <nombre>nverskv</nombre>
+        <fechanacimiento>2000/10/10</fechanacimiento>
     </Alumno>
     <ClasesAsistidas/>
 </asistido>
@@ -29,25 +17,37 @@
 </asistido>
     <asistido>
     <Alumno>
-        <matricula>123455</matricula>
-        <nombre>Max Casal</nombre>
-        <fechanacimiento>2003/11/11</fechanacimiento>
-    </Alumno>
-    <ClasesAsistidas/>
-</asistido>
-    <asistido>
-    <Alumno>
-        <matricula>123459</matricula>
-        <nombre>nverskv</nombre>
-        <fechanacimiento>2000/10/10</fechanacimiento>
-    </Alumno>
-    <ClasesAsistidas/>
-</asistido>
-    <asistido>
-    <Alumno>
         <matricula>222233</matricula>
         <nombre>Pedro Gomez</nombre>
         <fechanacimiento>2011/01/01</fechanacimiento>
+    </Alumno>
+    <ClasesAsistidas/>
+</asistido>
+    <asistido>
+    <Alumno>
+        <matricula>123434</matricula>
+        <nombre>Adof Hittler</nombre>
+        <fechanacimiento>1889/04/20</fechanacimiento>
+    </Alumno>
+    <ClasesAsistidas>
+        <codigo>CL003 | Mat: 1 - Matematica (2026/06/15)</codigo>
+    </ClasesAsistidas>
+</asistido>
+    <asistido>
+    <Alumno>
+        <matricula>222222</matricula>
+        <nombre>Domingo Perón</nombre>
+        <fechanacimiento>1940/11/21</fechanacimiento>
+    </Alumno>
+    <ClasesAsistidas>
+        <codigo>CL003 | Mat: 1 - Matematica (2026/06/15)</codigo>
+    </ClasesAsistidas>
+</asistido>
+    <asistido>
+    <Alumno>
+        <matricula>123455</matricula>
+        <nombre>Max Casal</nombre>
+        <fechanacimiento>2003/11/11</fechanacimiento>
     </Alumno>
     <ClasesAsistidas/>
 </asistido>

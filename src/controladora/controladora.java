@@ -272,7 +272,6 @@ public class controladora {
     }
     private void serializaAsistencias(){
         asistido a = new asistido();
-        List<asistido> listaAsistencias = new ArrayList<>(universidad.getAsistencias());
 
         try {
             JAXBContext contexto = JAXBContext.newInstance(asistido.class);
@@ -280,7 +279,7 @@ public class controladora {
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             StringWriter sw = new StringWriter();
             sw.write("<asistencias>\n");
-            for (asistido dato : listaAsistencias) {
+            for (asistido dato : universidad.getAsistencias().values()) {
                 StringWriter asistWriter = new StringWriter();
                 marshaller.marshal(dato, asistWriter);
                 String asistXml = asistWriter.toString();
@@ -292,7 +291,7 @@ public class controladora {
             try (FileWriter fw = new FileWriter(archivo)) {
                 fw.write(sw.toString());
             }
-            System.out.println("------ Asistencias serializadas: " + listaAsistencias.size() + " asistencias ------");
+            System.out.println("------ Asistencias serializadas: " + universidad.getAsistencias().size() + " asistencias ------");
             System.out.println("Guardado");
         } catch (Exception e) {
             System.out.println("Error al serializar asistencias: " + e.getMessage());

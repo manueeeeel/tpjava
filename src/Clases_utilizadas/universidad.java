@@ -8,7 +8,7 @@ public class universidad {
             (Comparator.comparing(alumno::getNombre, String.CASE_INSENSITIVE_ORDER)
             .thenComparing(alumno::getMatricula));
     private HashMap<Integer, asignatura> Asignaturas = new HashMap<>();
-    private ArrayList<asistido> Asistencias = new ArrayList<>();
+    private HashMap<Integer,asistido> Asistencias = new HashMap<>();
     private ArrayList<inscripcion> Inscripciones = new ArrayList<>();
 
     /**crea la agencia */
@@ -19,7 +19,7 @@ public class universidad {
             instancia = new universidad();
         return instancia;
     }
-    public ArrayList<asistido> getAsistencias(){return Asistencias;}
+    public HashMap<Integer,asistido> getAsistencias(){return Asistencias;}
     public TreeSet<alumno> getAlumnos() {return Alumnos;}
     public HashMap<Integer, asignatura> getAsignaturas() {return Asignaturas;}
 
@@ -38,15 +38,11 @@ public class universidad {
         System.out.println("Se ha inscripto al Alumno correctamente");
     }
     public void InsertaAsistencia(asistido a){
-        Asistencias.add(a);
+        Asistencias.put(a.getAlumno().getMatricula(),a);
     }
     public void InsertaClaseAsistencia(int mat, String codclase){
-        int i = 0;
-        while(i < Asistencias.size() && Asistencias.get(i).getAlumno().getMatricula() != mat) {
-            i++;
-        }
-        if(i < Asistencias.size())
-            Asistencias.get(i).AgregaClase(codclase);
+        if(Asistencias.containsKey(mat))
+            Asistencias.get(mat).AgregaClase(codclase);
     }
     public void InsertaAlumno(alumno alum){
         Alumnos.add(alum);
@@ -54,7 +50,7 @@ public class universidad {
     public void InsertaListaAsistencia(alumno alum){
         asistido a = new asistido();
         a.setAlumno(alum);
-        Asistencias.add(a);
+        Asistencias.put(a.getAlumno().getMatricula(),a);
     }
     public void RegistraAsistencia(int mat,int codmat,String codclase){
         boolean flag = false;
@@ -67,20 +63,13 @@ public class universidad {
             else i++;
         }
         if(flag){
-            int j = 0;
-            flag = false;
-            while(j < Asistencias.size() && !flag){
-                asistido act2 = Asistencias.get(j);
-                if(act2.getAlumno().getMatricula() == mat){
-                    flag = true;
-                    if(!act2.Existe(codclase)){
-                        Asistencias.get(j).AgregaClase(codclase);
-                        Inscripciones.get(i).RegistraAsistencia();
-                    }
-                    else
-                        throw new RuntimeException("Alumno ya asistio a esta clase.");
+            if(Asistencias.containsKey(mat)){
+                if(!Asistencias.get(mat).Existe(codclase)){
+                    Asistencias.get(mat).AgregaClase(codclase);
+                    Inscripciones.get(i).RegistraAsistencia();
                 }
-                j++;
+                else
+                    throw new RuntimeException("Alumno ya asistio a esta clase.");
             }
         }else
             throw new RuntimeException("El alumno no está inscripto en esta materia.");
